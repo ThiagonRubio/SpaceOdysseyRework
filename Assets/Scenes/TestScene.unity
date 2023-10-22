@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b9dc66086ef1e4eb17fc56f1cdc709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 2790ca4bd189650409ec39d8c90a16c5, type: 2}
   speedEstaVariabaleSeReemplazaDespuesSaludos: 5
 --- !u!95 &1237936604
 Animator:

@@ -17,7 +17,7 @@ public class CmdMove : ICommand
     }
 
     //----ICOMMAND IMP.----
-    public void Do()
+    public void Execute()
     {
         entityRb.AddForce(moveDirection * moveSpeed * Time.deltaTime);
     }

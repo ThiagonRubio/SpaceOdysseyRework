@@ -6,12 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
-public abstract class ActorEntity : MonoBehaviour
+public abstract class Actor : MonoBehaviour
 {
-    //public EntityStats EntityStats => entityStats;
+    //----PUBLIC PROPERTIES----
+    public ActorStats ActorStats => stats;
 
     //----PROTECTED PROPERTIES----
-    //[SerializeField] protected EntityStats entityStats;
+    [SerializeField] protected ActorStats stats;
 
     protected Animator entityAnim;
     protected Rigidbody2D entityRb;
@@ -28,6 +29,5 @@ public abstract class ActorEntity : MonoBehaviour
     //################ #################
     //----------CLASS METHODS-----------
     //################ #################
-
 
 }

@@ -5,8 +5,10 @@ using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(CommandEventQueue))]
-public class PlayerController : ActorEntity, IMoveable
+public class PlayerController : Actor, IMoveable
 {
+    public float Speed => stats.MovementSpeed;
+
     //----COMMANDS----
     public CommandEventQueue EntityCommandEventQueue { get { return entityCommandEventQueue; } }
     public CmdMove CmdMoveLeft { get { return cmdMoveLeft; } }
@@ -22,8 +24,6 @@ public class PlayerController : ActorEntity, IMoveable
     private CmdMove cmdMoveRight;
     private CmdMove cmdMoveUp;
     private CmdMove cmdMoveDown;
-
-    [SerializeField] private float speedEstaVariabaleSeReemplazaDespuesSaludos;
 
     //################ #################
     //----------UNITY EV FUNC-----------
@@ -63,12 +63,11 @@ public class PlayerController : ActorEntity, IMoveable
         entityCommandEventQueue = GetComponent<CommandEventQueue>();
 
         //Aca va un entityStats.MoveSpeed despues
-        cmdMoveRight = new CmdMove(entityRb, Vector2.right, speedEstaVariabaleSeReemplazaDespuesSaludos);
-        cmdMoveLeft = new CmdMove(entityRb, Vector2.left, speedEstaVariabaleSeReemplazaDespuesSaludos);
-        cmdMoveUp = new CmdMove(entityRb, Vector2.up, speedEstaVariabaleSeReemplazaDespuesSaludos);
-        cmdMoveDown = new CmdMove(entityRb, Vector2.down, speedEstaVariabaleSeReemplazaDespuesSaludos);
+        cmdMoveRight = new CmdMove(entityRb, Vector2.right, stats.MovementSpeed);
+        cmdMoveLeft = new CmdMove(entityRb, Vector2.left, stats.MovementSpeed);
+        cmdMoveUp = new CmdMove(entityRb, Vector2.up, stats.MovementSpeed);
+        cmdMoveDown = new CmdMove(entityRb, Vector2.down, stats.MovementSpeed);
     }
-
 
     //-----INPUTS--------
     private void ListenForMoveInput()

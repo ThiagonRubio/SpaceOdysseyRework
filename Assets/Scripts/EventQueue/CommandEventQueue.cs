@@ -30,7 +30,7 @@ public class CommandEventQueue : MonoBehaviour
             {
                 continue;
             }
-            else command.Do();
+            else command.Execute();
         }
     }
 
@@ -44,7 +44,7 @@ public class CommandEventQueue : MonoBehaviour
             {
                 continue;
             }
-            else command.Do();
+            else command.Execute();
         }
     }
 
