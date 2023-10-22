@@ -12,10 +12,11 @@ public abstract class Actor : MonoBehaviour
     public ActorStats ActorStats => stats;
 
     //----PROTECTED PROPERTIES----
-    [SerializeField] protected ActorStats stats;
-
     protected Animator entityAnim;
     protected Rigidbody2D entityRb;
+
+    //----PRIVATE PROPERTIES----
+    [SerializeField] private ActorStats stats;
 
     //################ #################
     //----------UNITY EV FUNC-----------

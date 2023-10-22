@@ -7,7 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(CommandEventQueue))]
 public class PlayerController : Actor, IMoveable
 {
-    public float Speed => stats.MovementSpeed;
+    public float Speed => ActorStats.MovementSpeed;
 
     //----COMMANDS----
     public CommandEventQueue EntityCommandEventQueue { get { return entityCommandEventQueue; } }
@@ -62,11 +62,10 @@ public class PlayerController : Actor, IMoveable
     {
         entityCommandEventQueue = GetComponent<CommandEventQueue>();
 
-        //Aca va un entityStats.MoveSpeed despues
-        cmdMoveRight = new CmdMove(entityRb, Vector2.right, stats.MovementSpeed);
-        cmdMoveLeft = new CmdMove(entityRb, Vector2.left, stats.MovementSpeed);
-        cmdMoveUp = new CmdMove(entityRb, Vector2.up, stats.MovementSpeed);
-        cmdMoveDown = new CmdMove(entityRb, Vector2.down, stats.MovementSpeed);
+        cmdMoveRight = new CmdMove(entityRb, Vector2.right, ActorStats.MovementSpeed);
+        cmdMoveLeft = new CmdMove(entityRb, Vector2.left, ActorStats.MovementSpeed);
+        cmdMoveUp = new CmdMove(entityRb, Vector2.up, ActorStats.MovementSpeed);
+        cmdMoveDown = new CmdMove(entityRb, Vector2.down, ActorStats.MovementSpeed);
     }
 
     //-----INPUTS--------
