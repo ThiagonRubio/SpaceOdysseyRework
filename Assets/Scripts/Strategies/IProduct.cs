@@ -1,4 +1,4 @@
 public interface IProduct
 {
-    void Clone();
+    IProduct Clone();
 }
