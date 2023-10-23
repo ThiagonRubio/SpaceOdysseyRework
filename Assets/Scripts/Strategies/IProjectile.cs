@@ -5,7 +5,7 @@ public interface IProjectile : IPoolable
     float TravelSpeed { get; }
     float LifeTime { get; }
     LayerMask HitteableLayer { get; }
-    IAttacker Owner { get; }
+    IWeapon Owner { get; }
     void OnTriggerEnter2D(Collider2D other);
-    void SetOwner(IAttacker attacker);
+    void SetOwner(IWeapon weapon);
 }

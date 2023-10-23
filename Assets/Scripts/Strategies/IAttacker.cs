@@ -1,10 +1,9 @@
 using UnityEngine;
-public interface IAttacker : IPoolOwner
+public interface IAttacker 
 {
-    Projectile Projectile { get; }
-    Transform[] ProjectileSpawnPoints { get; }
+    IWeapon[] Weapon { get; }
+
     float AttackCooldownTimer { get; }
-    float FireRate { get; }
-    float Damage { get; }
+    
     void Attack();
 }

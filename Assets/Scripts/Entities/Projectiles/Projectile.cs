@@ -10,10 +10,10 @@ public class Projectile : MonoBehaviour, IProjectile
     public float TravelSpeed => ProjectileStats.TravelSpeed;
     public float LifeTime => ProjectileStats.LifeTime;
     public LayerMask HitteableLayer => ProjectileStats.HitteableLayer;
-    public IAttacker Owner => owner;
+    public IWeapon Owner => owner;
 
     [SerializeField] private ProjectileStats _projectileStats;
-    private IAttacker owner;
+    private IWeapon owner;
     private float currentLifeTime;
 
     private void Start()
@@ -47,7 +47,7 @@ public class Projectile : MonoBehaviour, IProjectile
 
     private void Travel()
     {
-        transform.position += transform.right * Time.deltaTime * ProjectileStats.TravelSpeed;
+        transform.position += transform.right * (Time.deltaTime * ProjectileStats.TravelSpeed);
     }
 
     public void OnPoolableObjectDisable()
@@ -59,5 +59,5 @@ public class Projectile : MonoBehaviour, IProjectile
     {
         return Instantiate(this);
     }
-    public void SetOwner(IAttacker attacker) => owner = attacker;
+    public void SetOwner(IWeapon weapon) => owner = weapon;
 }

@@ -15,23 +15,10 @@ public class PlayerController : Actor, IMoveable, IAttacker
     public CmdMove CmdMoveRight { get { return cmdMoveRight; } }
     public CmdMove CmdMoveUp { get { return cmdMoveUp; } }
     public CmdMove CmdMoveDown { get { return cmdMoveDown; } }
-
-    //----IPOOLOWNER----
-    public GameObject GameObject => this.gameObject;
-
-    public ObjectPool ObjectPool => objectPool;
-
-    public AbstractFactory<IPoolable> CreatorFactory => projectileFactory;
-
-    //----IATTACKER??----
-    public Projectile Projectile => projectile;
-
-    public Transform[] ProjectileSpawnPoints => throw new System.NotImplementedException();
+    
+    //IAttacker
+    public IWeapon[] Weapon => _weapons;
     public float AttackCooldownTimer => attackCooldownTimer;
-
-    public float FireRate => fireRate;
-
-    public float Damage => throw new System.NotImplementedException();
 
 
     //----PRIVATE VARS----
@@ -44,14 +31,8 @@ public class PlayerController : Actor, IMoveable, IAttacker
     private CmdMove cmdMoveDown;
 
     //---IATTACKER IMPL----
-    [SerializeField] private Projectile projectile;
-    [SerializeField] private float fireRate = 0;
+    [SerializeField] private IWeapon[] _weapons;
     private float attackCooldownTimer = 0;
-
-    //---IPOOLOWNER IMPL----
-    private ObjectPool objectPool;
-    private ProjectileFactory projectileFactory;
-
 
     //################ #################
     //----------UNITY EV FUNC-----------
@@ -61,8 +42,6 @@ public class PlayerController : Actor, IMoveable, IAttacker
     {
         base.Awake();
         playerInputActions = new PlayerInputActions();
-        objectPool = GetComponent<ObjectPool>();
-        projectileFactory = new ProjectileFactory(this, projectile, 6);
     }
 
     private void Start()
@@ -109,12 +88,12 @@ public class PlayerController : Actor, IMoveable, IAttacker
     }
     private void ListenForShootInput()
     {
-        //Esta muy raro la forma en que esta implementado IAttacker, no usa comando de ataque y es una mezcla entre 
-        //lo que haria un attacker y un IWeapon. Va a traer problemas si hay distinas logicas de disparo mas adelante y no se arregla
-        //ni se va a poder usar distintos spawn points sin hacer chanchadas
-        if (playerInputActions.Normal.Shoot.IsPressed() && attackCooldownTimer >= FireRate)
+        /* El array de weapons es literal sólo para el jefe, que de todas formas tiene 5 armas pero son todas la misma
+         Voy a dejar esto así, como asumiendo que el firerate de todas las armas es el mismo, pero está feo*/
+        
+        if (playerInputActions.Normal.Shoot.IsPressed() && attackCooldownTimer >= Weapon[0].FireRate)
         {
-            Attack();
+           Attack();
         }
     }
 
@@ -146,10 +125,13 @@ public class PlayerController : Actor, IMoveable, IAttacker
         }
     }
 
+
     public void Attack()
     {
         attackCooldownTimer = 0;
-        IProjectile newProjectile = projectileFactory.CreateObject(this);
-        newProjectile.SetOwner(this);
+        for (int i = 0; i < Weapon.Length; i++)
+        {
+            Weapon[i].UseWeapon();
+        }
     }
 }
