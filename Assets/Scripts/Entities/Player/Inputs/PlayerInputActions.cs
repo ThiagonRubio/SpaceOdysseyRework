@@ -35,6 +35,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab1f1d9a-4a81-4b11-9e69-799c27bbefd5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +101,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fad3646d-beda-4fa5-a061-9f6f3c032321"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +121,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // Normal
         m_Normal = asset.FindActionMap("Normal", throwIfNotFound: true);
         m_Normal_Move = m_Normal.FindAction("Move", throwIfNotFound: true);
+        m_Normal_Shoot = m_Normal.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,11 +184,13 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Normal;
     private List<INormalActions> m_NormalActionsCallbackInterfaces = new List<INormalActions>();
     private readonly InputAction m_Normal_Move;
+    private readonly InputAction m_Normal_Shoot;
     public struct NormalActions
     {
         private @PlayerInputActions m_Wrapper;
         public NormalActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Normal_Move;
+        public InputAction @Shoot => m_Wrapper.m_Normal_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_Normal; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,6 +203,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
         }
 
         private void UnregisterCallbacks(INormalActions instance)
@@ -187,6 +213,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
         }
 
         public void RemoveCallbacks(INormalActions instance)
@@ -207,5 +236,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public interface INormalActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
 }

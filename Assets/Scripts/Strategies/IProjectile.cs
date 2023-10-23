@@ -1,5 +1,5 @@
 using UnityEngine;
-public interface IProjectile : IProduct
+public interface IProjectile : IPoolable
 {
     ProjectileStats ProjectileStats { get; }
     float TravelSpeed { get; }

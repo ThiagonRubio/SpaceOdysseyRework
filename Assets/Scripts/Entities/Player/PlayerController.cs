@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(CommandEventQueue))]
-public class PlayerController : Actor, IMoveable
+public class PlayerController : Actor, IMoveable, IAttacker
 {
     public float Speed => ActorStats.MovementSpeed;
 
@@ -16,6 +16,24 @@ public class PlayerController : Actor, IMoveable
     public CmdMove CmdMoveUp { get { return cmdMoveUp; } }
     public CmdMove CmdMoveDown { get { return cmdMoveDown; } }
 
+    //----IPOOLOWNER----
+    public GameObject GameObject => this.gameObject;
+
+    public ObjectPool ObjectPool => objectPool;
+
+    public AbstractFactory<IPoolable> CreatorFactory => projectileFactory;
+
+    //----IATTACKER??----
+    public Projectile Projectile => projectile;
+
+    public Transform[] ProjectileSpawnPoints => throw new System.NotImplementedException();
+    public float AttackCooldownTimer => attackCooldownTimer;
+
+    public float FireRate => fireRate;
+
+    public float Damage => throw new System.NotImplementedException();
+
+
     //----PRIVATE VARS----
     private PlayerInputActions playerInputActions;
 
@@ -25,6 +43,16 @@ public class PlayerController : Actor, IMoveable
     private CmdMove cmdMoveUp;
     private CmdMove cmdMoveDown;
 
+    //---IATTACKER IMPL----
+    [SerializeField] private Projectile projectile;
+    [SerializeField] private float fireRate = 0;
+    private float attackCooldownTimer = 0;
+
+    //---IPOOLOWNER IMPL----
+    private ObjectPool objectPool;
+    private ProjectileFactory projectileFactory;
+
+
     //################ #################
     //----------UNITY EV FUNC-----------
     //################ #################
@@ -33,6 +61,8 @@ public class PlayerController : Actor, IMoveable
     {
         base.Awake();
         playerInputActions = new PlayerInputActions();
+        objectPool = GetComponent<ObjectPool>();
+        projectileFactory = new ProjectileFactory(this, projectile, 6);
     }
 
     private void Start()
@@ -41,7 +71,10 @@ public class PlayerController : Actor, IMoveable
     }
     private void Update()
     {
+        attackCooldownTimer += Time.deltaTime;
+
         ListenForMoveInput();
+        ListenForShootInput();
     }
 
     private void OnEnable()
@@ -74,6 +107,16 @@ public class PlayerController : Actor, IMoveable
         if (playerInputActions.Normal.Move.IsPressed())
             Move();
     }
+    private void ListenForShootInput()
+    {
+        //Esta muy raro la forma en que esta implementado IAttacker, no usa comando de ataque y es una mezcla entre 
+        //lo que haria un attacker y un IWeapon. Va a traer problemas si hay distinas logicas de disparo mas adelante y no se arregla
+        //ni se va a poder usar distintos spawn points sin hacer chanchadas
+        if (playerInputActions.Normal.Shoot.IsPressed() && attackCooldownTimer >= FireRate)
+        {
+            Attack();
+        }
+    }
 
     //---ACTION INTERFACES IMPL---------
     //----COMMAND EXECUTION-----
@@ -101,5 +144,12 @@ public class PlayerController : Actor, IMoveable
                 entityCommandEventQueue.AddCommandToQueue(cmdMoveDown, CommandEventQueue.UpdateFilter.Fixed);
             }
         }
+    }
+
+    public void Attack()
+    {
+        attackCooldownTimer = 0;
+        IProjectile newProjectile = projectileFactory.CreateObject(this);
+        newProjectile.SetOwner(this);
     }
 }

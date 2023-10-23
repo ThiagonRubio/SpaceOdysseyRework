@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour, IProjectile
 {
+    public GameObject GameObject => this.gameObject;
     public ProjectileStats ProjectileStats => _projectileStats;
     public float TravelSpeed => ProjectileStats.TravelSpeed;
     public float LifeTime => ProjectileStats.LifeTime;
@@ -27,7 +28,7 @@ public class Projectile : MonoBehaviour, IProjectile
         currentLifeTime -= Time.deltaTime;
         if (currentLifeTime <= 0)
         {
-            //Lo que sea que necesite la pool
+            OnPoolableObjectDisable();
         }
     }
 
@@ -39,7 +40,8 @@ public class Projectile : MonoBehaviour, IProjectile
             {
                 //Acá iría el comando de damage.
             }
-            Destroy(gameObject); //Entiendo que con las pools esto sería distinto
+
+            OnPoolableObjectDisable();
         }
     }
 
@@ -47,7 +49,12 @@ public class Projectile : MonoBehaviour, IProjectile
     {
         transform.position += transform.right * Time.deltaTime * ProjectileStats.TravelSpeed;
     }
-    
+
+    public void OnPoolableObjectDisable()
+    {
+        currentLifeTime = LifeTime;
+        gameObject.SetActive(false);
+    }
     public IProduct Clone()
     {
         return Instantiate(this);
