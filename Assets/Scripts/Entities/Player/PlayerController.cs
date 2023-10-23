@@ -31,7 +31,7 @@ public class PlayerController : Actor, IMoveable, IAttacker
     private CmdMove cmdMoveDown;
 
     //---IATTACKER IMPL----
-    [SerializeField] private IWeapon[] _weapons;
+    private IWeapon[] _weapons;
     private float attackCooldownTimer = 0;
 
     //################ #################
@@ -47,6 +47,7 @@ public class PlayerController : Actor, IMoveable, IAttacker
     private void Start()
     {
         InitializeCommands();
+        _weapons = GetComponentsInChildren<IWeapon>(true);
     }
     private void Update()
     {
