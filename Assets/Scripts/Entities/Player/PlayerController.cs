@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(CommandEventQueue))]
@@ -15,11 +13,11 @@ public class PlayerController : Actor, IMoveable, IAttacker
     public CmdMove CmdMoveRight { get { return cmdMoveRight; } }
     public CmdMove CmdMoveUp { get { return cmdMoveUp; } }
     public CmdMove CmdMoveDown { get { return cmdMoveDown; } }
-    
+    public CmdAttack CmdAttack { get { return cmdAttack; } }
+
     //IAttacker
     public IWeapon[] Weapon => _weapons;
     public float AttackCooldownTimer => attackCooldownTimer;
-
 
     //----PRIVATE VARS----
     private PlayerInputActions playerInputActions;
@@ -29,6 +27,8 @@ public class PlayerController : Actor, IMoveable, IAttacker
     private CmdMove cmdMoveRight;
     private CmdMove cmdMoveUp;
     private CmdMove cmdMoveDown;
+
+    private CmdAttack cmdAttack;
 
     //---IATTACKER IMPL----
     private IWeapon[] _weapons;
@@ -47,7 +47,7 @@ public class PlayerController : Actor, IMoveable, IAttacker
     private void Start()
     {
         InitializeCommands();
-        _weapons = GetComponentsInChildren<IWeapon>(true);
+        SetWeaponToUse(GetComponentsInChildren<IWeapon>(true));
     }
     private void Update()
     {
@@ -79,6 +79,13 @@ public class PlayerController : Actor, IMoveable, IAttacker
         cmdMoveLeft = new CmdMove(entityRb, Vector2.left, ActorStats.MovementSpeed);
         cmdMoveUp = new CmdMove(entityRb, Vector2.up, ActorStats.MovementSpeed);
         cmdMoveDown = new CmdMove(entityRb, Vector2.down, ActorStats.MovementSpeed);
+
+        cmdAttack = new CmdAttack(_weapons);
+    }
+    public void SetWeaponToUse(IWeapon[] weaponsToUse)
+    {
+        _weapons = weaponsToUse;
+        cmdAttack = new CmdAttack(weaponsToUse);
     }
 
     //-----INPUTS--------
@@ -126,13 +133,10 @@ public class PlayerController : Actor, IMoveable, IAttacker
         }
     }
 
-
+    //----ATK COMMAND-----
     public void Attack()
     {
         attackCooldownTimer = 0;
-        for (int i = 0; i < Weapon.Length; i++)
-        {
-            Weapon[i].UseWeapon();
-        }
+        entityCommandEventQueue.AddCommandToQueue(cmdAttack, CommandEventQueue.UpdateFilter.Normal);
     }
 }
