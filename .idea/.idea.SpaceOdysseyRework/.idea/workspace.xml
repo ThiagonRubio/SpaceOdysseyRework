@@ -5,24 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44aac10a-6ab2-4f07-8d1e-c4245e7617f0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/BGPlanets.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/BGPlanets.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/BackGround.ai" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/BackGround.ai.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/BackGround1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/BackGround1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/BackGround2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/BackGround2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/Background.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/Background.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/Fondo 1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/Fondo 1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/Fondo.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/Fondo.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/Fondo.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BackGround/Fondo.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/Inputs/PlayerInputActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/Inputs/PlayerInputActions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/Inputs/PlayerInputActions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/Inputs/PlayerInputActions.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/Projectile Stats/PlayerProjectileStats.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/Projectile Stats/PlayerProjectileStats.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +39,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Dev",
+    "git-widget-placeholder": "Enemy",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -117,6 +105,7 @@
       <workItem from="1698086544740" duration="2812000" />
       <workItem from="1698089641378" duration="492000" />
       <workItem from="1698209584556" duration="60000" />
+      <workItem from="1698326359046" duration="1097000" />
     </task>
     <servers />
   </component>

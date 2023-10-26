@@ -75,10 +75,10 @@ public class PlayerController : Actor, IMoveable, IAttacker
     {
         entityCommandEventQueue = GetComponent<CommandEventQueue>();
 
-        cmdMoveRight = new CmdMove(entityRb, Vector2.right, ActorStats.MovementSpeed);
-        cmdMoveLeft = new CmdMove(entityRb, Vector2.left, ActorStats.MovementSpeed);
-        cmdMoveUp = new CmdMove(entityRb, Vector2.up, ActorStats.MovementSpeed);
-        cmdMoveDown = new CmdMove(entityRb, Vector2.down, ActorStats.MovementSpeed);
+        cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed);
+        cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed);
+        cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed);
+        cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed);
 
         cmdAttack = new CmdAttack(_weapons);
     }

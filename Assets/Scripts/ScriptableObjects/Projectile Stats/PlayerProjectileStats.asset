@@ -15,5 +15,5 @@ MonoBehaviour:
   <LifeTime>k__BackingField: 3
   <HitteableLayer>k__BackingField:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 64
   <TravelSpeed>k__BackingField: 5
