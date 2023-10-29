@@ -1,6 +1,6 @@
 using UnityEngine;
 public interface IRotable
 {
-    float rotationSpeed { get; }
+    int RotationSpeed { get; }
     void Rotate();
 }
