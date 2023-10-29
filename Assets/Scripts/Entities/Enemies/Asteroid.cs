@@ -68,7 +68,8 @@ public class Asteroid : Enemy, IRotable, IMoveable
 
     public override void TakeDamage(float damageAmount)
     {
-        Debug.Log("Me pegaron lpm");
+        _actualHealth -= damageAmount;
+        Debug.Log("Me pegaron lpm, me queda " + _actualHealth + " hp. Saludos.");
     }
 
     public override void Die()

@@ -32,13 +32,13 @@ public class Projectile : MonoBehaviour, IProjectile
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (((1 << other.gameObject.layer) & HitteableLayer) != 0)
+        if (((1 << collision.gameObject.layer) & HitteableLayer) != 0)
         {
-            if (other.GetComponent<IDamageable>() != null)
+            if (collision.collider.gameObject.TryGetComponent(out IDamageable hitEntity))
             {
-                //Acá iría el comando de damage.
+                hitEntity.TakeDamage(owner.Stats.Damage);
             }
 
             OnPoolableObjectDisable();

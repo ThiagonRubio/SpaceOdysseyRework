@@ -13,7 +13,7 @@ public abstract class Enemy : Actor, IDamageable, IPoolable
     public float MaxHealth => ActorStats.MaxHealth;
     public float ActualHealth => _actualHealth;
 
-    private float _actualHealth;
+    protected float _actualHealth;
     
     protected virtual void Start()
     {
