@@ -6,10 +6,7 @@ using UnityEngine;
 public abstract class Enemy : Actor, IDamageable, IPoolable
 {
     public GameObject GameObject => this.gameObject;
-
     
-    
-
     public float MaxHealth => ActorStats.MaxHealth;
     public float ActualHealth => _actualHealth;
 

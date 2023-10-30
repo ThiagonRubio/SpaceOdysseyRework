@@ -72,8 +72,7 @@ public class Asteroid : Enemy, IRotable, IMoveable
     
     public void Move()
     {
-        EntityCommandEventQueue.AddCommandToQueue(new CmdMove(entityRb, -transform.right, Speed), 
-            CommandEventQueue.UpdateFilter.Fixed);
+        EntityCommandEventQueue.AddCommandToQueue(new CmdMove(entityRb, -transform.right, Speed), CommandEventQueue.UpdateFilter.Fixed);
     }
 
     public void Rotate()

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 653850997be069643a73a289e235f28c, type: 3}
-  m_Name: WeaponStats
+  m_Name: RedShipWeaponStats
   m_EditorClassIdentifier: 
-  <Projectile>k__BackingField: {fileID: 7080718164150825358, guid: 4235374b23e7d5c488e294187d7b6844, type: 3}
-  <FireRate>k__BackingField: 0.5
+  <Projectile>k__BackingField: {fileID: 7080718164150825358, guid: aaeeaf8998fa7b941afb1358ae6403c7, type: 3}
+  <FireRate>k__BackingField: 1.5
   <Damage>k__BackingField: 1
   <MaxPoolableObjects>k__BackingField: 10

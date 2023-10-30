@@ -8,27 +8,27 @@ public class PlayerController : Actor, IMoveable, IAttacker
     public float Speed => ActorStats.MovementSpeed;
 
     //----COMMANDS----
-    public CommandEventQueue EntityCommandEventQueue { get { return entityCommandEventQueue; } }
-    public CmdMove CmdMoveLeft { get { return cmdMoveLeft; } }
-    public CmdMove CmdMoveRight { get { return cmdMoveRight; } }
-    public CmdMove CmdMoveUp { get { return cmdMoveUp; } }
-    public CmdMove CmdMoveDown { get { return cmdMoveDown; } }
-    public CmdAttack CmdAttack { get { return cmdAttack; } }
+    public CommandEventQueue EntityCommandEventQueue { get { return _entityCommandEventQueue; } }
+    public CmdMove CmdMoveLeft { get { return _cmdMoveLeft; } }
+    public CmdMove CmdMoveRight { get { return _cmdMoveRight; } }
+    public CmdMove CmdMoveUp { get { return _cmdMoveUp; } }
+    public CmdMove CmdMoveDown { get { return _cmdMoveDown; } }
+    public CmdAttack CmdAttack { get { return _cmdAttack; } }
 
     //IAttacker
     public IWeapon[] Weapon => _weapons;
     public float AttackCooldownTimer => attackCooldownTimer;
 
     //----PRIVATE VARS----
-    private PlayerInputActions playerInputActions;
+    private PlayerInputActions _playerInputActions;
 
-    private CommandEventQueue entityCommandEventQueue;
-    private CmdMove cmdMoveLeft;
-    private CmdMove cmdMoveRight;
-    private CmdMove cmdMoveUp;
-    private CmdMove cmdMoveDown;
+    private CommandEventQueue _entityCommandEventQueue;
+    private CmdMove _cmdMoveLeft;
+    private CmdMove _cmdMoveRight;
+    private CmdMove _cmdMoveUp;
+    private CmdMove _cmdMoveDown;
 
-    private CmdAttack cmdAttack;
+    private CmdAttack _cmdAttack;
 
     //---IATTACKER IMPL----
     private IWeapon[] _weapons;
@@ -41,13 +41,13 @@ public class PlayerController : Actor, IMoveable, IAttacker
     protected override void Awake()
     {
         base.Awake();
-        playerInputActions = new PlayerInputActions();
+        _playerInputActions = new PlayerInputActions();
     }
 
     private void Start()
     {
-        InitializeCommands();
         SetWeaponToUse(GetComponentsInChildren<IWeapon>(true));
+        InitializeCommands();
     }
     private void Update()
     {
@@ -59,11 +59,11 @@ public class PlayerController : Actor, IMoveable, IAttacker
 
     private void OnEnable()
     {
-        playerInputActions.Enable();
+        _playerInputActions.Enable();
     }
     private void OnDisable()
     {
-        playerInputActions.Disable();
+        _playerInputActions.Disable();
     }
 
     //################ #################
@@ -73,25 +73,24 @@ public class PlayerController : Actor, IMoveable, IAttacker
     //----INIT------
     public void InitializeCommands()
     {
-        entityCommandEventQueue = GetComponent<CommandEventQueue>();
+        _entityCommandEventQueue = GetComponent<CommandEventQueue>();
 
-        cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed);
-        cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed);
-        cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed);
-        cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed);
+        _cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed);
+        _cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed);
+        _cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed);
+        _cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed);
 
-        cmdAttack = new CmdAttack(_weapons);
+        _cmdAttack = new CmdAttack(Weapon);
     }
     public void SetWeaponToUse(IWeapon[] weaponsToUse)
     {
         _weapons = weaponsToUse;
-        cmdAttack = new CmdAttack(weaponsToUse);
     }
 
     //-----INPUTS--------
     private void ListenForMoveInput()
     {
-        if (playerInputActions.Normal.Move.IsPressed())
+        if (_playerInputActions.Normal.Move.IsPressed())
             Move();
     }
     private void ListenForShootInput()
@@ -99,7 +98,7 @@ public class PlayerController : Actor, IMoveable, IAttacker
         /* El array de weapons es literal sólo para el jefe, que de todas formas tiene 5 armas pero son todas la misma
          Voy a dejar esto así, como asumiendo que el firerate de todas las armas es el mismo, pero está feo*/
         
-        if (playerInputActions.Normal.Shoot.IsPressed() && attackCooldownTimer >= Weapon[0].FireRate)
+        if (_playerInputActions.Normal.Shoot.IsPressed() && attackCooldownTimer >= Weapon[0].FireRate)
         {
            Attack();
         }
@@ -109,26 +108,25 @@ public class PlayerController : Actor, IMoveable, IAttacker
     //----COMMAND EXECUTION-----
     public void Move()
     {
-        Vector2 directionValue = playerInputActions.Normal.Move.ReadValue<Vector2>();
+        Vector2 directionValue = _playerInputActions.Normal.Move.ReadValue<Vector2>();
 
         if (directionValue != Vector2.zero)
         {
             if (directionValue.x < 0)
             {
-                entityCommandEventQueue.AddCommandToQueue(cmdMoveLeft, CommandEventQueue.UpdateFilter.Fixed);
+                EntityCommandEventQueue.AddCommandToQueue(CmdMoveLeft, CommandEventQueue.UpdateFilter.Fixed);
             }
             if (directionValue.x > 0)
             {
-                entityCommandEventQueue.AddCommandToQueue(cmdMoveRight, CommandEventQueue.UpdateFilter.Fixed);
+                EntityCommandEventQueue.AddCommandToQueue(CmdMoveRight, CommandEventQueue.UpdateFilter.Fixed);
             }
-
             if (directionValue.y > 0)
             {
-                entityCommandEventQueue.AddCommandToQueue(cmdMoveUp, CommandEventQueue.UpdateFilter.Fixed);
+                EntityCommandEventQueue.AddCommandToQueue(CmdMoveUp, CommandEventQueue.UpdateFilter.Fixed);
             }
             if (directionValue.y < 0)
             {
-                entityCommandEventQueue.AddCommandToQueue(cmdMoveDown, CommandEventQueue.UpdateFilter.Fixed);
+                EntityCommandEventQueue.AddCommandToQueue(CmdMoveDown, CommandEventQueue.UpdateFilter.Fixed);
             }
         }
     }
@@ -137,6 +135,6 @@ public class PlayerController : Actor, IMoveable, IAttacker
     public void Attack()
     {
         attackCooldownTimer = 0;
-        entityCommandEventQueue.AddCommandToQueue(cmdAttack, CommandEventQueue.UpdateFilter.Normal);
+        _entityCommandEventQueue.AddCommandToQueue(CmdAttack, CommandEventQueue.UpdateFilter.Normal);
     }
 }
