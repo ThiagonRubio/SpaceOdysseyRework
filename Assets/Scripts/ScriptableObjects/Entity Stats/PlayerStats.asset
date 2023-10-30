@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 1
-  <MovementSpeed>k__BackingField: 20
+  <MovementSpeed>k__BackingField: 25
