@@ -47,6 +47,11 @@ public class RedShip : Enemy, IMoveable, IAttacker
         OnPoolableObjectDisable();
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Player")) Die();
+    }
+
     public void InitializeCommands()
     {
         _entityCommandEventQueue = GetComponent<CommandEventQueue>();
