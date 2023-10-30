@@ -69,17 +69,17 @@ public class Asteroid : Enemy, IRotable, IMoveable
     public override void TakeDamage(float damageAmount)
     {
         _actualHealth -= damageAmount;
-        Debug.Log("Me pegaron lpm, me queda " + _actualHealth + " hp. Saludos.");
+        if(ActualHealth <= 0) Die();
     }
 
     public override void Die()
     {
-        throw new NotImplementedException();
+        gameObject.SetActive(false);
+        //Falta toda la lógica de pools
     }
 
     public override void Revive()
     {
         throw new NotImplementedException();
     }
-
 }
