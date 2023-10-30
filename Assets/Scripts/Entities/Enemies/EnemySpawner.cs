@@ -17,8 +17,6 @@ public class EnemySpawner : MonoBehaviour, IPoolOwner
     private ObjectPool enemyPool;
     private EnemyFactory enemyFactory;
 
-    private float creationTime = 5;
-
     //################ #################
     //----------UNITY EV FUNC-----------
     //################ #################
@@ -27,22 +25,12 @@ public class EnemySpawner : MonoBehaviour, IPoolOwner
         enemyPool = GetComponent<ObjectPool>();
         enemyFactory = new EnemyFactory(this, enemyTypeToCreate, maxPoolSize);
     }
-
-    private void Update()
-    {
-        //No se como es la logica de spawneo original asi que te regalo esto y despues lo cambias vos. Saludines.
-        creationTime -= Time.deltaTime;
-
-        if (creationTime < 0)
-        {
-            enemyFactory.CreateObject(this);
-            creationTime = 5;
-        }
-    }
-
+    
     //################ #################
     //----------CLASS METHODS-----------
     //################ #################
-
-
+    public void Spawn()
+    {
+        enemyFactory.CreateObject(this);
+    }
 }
