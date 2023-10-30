@@ -15,7 +15,8 @@ public class Asteroid : Enemy, IRotable, IMoveable
     
     public float Speed => ActorStats.MovementSpeed;
     public int RotationSpeed => _rotationSpeed;
-    
+
+    //------PRIVATE PROPERTIES-------
     private CommandEventQueue _entityCommandEventQueue;
     private CmdMove cmdMoveLeft;
     private CmdMove cmdMoveRight;
@@ -25,7 +26,11 @@ public class Asteroid : Enemy, IRotable, IMoveable
     private int _rotationSpeed;
     [SerializeField] private int rotationSpeedMin;
     [SerializeField] private int rotationSpeedMax;
-    
+
+    //################ #################
+    //----------UNITY EV FUNC-----------
+    //################ #################
+
     protected override void Start()
     {
         base.Start();
@@ -38,6 +43,15 @@ public class Asteroid : Enemy, IRotable, IMoveable
         Move();
         Rotate();
     }
+
+    private void OnBecameInvisible()
+    {
+        OnPoolableObjectDisable();
+    }
+
+    //################ #################
+    //----------CLASS METHODS-----------
+    //################ #################
 
     public void InitializeCommands()
     {
@@ -58,7 +72,8 @@ public class Asteroid : Enemy, IRotable, IMoveable
     
     public void Move()
     {
-        EntityCommandEventQueue.AddCommandToQueue(new CmdMove(entityRb, -transform.right, Speed), CommandEventQueue.UpdateFilter.Fixed);
+        EntityCommandEventQueue.AddCommandToQueue(new CmdMove(entityRb, -transform.right, Speed), 
+            CommandEventQueue.UpdateFilter.Fixed);
     }
 
     public void Rotate()
@@ -70,11 +85,14 @@ public class Asteroid : Enemy, IRotable, IMoveable
     {
         _actualHealth -= damageAmount;
         Debug.Log("Me pegaron lpm, me queda " + _actualHealth + " hp. Saludos.");
+
+        if (_actualHealth <= 0)
+            Die();
     }
 
     public override void Die()
     {
-        throw new NotImplementedException();
+        OnPoolableObjectDisable();
     }
 
     public override void Revive()

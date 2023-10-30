@@ -28,6 +28,7 @@ public abstract class Enemy : Actor, IDamageable, IPoolable
     
     public void OnPoolableObjectDisable()
     {
+        _actualHealth = MaxHealth;
         gameObject.SetActive(false);
     }
     
