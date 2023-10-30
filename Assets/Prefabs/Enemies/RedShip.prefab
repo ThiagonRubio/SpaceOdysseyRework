@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8717408562707923520}
   - component: {fileID: 8717408562707923523}
   - component: {fileID: 8717408562707923527}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RedShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &8717408562707923520
 Animator:
   serializedVersion: 5
@@ -226,7 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8717408562717672366}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Spawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 8717408563862264194}
   - component: {fileID: 8717408563862264192}
   - component: {fileID: 8717408563862264195}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
