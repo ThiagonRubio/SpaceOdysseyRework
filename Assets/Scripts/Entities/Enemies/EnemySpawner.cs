@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ObjectPool))]
 public class EnemySpawner : MonoBehaviour, IPoolOwner
 {
     public GameObject GameObject => this.gameObject;

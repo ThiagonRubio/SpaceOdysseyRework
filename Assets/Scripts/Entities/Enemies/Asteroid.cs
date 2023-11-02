@@ -57,10 +57,10 @@ public class Asteroid : Enemy, IRotable, IMoveable
     {
         _entityCommandEventQueue = GetComponent<CommandEventQueue>();
         
-        cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed);
-        cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed);
-        cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed);
-        cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed);
+        cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed, CmdMove.MoveType.Translate);
+        cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed, CmdMove.MoveType.Translate);
+        cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed, CmdMove.MoveType.Translate);
+        cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed, CmdMove.MoveType.Translate);
     }
     
     private void DefineRotation()
@@ -72,7 +72,8 @@ public class Asteroid : Enemy, IRotable, IMoveable
     
     public void Move()
     {
-        EntityCommandEventQueue.AddCommandToQueue(new CmdMove(entityRb, -transform.right, Speed), CommandEventQueue.UpdateFilter.Fixed);
+        EntityCommandEventQueue.AddCommandToQueue(new CmdMove(entityRb, -transform.right, Speed, CmdMove.MoveType.Translate), 
+            CommandEventQueue.UpdateFilter.Fixed);
     }
 
     public void Rotate()

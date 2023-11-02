@@ -58,11 +58,6 @@ public class PlayerController : Actor, IMoveable, IAttacker
         ListenForShootInput();
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if(other.gameObject.CompareTag("Enemy")) Debug.Log("Player recibe daño");
-    }
-
     private void OnEnable()
     {
         _playerInputActions.Enable();
@@ -81,10 +76,10 @@ public class PlayerController : Actor, IMoveable, IAttacker
     {
         _entityCommandEventQueue = GetComponent<CommandEventQueue>();
 
-        _cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed);
-        _cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed);
-        _cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed);
-        _cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed);
+        _cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed, CmdMove.MoveType.AddForce);
+        _cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed, CmdMove.MoveType.AddForce);
+        _cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed, CmdMove.MoveType.AddForce);
+        _cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed, CmdMove.MoveType.AddForce);
 
         _cmdAttack = new CmdAttack(Weapon);
     }

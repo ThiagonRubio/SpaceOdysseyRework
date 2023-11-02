@@ -49,17 +49,22 @@ public class RedShip : Enemy, IMoveable, IAttacker
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Player")) Die();
+        if (other.gameObject.CompareTag("Player") && other.gameObject.TryGetComponent<IDamageable>(out IDamageable damagedPlayer)) 
+        {
+            //no se cual sea el daño que hace al contacto que se yo
+            damagedPlayer.TakeDamage(1);
+            Die();
+        }
     }
 
     public void InitializeCommands()
     {
         _entityCommandEventQueue = GetComponent<CommandEventQueue>();
         
-        _cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed);
-        _cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed);
-        _cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed);
-        _cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed);
+        _cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed, CmdMove.MoveType.Translate);
+        _cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed, CmdMove.MoveType.Translate);
+        _cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed, CmdMove.MoveType.Translate);
+        _cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed, CmdMove.MoveType.Translate);
 
         _cmdAttack = new CmdAttack(Weapon);
     }
