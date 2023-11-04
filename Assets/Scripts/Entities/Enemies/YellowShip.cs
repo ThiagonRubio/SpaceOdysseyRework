@@ -31,6 +31,7 @@ public class YellowShip : Enemy, IMoveable, IAttacker
     private Vector3 _screenSpace;
     private SpriteRenderer _sprite;
     private bool _isMovingUpwards;
+    [SerializeField] private float verticalSpeed;
     
     protected override void Start()
     {
@@ -39,8 +40,6 @@ public class YellowShip : Enemy, IMoveable, IAttacker
         //Los necesito para que hacer que no se salga de la pantalla
         _screenSpace = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
         _sprite = GetComponent<SpriteRenderer>();
-        
-        Debug.Log(_sprite.sprite.rect.height * 0.3 / 2);
         
         SetWeaponToUse(GetComponentsInChildren<IWeapon>(true));
         
@@ -60,7 +59,6 @@ public class YellowShip : Enemy, IMoveable, IAttacker
     {
         if (other.gameObject.CompareTag("Player") && other.gameObject.TryGetComponent<IDamageable>(out IDamageable damagedPlayer)) 
         {
-            //no se cual sea el da�o que hace al contacto que se yo
             damagedPlayer.TakeDamage(crashDamage);
             Die();
         }
@@ -72,8 +70,8 @@ public class YellowShip : Enemy, IMoveable, IAttacker
         
         _cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed, CmdMove.MoveType.Translate);
         _cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed, CmdMove.MoveType.Translate);
-        _cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed, CmdMove.MoveType.Translate);
-        _cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed, CmdMove.MoveType.Translate);
+        _cmdMoveUp = new CmdMove(entityRb, Vector2.up, verticalSpeed, CmdMove.MoveType.Translate);
+        _cmdMoveDown = new CmdMove(entityRb, Vector2.down, verticalSpeed, CmdMove.MoveType.Translate);
 
         _cmdAttack = new CmdAttack(Weapon);
     }
@@ -90,12 +88,15 @@ public class YellowShip : Enemy, IMoveable, IAttacker
 
     private void ChangeDirection()
     {
-        if (transform.position.y >= _screenSpace.y)
-            Debug.Log("Creo que pasó el borde de arriba");
-            _isMovingUpwards = true;
-        if (transform.position.y <= -_screenSpace.y)
-            Debug.Log("Creo que pasó el borde de abajo");
+        if (transform.position.y + (_sprite.sprite.rect.height / 65 * 0.3 / 2) >= _screenSpace.y)
+        {
             _isMovingUpwards = false;
+        }
+
+        if (transform.position.y - (_sprite.sprite.rect.height / 65 * 0.3 / 2) <= -_screenSpace.y)
+        {
+            _isMovingUpwards = true;
+        }
     }
     
     public void SetWeaponToUse(IWeapon[] weaponsToUse)
@@ -117,6 +118,7 @@ public class YellowShip : Enemy, IMoveable, IAttacker
 
     public override void Die()
     {
+        EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);
         OnPoolableObjectDisable();
     }
 

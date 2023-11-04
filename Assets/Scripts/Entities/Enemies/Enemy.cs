@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : Actor, IDamageable, IPoolable
+public abstract class Enemy : Actor, IDamageable, IPoolable, IListener
 {
     public GameObject GameObject => this.gameObject;
     
@@ -15,6 +15,9 @@ public abstract class Enemy : Actor, IDamageable, IPoolable
     protected virtual void Start()
     {
         _actualHealth = MaxHealth;
+       
+        //Suscripción a eventos
+        EventManager.Instance.AddListener(EventConstants.NukeEffect, this);
     }
 
     public abstract void TakeDamage(float damageAmount);
@@ -27,6 +30,11 @@ public abstract class Enemy : Actor, IDamageable, IPoolable
     {
         _actualHealth = MaxHealth;
         gameObject.SetActive(false);
+    }
+    
+    public void OnEventDispatch()
+    {
+        Die();
     }
     
     public IProduct Clone()

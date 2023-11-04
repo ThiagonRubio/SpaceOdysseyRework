@@ -52,7 +52,6 @@ public class RedShip : Enemy, IMoveable, IAttacker
     {
         if (other.gameObject.CompareTag("Player") && other.gameObject.TryGetComponent<IDamageable>(out IDamageable damagedPlayer)) 
         {
-            //no se cual sea el da�o que hace al contacto que se yo
             damagedPlayer.TakeDamage(crashDamage);
             Die();
         }
@@ -94,6 +93,7 @@ public class RedShip : Enemy, IMoveable, IAttacker
 
     public override void Die()
     {
+        EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);
         OnPoolableObjectDisable();
     }
 

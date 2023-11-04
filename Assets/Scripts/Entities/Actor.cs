@@ -10,7 +10,7 @@ public abstract class Actor : MonoBehaviour
 {
     //----PUBLIC PROPERTIES----
     public ActorStats ActorStats => stats;
-
+    
     //----PROTECTED PROPERTIES----
     protected Animator entityAnim;
     protected Rigidbody2D entityRb;

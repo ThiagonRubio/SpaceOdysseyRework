@@ -92,6 +92,7 @@ public class Asteroid : Enemy, IRotable, IMoveable
 
     public override void Die()
     {
+        EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);
         OnPoolableObjectDisable();
     }
 

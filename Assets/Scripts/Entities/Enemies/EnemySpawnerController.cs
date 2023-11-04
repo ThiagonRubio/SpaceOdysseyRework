@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerController : MonoBehaviour
+public class EnemySpawnerController : MonoBehaviour, IListener
 {
     private Vector3 _screenSpace;
     
@@ -34,5 +34,10 @@ public class SpawnerController : MonoBehaviour
     {
         var ran = Random.Range(-_screenSpace.y, _screenSpace.y);
         transform.position = new Vector3(transform.position.x, ran, transform.position.z);
+    }
+
+    public void OnEventDispatch()
+    {
+        //Disminuye la cantidad de enemigos spawneados, lo que permite spawnear más si llegó al límite
     }
 }

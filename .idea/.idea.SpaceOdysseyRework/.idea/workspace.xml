@@ -5,44 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44aac10a-6ab2-4f07-8d1e-c4245e7617f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Observer/EventConstants.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Observer/IListener.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Actor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Actor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/Asteroid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/Asteroid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/RedShip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/RedShip.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveBase.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveBase/Frames.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveBase/Frames/NaveBaseFrame1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveBase/Frames/NaveBaseFrame1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveBase/Frames/NaveBaseFrame2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveBase/Frames/NaveBaseFrame2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveBase/Frames/NaveBaseFrame3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveBase/Frames/NaveBaseFrame3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveBase/NaveBase.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveBase/NaveBase.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveBase/NaveBase.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveBase/NaveBase.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveFast.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveFast/Frames.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveFast/Frames/NaveFastFrame1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveFast/Frames/NaveFastFrame1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveFast/Frames/NaveFastFrame2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveFast/Frames/NaveFastFrame2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveFast/Frames/NaveFastFrame3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveFast/Frames/NaveFastFrame3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveFast/NaveFast.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveFast/NaveFast.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveFast/NaveFast.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveFast/NaveFast.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveReversa.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveReversa/Frames.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveReversa/Frames/NaveReversaFrame1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveReversa/Frames/NaveReversaFrame1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveReversa/Frames/NaveReversaFrame2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveReversa/Frames/NaveReversaFrame2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveReversa/Frames/NaveReversaFrame3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveReversa/Frames/NaveReversaFrame3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveReversa/NaveReversa.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveReversa/NaveReversa.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveReversa/NaveReversa.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveReversa/NaveReversa.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/YellowShip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/YellowShip.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Observer/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Observer/EventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SpawnerController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SpawnerController.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +32,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/YellowShip.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/Projectiles/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Flyweight/ProjectileStats.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/SpawnerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Observer/EventRegistrator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PowerUps/Nuke.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PowerUps/PowerUpDropper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Sprites/Explosion/Explosion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.6.3/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -158,6 +134,7 @@
       <workItem from="1698692887356" duration="4421000" />
       <workItem from="1698700864711" duration="970000" />
       <workItem from="1699042406848" duration="2756000" />
+      <workItem from="1699116710782" duration="5243000" />
     </task>
     <servers />
   </component>
