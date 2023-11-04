@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44aac10a-6ab2-4f07-8d1e-c4245e7617f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Flyweight/EnemySpawnerControllerStats.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/EnemyProjectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/EnemyProjectile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/PlayerProjectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/PlayerProjectile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/EnemySpawnerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/EnemySpawnerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Flyweight/EnemySpawnerStats.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Flyweight/EnemySpawnerStats.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Flyweight/EnemySpawnerControllerStats.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BackGround/Fondo 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/BackGround/Fondo 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +25,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/Asteroid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/RedShip.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/YellowShip.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/Obstacles/JunkSpaceCollisions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/Obstacles/ObstacleMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/Projectiles/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Factories/ObstacleFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Flyweight/ProjectileStats.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Observer/EventRegistrator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PowerUps/PowerUp.cs" root0="FORCE_HIGHLIGHTING" />
@@ -129,6 +134,7 @@
       <workItem from="1699042406848" duration="2756000" />
       <workItem from="1699116710782" duration="7379000" />
       <workItem from="1699126297808" duration="5018000" />
+      <workItem from="1699133947250" duration="2805000" />
     </task>
     <servers />
   </component>
