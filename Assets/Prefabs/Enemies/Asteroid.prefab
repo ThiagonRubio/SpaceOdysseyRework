@@ -172,6 +172,7 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 5160f4dd7bb5d4a48bff91f443145891, type: 2}
   rotationSpeedMin: 10
   rotationSpeedMax: 15
+  crashDamage: 1
 --- !u!114 &6959489642223745548
 MonoBehaviour:
   m_ObjectHideFlags: 0

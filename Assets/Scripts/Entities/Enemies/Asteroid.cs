@@ -26,7 +26,8 @@ public class Asteroid : Enemy, IRotable, IMoveable
     private int _rotationSpeed;
     [SerializeField] private int rotationSpeedMin;
     [SerializeField] private int rotationSpeedMax;
-
+    [SerializeField] private float crashDamage;
+    
     //################ #################
     //----------UNITY EV FUNC-----------
     //################ #################
@@ -47,6 +48,14 @@ public class Asteroid : Enemy, IRotable, IMoveable
     private void OnBecameInvisible()
     {
         OnPoolableObjectDisable();
+    }
+    
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player") && other.gameObject.TryGetComponent<IDamageable>(out IDamageable damagedPlayer)) 
+        {
+            damagedPlayer.TakeDamage(crashDamage);
+        }
     }
 
     //################ #################
