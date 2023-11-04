@@ -346,8 +346,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc16c739791cf08479233065f0e8e0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawners: []
-  creationCooldown: 3
+  spawners: []
+  bossSpawner: {fileID: 0}
+  startingCreationCooldown: 3
+  creationCooldownDecreasePerBoss: 0
+  maxSpawnedAmount: 5
+  difficulty: 2
+  enemiesBetweenBosses: 10
 --- !u!1 &1715052641
 GameObject:
   m_ObjectHideFlags: 0

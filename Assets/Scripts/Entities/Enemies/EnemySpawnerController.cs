@@ -14,9 +14,6 @@ public class EnemySpawnerController : MonoBehaviour, IListener
     [SerializeField] private float creationCooldownDecreasePerBoss;
     private float _creationTime;
 
-    [SerializeField] private int maxSpawnedAmount;
-    private int _spawnedAmount;
-
     [SerializeField] private int difficulty;
 
     [SerializeField] private int enemiesBetweenBosses;
@@ -37,17 +34,19 @@ public class EnemySpawnerController : MonoBehaviour, IListener
     void Update()
     {
         _creationTime -= Time.deltaTime;
+        
+        SpawnEnemy();
+        SpawnBoss();
     }
 
     private void SpawnEnemy()
     {
-        if (_creationTime < 0 && _spawnedAmount < maxSpawnedAmount && _enemiesLeftTillBoss != 0 && !_isBossSpawned)
+        if (_creationTime < 0 && _enemiesLeftTillBoss != 0 && !_isBossSpawned)
         {
             if (spawners.Length > difficulty)
             {
                 int ran = Random.Range(0, difficulty);
                 spawners[ran].Spawn();
-                _spawnedAmount++;
                 _creationTime = startingCreationCooldown;
                 ChangePosition();
             }
@@ -62,7 +61,6 @@ public class EnemySpawnerController : MonoBehaviour, IListener
             bossSpawner.Spawn();
             startingCreationCooldown -= creationCooldownDecreasePerBoss;
             _isBossSpawned = true;
-
         }
     }
     
@@ -74,10 +72,6 @@ public class EnemySpawnerController : MonoBehaviour, IListener
 
     public void OnEventDispatch()
     {
-        _spawnedAmount--;
         _enemiesLeftTillBoss--;
-        
-        SpawnEnemy();
-        SpawnBoss();
     }
 }
