@@ -7,27 +7,34 @@ public class EnemySpawnerController : MonoBehaviour, IListener
 {
     private Vector3 _screenSpace;
     
-    [SerializeField] private EnemySpawner[] spawners;
-    [SerializeField] private EnemySpawner bossSpawner;
+    [SerializeField] private EnemySpawner[] enemySpawners;
+    [SerializeField] private EnemySpawner[] obstacleSpawners;
+    [SerializeField] private EnemySpawner[] bossSpawners;
+
+    [SerializeField] private EnemySpawnerControllerStats stats;
     
-    [SerializeField] private float startingCreationCooldown;
-    [SerializeField] private float creationCooldownDecreasePerBoss;
+    private float _creationCooldown;
     private float _creationTime;
 
-    [SerializeField] private int difficulty;
+    private int _currentDifficulty;
 
-    [SerializeField] private int enemiesBetweenBosses;
-    private int _enemiesLeftTillBoss;
+    private int _enemiesLeftUntilBoss;
     private bool _isBossSpawned;
+
+    private int _enemiesCounter;
     
     void Start()
     {
         _screenSpace = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        spawners = GetComponentsInChildren<EnemySpawner>();
-        _creationTime = startingCreationCooldown;
-        _enemiesLeftTillBoss = enemiesBetweenBosses;
+        enemySpawners = GetComponentsInChildren<EnemySpawner>();
         
-        EventManager.Instance.AddListener(EventConstants.EnemyDeath, this);
+        _creationCooldown = stats.StartingCreationCooldown;
+        _creationTime = _creationCooldown;
+        _enemiesLeftUntilBoss = stats.EnemiesBetweenBosses;
+
+        _currentDifficulty = stats.StartingDifficulty;
+        
+        //EventManager.Instance.AddListener(EventConstants.EnemyDeath, this);
         //EventManager.Instance.AddListener(EventConstants.BossDeath, this);
     }
 
@@ -35,33 +42,59 @@ public class EnemySpawnerController : MonoBehaviour, IListener
     {
         _creationTime -= Time.deltaTime;
         
-        SpawnEnemy();
-        SpawnBoss();
+        if(enemySpawners != null)
+            SpawnEnemy();
+        if(obstacleSpawners != null)
+            SpawnObstacle();
+        if(bossSpawners != null)
+            SpawnBoss();
     }
 
     private void SpawnEnemy()
     {
-        if (_creationTime < 0 && _enemiesLeftTillBoss != 0 && !_isBossSpawned)
+        if (_creationTime < 0 && _enemiesLeftUntilBoss != 0 && !_isBossSpawned)
         {
-            if (spawners.Length > difficulty)
+            if (enemySpawners.Length > _currentDifficulty)
             {
-                int ran = Random.Range(0, difficulty);
-                spawners[ran].Spawn();
-                _creationTime = startingCreationCooldown;
+                int ran = Random.Range(0, _currentDifficulty);
+                enemySpawners[ran].Spawn();
+                _creationTime = _creationCooldown;
+                _enemiesCounter++;
                 ChangePosition();
+            }
+        }
+    }
+
+    private void SpawnObstacle()
+    {
+        if (_enemiesCounter >= stats.EnemiesUntilObstacles)
+        {
+            int ranA = Random.Range(0, 100);
+            if (ranA <= stats.ObstacleChancePercentage)
+            {
+                ResetPosition();
+                int ranB = Random.Range(0, obstacleSpawners.Length);
+                obstacleSpawners[ranB].Spawn();
+                _enemiesCounter = 0;
             }
         }
     }
 
     private void SpawnBoss()
     {
-        if (_enemiesLeftTillBoss == 0 && !_isBossSpawned)
+        if (_enemiesLeftUntilBoss == 0 && !_isBossSpawned)
         {
-            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-            bossSpawner.Spawn();
-            startingCreationCooldown -= creationCooldownDecreasePerBoss;
+            ResetPosition();
+            int ran = Random.Range(0, bossSpawners.Length);
+            bossSpawners[ran].Spawn();
+            _creationCooldown -= stats.CreationCooldownDecreasePerBoss;
             _isBossSpawned = true;
         }
+    }
+
+    void ResetPosition()
+    {
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
     
     void ChangePosition()
@@ -72,6 +105,6 @@ public class EnemySpawnerController : MonoBehaviour, IListener
 
     public void OnEventDispatch()
     {
-        _enemiesLeftTillBoss--;
+        _enemiesLeftUntilBoss--;
     }
 }
