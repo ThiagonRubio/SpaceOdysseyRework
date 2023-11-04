@@ -38,7 +38,8 @@ public class PowerUp : Actor, IPowerUp
     
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Effect();
+        if(collision.CompareTag("Player"))
+            Effect();
     }
 
     public void InitializeCommands()

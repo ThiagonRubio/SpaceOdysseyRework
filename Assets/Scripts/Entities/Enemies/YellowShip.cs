@@ -88,12 +88,13 @@ public class YellowShip : Enemy, IMoveable, IAttacker
 
     private void ChangeDirection()
     {
-        if (transform.position.y + (_sprite.sprite.rect.height / 65 * 0.3 / 2) >= _screenSpace.y)
+        
+        if (transform.position.y + (_sprite.sprite.rect.height / _sprite.sprite.pixelsPerUnit * transform.localScale.x / 2) >= _screenSpace.y)
         {
             _isMovingUpwards = false;
         }
 
-        if (transform.position.y - (_sprite.sprite.rect.height / 65 * 0.3 / 2) <= -_screenSpace.y)
+        if (transform.position.y - (_sprite.sprite.rect.height / _sprite.sprite.pixelsPerUnit * transform.localScale.x / 2) <= -_screenSpace.y)
         {
             _isMovingUpwards = true;
         }

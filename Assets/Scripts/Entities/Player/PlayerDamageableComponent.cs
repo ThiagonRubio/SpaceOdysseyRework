@@ -34,6 +34,7 @@ public class PlayerDamageableComponent : Actor, IDamageable
     public void Die()
     {
         print("I died, que triste. Saludos.");
+        EventManager.Instance.DispatchSimpleEvent(EventConstants.PlayerDeath);
     }
 
     public void Revive()
