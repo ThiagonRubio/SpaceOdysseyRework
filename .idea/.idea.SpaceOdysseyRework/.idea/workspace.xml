@@ -6,10 +6,236 @@
   <component name="ChangeListManager">
     <list default="true" id="44aac10a-6ab2-4f07-8d1e-c4245e7617f0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/YellowShip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/YellowShip.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/PlayerDamageableComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/PlayerDamageableComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PowerUps/PowerUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PowerUps/PowerUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveAmarilla.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveAmarilla/Frames.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveAmarilla/Frames/NaveFastFrame1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveAmarilla/Frames/NaveFastFrame1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveAmarilla/Frames/NaveFastFrame2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveAmarilla/Frames/NaveFastFrame2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveAmarilla/Frames/NaveFastFrame3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveAmarilla/Frames/NaveFastFrame3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveAmarilla/NaveFast.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveAmarilla/NaveFast.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveAmarilla/NaveFast.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveAmarilla/NaveFast.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveRoja.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveRoja/Frames.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveRoja/Frames/NaveBaseFrame1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveRoja/Frames/NaveBaseFrame1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveRoja/Frames/NaveBaseFrame2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveRoja/Frames/NaveBaseFrame2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveRoja/Frames/NaveBaseFrame3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveRoja/Frames/NaveBaseFrame3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveRoja/NaveBase.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveRoja/NaveBase.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveRoja/NaveBase.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveRoja/NaveBase.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveVioleta.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveVioleta/Frames.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveVioleta/Frames/NaveReversaFrame1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveVioleta/Frames/NaveReversaFrame1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveVioleta/Frames/NaveReversaFrame2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveVioleta/Frames/NaveReversaFrame2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveVioleta/Frames/NaveReversaFrame3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveVioleta/Frames/NaveReversaFrame3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveVioleta/NaveReversa.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveVioleta/NaveReversa.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveVioleta/NaveReversa.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/NaveVioleta/NaveReversa.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/DamagedIdle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/DamagedIdle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/DamagedMoving.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/DamagedMoving.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/DamagedTransition.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/DamagedTransition.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/1HPTransition.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/1HPTransition/PlayerDamagedTransitionF1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/1HPTransition/PlayerDamagedTransitionF1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/1HPTransition/PlayerDamagedTransitionF2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/1HPTransition/PlayerDamagedTransitionF2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/1HPTransition/PlayerDamagedTransitionF3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/1HPTransition/PlayerDamagedTransitionF3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/IDle!HP.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/IDle!HP/PlayerDamagedIdleF1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/IDle!HP/PlayerDamagedIdleF1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/IDle!HP/PlayerDamagedIdleF2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/IDle!HP/PlayerDamagedIdleF2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/IDle!HP/PlayerDamagedIdleF3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/IDle!HP/PlayerDamagedIdleF3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/Mov1HP.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/Mov1HP/PlayerDamagedMovingF1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/Mov1HP/PlayerDamagedMovingF1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/Mov1HP/PlayerDamagedMovingF2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/Mov1HP/PlayerDamagedMovingF2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/Mov1HP/PlayerDamagedMovingF3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/Mov1HP/PlayerDamagedMovingF3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/Movimiento normal.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/Movimiento normal/PlayerAnimationF1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/Movimiento normal/PlayerAnimationF1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/Movimiento normal/PlayerAnimationF2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/Movimiento normal/PlayerAnimationF2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/Movimiento normal/PlayerAnimationF3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/Movimiento normal/PlayerAnimationF3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdle.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdle/PlayerShip_SkilIdle1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdle/PlayerShip_SkilIdle1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdle/PlayerShip_SkilIdle2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdle/PlayerShip_SkilIdle2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdle/PlayerShip_SkilIdle3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdle/PlayerShip_SkilIdle3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdle/PlayerShip_SkilIdle4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdle/PlayerShip_SkilIdle4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdleSmoke.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdleSmoke/PlayerShip_SkillIdleSmoke1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdleSmoke/PlayerShip_SkillIdleSmoke1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdleSmoke/PlayerShip_SkillIdleSmoke2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdleSmoke/PlayerShip_SkillIdleSmoke2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdleSmoke/PlayerShip_SkillIdleSmoke3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdleSmoke/PlayerShip_SkillIdleSmoke3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdleSmoke/PlayerShip_SkillIdleSmoke4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Frames/SkillIdleSmoke/PlayerShip_SkillIdleSmoke4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Idle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Idle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Mov.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/Mov.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/PlayerShip.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/PlayerShip.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/PlayerShip_SkillAnimationIdle.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/PlayerShip_SkillAnimationIdle.psd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/PlayerShip_SkillAnimationOnMove.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/PlayerShip_SkillAnimationOnMove.psd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/SkillDisable.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/SkillDisable.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/SkillDisableSmoke.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/SkillDisableSmoke.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/SkillIdle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/SkillIdle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/SkillIdleSmoke.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/PlayerShip/SkillIdleSmoke.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/Active.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/Active.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/Available.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/Available.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames.ai" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames.ai.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/CooldownEnd.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/CooldownEnd.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F10.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F11.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F12.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F13.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F14.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F15.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F16.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F17.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F6.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F7.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F8.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/Final/F9.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd10.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd11.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd12.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd13.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd14.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd15.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd16.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd17.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd6.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd7.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd8.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/CooldownEndFrames/SkillCooldownEnd9.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/OnCooldown.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/OnCooldown.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/Skill.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/Skill.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/SkillActive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/SkillActive.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/SkillActiveF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/SkillActiveF.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/SkillAvailable.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/SkillAvailable.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/SkillAvailableF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/SkillAvailableF.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/SkillCooldown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/SkillCooldown.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/SkillCooldownF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/SkillCooldownF.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames.ai" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames.ai.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/Final.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/Final/F1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/Final/F1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/Final/F2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/Final/F2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/Final/F3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/Final/F3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/Final/F4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/Final/F4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/SkillTurnOffF1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/SkillTurnOffF1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/SkillTurnOffF2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/SkillTurnOffF2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/SkillTurnOffF3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/SkillTurnOffF3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/SkillTurnOffF4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/SkillTurnOffF4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/SkillTurnOffF5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/SkillTurnOffF5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/SkillTurnOffF6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/SkillTurnOffF6.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/TurnOff.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animación/Skill/TurnOffFrames/TurnOff.anim.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +252,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/Projectiles/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Flyweight/ProjectileStats.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Observer/EventRegistrator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PowerUps/Nuke.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PowerUps/PowerUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PowerUps/PowerUpDropper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Sprites/Explosion/Explosion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.6.3/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
@@ -127,7 +353,7 @@
       <workItem from="1698692887356" duration="4421000" />
       <workItem from="1698700864711" duration="970000" />
       <workItem from="1699042406848" duration="2756000" />
-      <workItem from="1699116710782" duration="6514000" />
+      <workItem from="1699116710782" duration="7379000" />
     </task>
     <servers />
   </component>
