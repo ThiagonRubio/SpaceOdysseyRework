@@ -497,6 +497,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2993427675522167976, guid: 5c65918627436f440ac752766c6d629f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 40fd1f99cd417ed4d81036c653c9a8b5, type: 2}
+    - target: {fileID: 2993427675522167978, guid: 5c65918627436f440ac752766c6d629f, type: 3}
+      propertyPath: m_Size.x
+      value: 7.169231
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993427675522167978, guid: 5c65918627436f440ac752766c6d629f, type: 3}
+      propertyPath: m_Size.y
+      value: 5.6615386
+      objectReference: {fileID: 0}
     - target: {fileID: 2993427675522167980, guid: 5c65918627436f440ac752766c6d629f, type: 3}
       propertyPath: m_Name
       value: Player
