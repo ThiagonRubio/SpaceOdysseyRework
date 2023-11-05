@@ -69,6 +69,7 @@ public class SpawnerController : MonoBehaviour, IListener
     {
         if (_enemiesCounter >= stats.EnemiesUntilObstacles)
         {
+            if(_currentDifficulty < enemySpawners.Length) _currentDifficulty++;
             int ranA = Random.Range(0, 100);
             if (ranA <= stats.ObstacleChancePercentage)
             {
@@ -111,8 +112,7 @@ public class SpawnerController : MonoBehaviour, IListener
                 _enemiesLeftUntilBoss--;
                 break;
             case EventConstants.BossDeath:
-                _creationCooldown -= stats.CreationCooldownDecreasePerBoss;
-                if(_currentDifficulty < enemySpawners.Length) _currentDifficulty++;
+                if(_creationCooldown > stats.CreationCooldownDecreasePerBoss) _creationCooldown -= stats.CreationCooldownDecreasePerBoss;
                 _isBossSpawned = false;
                 _enemiesLeftUntilBoss = stats.EnemiesBetweenBosses;
                 break;

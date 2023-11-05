@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44aac10a-6ab2-4f07-8d1e-c4245e7617f0" name="Changes" comment="" />
+    <list default="true" id="44aac10a-6ab2-4f07-8d1e-c4245e7617f0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/SpawnerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/SpawnerController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,6 +131,7 @@
       <workItem from="1699126297808" duration="5018000" />
       <workItem from="1699133947250" duration="2805000" />
       <workItem from="1699198411615" duration="4191000" />
+      <workItem from="1699218420755" duration="359000" />
     </task>
     <servers />
   </component>
