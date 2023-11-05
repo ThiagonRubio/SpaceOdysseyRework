@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44aac10a-6ab2-4f07-8d1e-c4245e7617f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/ObstacleSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/EnemyProjectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/EnemyProjectile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/PlayerProjectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/PlayerProjectile.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/EnemySpawnerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/EnemySpawnerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BackGround/Fondo 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/BackGround/Fondo 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/EnemySpawnerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/SpawnerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/EnemySpawnerController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/SpawnerController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Obstacles/ObstacleMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Obstacles/Obstacle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Obstacles/ObstacleMovement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Obstacles/Obstacle.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/ObstacleFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/ObstacleFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemySpawnerStats.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemySpawnerStats.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Obstacles/Obstacle.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Obstacles/Obstacle.prefab.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +139,7 @@
       <workItem from="1699116710782" duration="7379000" />
       <workItem from="1699126297808" duration="5018000" />
       <workItem from="1699133947250" duration="2805000" />
+      <workItem from="1699198411615" duration="3329000" />
     </task>
     <servers />
   </component>

@@ -2,17 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleFactory : MonoBehaviour
+public class ObstacleFactory : AbstractFactory<IPoolable>
 {
-    // Start is called before the first frame update
-    void Start()
+    private readonly int maxPoolableEnemies = 1;
+
+    public ObstacleFactory(IPoolOwner creator, Obstacle obstacleToCreate, int maxPoolableEnemies) : base(obstacleToCreate)
     {
-        
+        objectToCreate = obstacleToCreate;
+        this.maxPoolableEnemies = maxPoolableEnemies;
+        InitObjectPool(creator);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void InitObjectPool(IPoolOwner creator)
     {
-        
+        Obstacle obstacleInCurrentPool = (Obstacle)objectToCreate;
+        creator.ObjectPool.CreatePool(obstacleInCurrentPool, maxPoolableEnemies);
+    }
+    
+    public override IPoolable CreateObject()
+    {
+        return (Obstacle)objectToCreate.Clone();
+    }
+    public Obstacle CreateObject(IPoolOwner creator)
+    {
+        return (Obstacle)creator.ObjectPool.TryGetPooledObject();
     }
 }

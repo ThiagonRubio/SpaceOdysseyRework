@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29825009eda223647a4655d302351da2, type: 3}
-  m_Name: EnemySpawnerStats
+  m_Name: SpawnerStats
   m_EditorClassIdentifier: 
-  <StartingCreationCooldown>k__BackingField: 10
-  <CreationCooldownDecreasePerBoss>k__BackingField: 10
-  <StartingDifficulty>k__BackingField: 1
-  <EnemiesBetweenBosses>k__BackingField: 2
-  <EnemiesUntilObstacles>k__BackingField: 2
-  <ObstacleChancePercentage>k__BackingField: 2
+  <StartingCreationCooldown>k__BackingField: 2
+  <CreationCooldownDecreasePerBoss>k__BackingField: 0.5
+  <StartingDifficulty>k__BackingField: 2
+  <EnemiesBetweenBosses>k__BackingField: 10
+  <EnemiesUntilObstacles>k__BackingField: 15
+  <ObstacleChancePercentage>k__BackingField: 30

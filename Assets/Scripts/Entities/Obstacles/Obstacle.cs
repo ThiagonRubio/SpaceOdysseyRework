@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleMovement : Actor, IMoveable, IPoolable
+public class Obstacle : Actor, IMoveable, IPoolable
 {
     public GameObject GameObject => gameObject;
 

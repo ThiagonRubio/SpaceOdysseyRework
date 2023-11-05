@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawnerController : MonoBehaviour, IListener
+public class SpawnerController : MonoBehaviour, IListener
 {
     private Vector3 _screenSpace;
     
     [SerializeField] private EnemySpawner[] enemySpawners;
-    [SerializeField] private EnemySpawner[] obstacleSpawners;
+    [SerializeField] private ObstacleSpawner[] obstacleSpawners;
     [SerializeField] private EnemySpawner[] bossSpawners;
 
-    [SerializeField] private EnemySpawnerControllerStats stats;
+    [SerializeField] private SpawnerControllerStats stats;
     
     private float _creationCooldown;
     private float _creationTime;
@@ -26,6 +26,7 @@ public class EnemySpawnerController : MonoBehaviour, IListener
     {
         _screenSpace = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
         enemySpawners = GetComponentsInChildren<EnemySpawner>();
+        obstacleSpawners = GetComponentsInChildren<ObstacleSpawner>();
         
         _creationCooldown = stats.StartingCreationCooldown;
         _creationTime = _creationCooldown;
@@ -43,8 +44,8 @@ public class EnemySpawnerController : MonoBehaviour, IListener
         
         if(enemySpawners != null)
             SpawnEnemy();
-        //if(obstacleSpawners != null)
-            //SpawnObstacle();
+        if(obstacleSpawners != null)
+            SpawnObstacle();
         //if(bossSpawners != null)
             //SpawnBoss();
     }
@@ -53,13 +54,13 @@ public class EnemySpawnerController : MonoBehaviour, IListener
     {
         if (_creationTime < 0 && _enemiesLeftUntilBoss != 0 && !_isBossSpawned)
         {
-            if (enemySpawners.Length > _currentDifficulty)
+            if (enemySpawners.Length >= _currentDifficulty)
             {
                 int ran = Random.Range(0, _currentDifficulty);
                 enemySpawners[ran].Spawn();
                 _creationTime = _creationCooldown;
                 _enemiesCounter++;
-                ChangePosition();
+                RandomlyChangePosition();
             }
         }
     }
@@ -71,7 +72,7 @@ public class EnemySpawnerController : MonoBehaviour, IListener
             int ranA = Random.Range(0, 100);
             if (ranA <= stats.ObstacleChancePercentage)
             {
-                ResetPosition();
+                SetPosition(6.5f);
                 int ranB = Random.Range(0, obstacleSpawners.Length);
                 obstacleSpawners[ranB].Spawn();
                 _enemiesCounter = 0;
@@ -83,7 +84,7 @@ public class EnemySpawnerController : MonoBehaviour, IListener
     {
         if (_enemiesLeftUntilBoss == 0 && !_isBossSpawned)
         {
-            ResetPosition();
+            SetPosition(0);
             int ran = Random.Range(0, bossSpawners.Length);
             bossSpawners[ran].Spawn();
             _creationCooldown -= stats.CreationCooldownDecreasePerBoss;
@@ -91,12 +92,12 @@ public class EnemySpawnerController : MonoBehaviour, IListener
         }
     }
 
-    void ResetPosition()
+    void SetPosition(float yPos)
     {
-        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+        transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
     }
     
-    void ChangePosition()
+    void RandomlyChangePosition()
     {
         var ran = Random.Range(-_screenSpace.y, _screenSpace.y);
         transform.position = new Vector3(transform.position.x, ran, transform.position.z);
@@ -107,11 +108,13 @@ public class EnemySpawnerController : MonoBehaviour, IListener
         switch (invokedEvent)
         {
             case EventConstants.EnemyDeath:
-                print("sin comentarios");
                 _enemiesLeftUntilBoss--;
                 break;
             case EventConstants.BossDeath:
-                print("toadagarrandoselacabeza.jpg");
+                _creationCooldown -= stats.CreationCooldownDecreasePerBoss;
+                if(_currentDifficulty < enemySpawners.Length) _currentDifficulty++;
+                _isBossSpawned = false;
+                _enemiesLeftUntilBoss = stats.EnemiesBetweenBosses;
                 break;
         }
     }
