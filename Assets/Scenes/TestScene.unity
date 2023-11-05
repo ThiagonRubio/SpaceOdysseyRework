@@ -182,6 +182,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyTypeToCreate: {fileID: 8717408562707923523, guid: 0f3ce553d0edaf248a3bf3901d0861d4, type: 3}
   maxPoolSize: 10
+--- !u!1 &1229005414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1229005416}
+  - component: {fileID: 1229005415}
+  m_Layer: 0
+  m_Name: lpmthiago
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1229005415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229005414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ff144a486f1894aa0e771aa6dedf52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1229005416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229005414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1450893200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -285,8 +329,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc16c739791cf08479233065f0e8e0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawners: []
-  creationCooldown: 3
+  enemySpawners: []
+  obstacleSpawners: []
+  bossSpawners: []
+  stats: {fileID: 11400000, guid: 1c7527a2bf8bc734c9f16bbc1c4d60c2, type: 2}
 --- !u!1 &1715052641
 GameObject:
   m_ObjectHideFlags: 0

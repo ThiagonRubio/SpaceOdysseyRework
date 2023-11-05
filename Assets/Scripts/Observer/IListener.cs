@@ -1,4 +1,4 @@
 public interface IListener
 {
-    void OnEventDispatch();
+    void OnEventDispatch(string invokedEvent);
 }

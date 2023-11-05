@@ -2,7 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "EnemySpawnerStats", menuName = "Stats/EnemySpawnerStats", order = 0)]
 
-public class EnemySpawnerControllerStats
+public class EnemySpawnerControllerStats : ScriptableObject
 {
     [field: SerializeField] public float StartingCreationCooldown { get; private set; }
     [field: SerializeField] public float CreationCooldownDecreasePerBoss { get; private set; }

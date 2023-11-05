@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class EventManager
@@ -8,7 +9,8 @@ public class EventManager
     {
         get
         {
-            if (_instance == null) _instance = new EventManager();
+            if (_instance == null) 
+                _instance = new EventManager();
             return _instance;
         }
     }
@@ -19,9 +21,11 @@ public class EventManager
 
     public void AddListener(string eventID, IListener p_listener)
     {
-        Debug.Log($"Yo {p_listener} me subscribo al evento {eventID}");
-        if (simpleEvents.TryGetValue(eventID, out _listeners) && !_listeners.Contains(p_listener)) 
+        if (simpleEvents.TryGetValue(eventID, out _listeners) && !_listeners.Contains(p_listener))
+        {
             _listeners.Add(p_listener);
+            Debug.Log($"Yo {p_listener} me subscribo al evento {eventID}");
+        }
     }
         
     public void RemoveListener(string eventID, IListener p_listener)
@@ -40,16 +44,23 @@ public class EventManager
 
     public void DispatchSimpleEvent(string eventID)
     {
-        Debug.Log($"Despacho el evento {eventID}");
         if (simpleEvents.TryGetValue(eventID, out var listeners))
-            for(int i = listeners.Count -1; i >= 0; i--)
-                listeners[i].OnEventDispatch();
+        {
+            Debug.Log($"Despacho el evento {eventID}");
+            for (int i = listeners.Count - 1; i >= 0; i--)
+            {
+                listeners[i].OnEventDispatch(eventID);
+                Debug.Log("eeeee");
+            }
+        }
     }
 
     public void RegisterEvent(string eventID)
     {
-        if(!simpleEvents.ContainsKey(eventID)) 
+        if(!simpleEvents.ContainsKey(eventID))
+        {
             simpleEvents.Add(eventID, new List<IListener>());
-        Debug.Log($"registro el evento {eventID}");
+            Debug.Log($"registro el evento {eventID}");
+        }
     }
 }

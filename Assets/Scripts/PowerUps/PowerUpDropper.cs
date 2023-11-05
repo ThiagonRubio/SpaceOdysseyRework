@@ -9,7 +9,7 @@ public class PowerUpDropper : MonoBehaviour, IListener //Lo deberían tener los 
         EventManager.Instance.AddListener(EventConstants.EnemyDeath, this);
     }
    
-    public void OnEventDispatch()
+    public void OnEventDispatch(string invokedEvent)
     {
         //Random para saber si droppea
         //Random para saber qué droppea

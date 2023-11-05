@@ -33,8 +33,8 @@ public class EnemySpawnerController : MonoBehaviour, IListener
 
         _currentDifficulty = stats.StartingDifficulty;
         
-        //EventManager.Instance.AddListener(EventConstants.EnemyDeath, this);
-        //EventManager.Instance.AddListener(EventConstants.BossDeath, this);
+        EventManager.Instance.AddListener(EventConstants.EnemyDeath, this);
+        EventManager.Instance.AddListener(EventConstants.BossDeath, this);
     }
 
     void Update()
@@ -43,10 +43,10 @@ public class EnemySpawnerController : MonoBehaviour, IListener
         
         if(enemySpawners != null)
             SpawnEnemy();
-        if(obstacleSpawners != null)
-            SpawnObstacle();
-        if(bossSpawners != null)
-            SpawnBoss();
+        //if(obstacleSpawners != null)
+            //SpawnObstacle();
+        //if(bossSpawners != null)
+            //SpawnBoss();
     }
 
     private void SpawnEnemy()
@@ -102,8 +102,17 @@ public class EnemySpawnerController : MonoBehaviour, IListener
         transform.position = new Vector3(transform.position.x, ran, transform.position.z);
     }
 
-    public void OnEventDispatch()
+    public void OnEventDispatch(string invokedEvent)
     {
-        _enemiesLeftUntilBoss--;
+        switch (invokedEvent)
+        {
+            case EventConstants.EnemyDeath:
+                print("sin comentarios");
+                _enemiesLeftUntilBoss--;
+                break;
+            case EventConstants.BossDeath:
+                print("toadagarrandoselacabeza.jpg");
+                break;
+        }
     }
 }

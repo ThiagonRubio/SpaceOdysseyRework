@@ -32,9 +32,10 @@ public abstract class Enemy : Actor, IDamageable, IPoolable, IListener
         gameObject.SetActive(false);
     }
     
-    public void OnEventDispatch()
+    public void OnEventDispatch(string invokedEvent)
     {
-        Die();
+        if (invokedEvent == EventConstants.NukeEffect)
+            Die();
     }
     
     public IProduct Clone()
