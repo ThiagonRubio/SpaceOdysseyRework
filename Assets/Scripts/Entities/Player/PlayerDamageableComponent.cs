@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDamageableComponent : Actor, IDamageable
+public class PlayerDamageableComponent : Actor, IDamageable, IListener
 {
     //---IDAMAGEABLE-----
     public float MaxHealth => ActorStats.MaxHealth;
@@ -17,6 +17,7 @@ public class PlayerDamageableComponent : Actor, IDamageable
     private void Start()
     {
         actualHealth = ActorStats.MaxHealth;
+        EventManager.Instance.AddListener(EventConstants.ShieldEffect, this);
     }
 
     //################ #################
@@ -40,5 +41,17 @@ public class PlayerDamageableComponent : Actor, IDamageable
     public void Revive()
     {
         throw new System.NotImplementedException();
+    }
+    
+    public void OnEventDispatch(string invokedEvent)
+    {
+        if (invokedEvent == EventConstants.ShieldEffect)
+        {
+            actualHealth++;
+            if (actualHealth > 10) //Tope definido en el juego original
+            {
+                actualHealth = 10;
+            }
+        }
     }
 }

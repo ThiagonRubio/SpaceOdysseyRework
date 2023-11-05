@@ -3,11 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Este script va a registrar todos los eventos para que no den error de no estar creados cuando alguien se quiera suscribir
 public class EventRegistrator : MonoBehaviour 
-    //Este script va a registrar todos los eventos para que no den error de no estar creados cuando alguien se quiera suscribir
-
-    //porque lo hiciste singleton lpm estuve 1 hora hasta que llegue hasta esto que estaba escondido y sin usar, con razon no te
-    //andaba ningun evento toadagarrandoselacabeza.jpg
 {
     private void Awake()
     {

@@ -31,15 +31,25 @@ public class PowerUp : Actor, IPowerUp
 
     [SerializeField] private PowerUpType type;
 
+    private void Start()
+    {
+        InitializeCommands();
+    }
+
     void Update()
     {
         Move();
     }
     
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnCollisionEnter2D(Collision2D other)
     {
-        if(collision.CompareTag("Player"))
             Effect();
+            Destroy(gameObject); //También podría ser pooleable
+    }
+
+    public void OnBecameInvisible()
+    {
+        Destroy(gameObject); //También podría ser pooleable
     }
 
     public void InitializeCommands()
@@ -76,7 +86,9 @@ public class PowerUp : Actor, IPowerUp
         }
         
     }
+
     
+
     public IProduct Clone()
     {
         return Instantiate(this);

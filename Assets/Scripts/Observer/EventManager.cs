@@ -50,7 +50,6 @@ public class EventManager
             for (int i = listeners.Count - 1; i >= 0; i--)
             {
                 listeners[i].OnEventDispatch(eventID);
-                Debug.Log("eeeee");
             }
         }
     }
