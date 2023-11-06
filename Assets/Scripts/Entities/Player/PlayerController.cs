@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CommandEventQueue))]
-public class PlayerController : Actor, IMoveable, IAttacker
+public class PlayerController : Actor, IMoveable, IAttacker, IListener
 {
     public float Speed => ActorStats.MovementSpeed;
 
@@ -34,7 +34,9 @@ public class PlayerController : Actor, IMoveable, IAttacker
     //---IATTACKER IMPL----
     private IWeapon[] _weapons;
     private float attackCooldownTimer = 0;
-   
+
+    private bool gameEnded;
+    
     //################ #################
     //----------UNITY EV FUNC-----------
     //################ #################
@@ -43,6 +45,7 @@ public class PlayerController : Actor, IMoveable, IAttacker
     {
         base.Awake();
         _playerInputActions = new PlayerInputActions();
+        EventManager.Instance.AddListener(EventConstants.Won,this);
     }
 
     private void Start()
@@ -52,10 +55,13 @@ public class PlayerController : Actor, IMoveable, IAttacker
     }
     private void Update()
     {
-        attackCooldownTimer += Time.deltaTime;
+        if (!gameEnded)
+        {
+            attackCooldownTimer += Time.deltaTime;
 
-        ListenForMoveInput();
-        ListenForShootInput();
+            ListenForMoveInput();
+            ListenForShootInput();
+        }
 
         ClampMoveToScreen();
     }
@@ -148,5 +154,13 @@ public class PlayerController : Actor, IMoveable, IAttacker
         pos.x = Mathf.Clamp(pos.x, 0.13f, 0.99f);
         pos.y = Mathf.Clamp(pos.y, 0.08f, 0.92f);
         transform.position = Camera.main.ViewportToWorldPoint(pos);
+    }
+
+    public void OnEventDispatch(string invokedEvent)
+    {
+        if (invokedEvent == EventConstants.Won)
+        {
+            gameEnded = true;
+        } 
     }
 }

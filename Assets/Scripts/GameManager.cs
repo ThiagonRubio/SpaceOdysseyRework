@@ -1,11 +1,36 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour, IListener
 {
-    //[SerializeField] private GameObject inGameCanvas;
-    //[SerializeField] private GameObject GameOverCanvas;
+    public static GameManager Instance => instance;
+
+    public bool GamemodeIsStageMode
+    {
+        set
+        {
+            gamemodeIsStageMode = value;
+        }
+    }
+    
+    private static GameManager instance;
+    
+    private bool gamemodeIsStageMode;
+    
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     public void Start()
     {
@@ -19,7 +44,7 @@ public class GameManager : MonoBehaviour, IListener
         {
             EventManager.Instance.DispatchSimpleEvent(EventConstants.Lost);
         }
-        if (invokedEvent == EventConstants.BossDeath)
+        if (invokedEvent == EventConstants.BossDeath && gamemodeIsStageMode)
         {
             EventManager.Instance.DispatchSimpleEvent(EventConstants.Won);
         }

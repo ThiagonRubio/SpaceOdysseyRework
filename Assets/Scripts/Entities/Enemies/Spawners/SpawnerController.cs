@@ -24,7 +24,8 @@ public class SpawnerController : MonoBehaviour, IListener
     private bool _isBossSpawned;
 
     private int _enemiesCounter;
-    
+
+    private bool _gameEnded;
     void Start()
     {
         _screenSpace = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
@@ -51,18 +52,22 @@ public class SpawnerController : MonoBehaviour, IListener
         
         EventManager.Instance.AddListener(EventConstants.EnemyDeath, this);
         EventManager.Instance.AddListener(EventConstants.BossDeath, this);
+        EventManager.Instance.AddListener(EventConstants.Won, this);
     }
 
     void Update()
     {
-        _creationTime -= Time.deltaTime;
-        
-        if(enemySpawners != null)
-            SpawnEnemy();
-        if(obstacleSpawners != null)
-            SpawnObstacle();
-        if(bossSpawners != null)
-            SpawnBoss();
+        if (!_gameEnded)
+        {
+            _creationTime -= Time.deltaTime;
+            
+            if(enemySpawners != null)
+                SpawnEnemy();
+            if(obstacleSpawners != null)
+                SpawnObstacle();
+            if(bossSpawners != null)
+                SpawnBoss();
+        }
         
     }
 
@@ -132,6 +137,9 @@ public class SpawnerController : MonoBehaviour, IListener
                 if(_creationCooldown > stats.CreationCooldownDecreasePerBoss) _creationCooldown -= stats.CreationCooldownDecreasePerBoss;
                 _isBossSpawned = false;
                 _enemiesKilled = 0;
+                break;
+            case EventConstants.Won:
+                _gameEnded = true;
                 break;
         }
     }

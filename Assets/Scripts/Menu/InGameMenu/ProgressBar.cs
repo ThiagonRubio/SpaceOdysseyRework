@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,6 +36,12 @@ public class ProgressBar : MonoBehaviour, IListener
             {
                 progressSlider.value = progress;
             }
+        }
+        
+        if(invokedEvent == EventConstants.BossDeath)
+        {
+            progress = 0;
+            progressSlider.value = progress;
         }
     }
 }
