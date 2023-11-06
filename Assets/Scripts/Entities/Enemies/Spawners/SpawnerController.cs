@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnerController : MonoBehaviour, IListener
 {
     public SpawnerControllerStats Stats => stats;
-    public int EnemiesLeftUntilBoss => _enemiesLeftUntilBoss;
+    public int EnemiesLeftUntilBoss => _enemiesKilled;
     
     private Vector3 _screenSpace;
     
@@ -20,7 +20,7 @@ public class SpawnerController : MonoBehaviour, IListener
 
     private int _currentDifficulty;
 
-    private int _enemiesLeftUntilBoss;
+    private int _enemiesKilled;
     private bool _isBossSpawned;
 
     private int _enemiesCounter;
@@ -45,7 +45,7 @@ public class SpawnerController : MonoBehaviour, IListener
         
         _creationCooldown = stats.StartingCreationCooldown;
         _creationTime = _creationCooldown;
-        _enemiesLeftUntilBoss = stats.EnemiesBetweenBosses;
+        _enemiesKilled = 0;
 
         _currentDifficulty = stats.StartingDifficulty;
         
@@ -99,7 +99,7 @@ public class SpawnerController : MonoBehaviour, IListener
 
     private void SpawnBoss()
     {
-        if (_enemiesLeftUntilBoss == 0 && !_isBossSpawned)
+        if (_enemiesKilled == Stats.EnemiesBetweenBosses && !_isBossSpawned)
         {
             SetPosition(0);
             int ran = Random.Range(0, bossSpawners.Count);
@@ -125,13 +125,13 @@ public class SpawnerController : MonoBehaviour, IListener
         switch (invokedEvent)
         {
             case EventConstants.EnemyDeath:
-                _enemiesLeftUntilBoss--;
+                _enemiesKilled++;
                 _enemiesCounter++;
                 break;
             case EventConstants.BossDeath:
                 if(_creationCooldown > stats.CreationCooldownDecreasePerBoss) _creationCooldown -= stats.CreationCooldownDecreasePerBoss;
                 _isBossSpawned = false;
-                _enemiesLeftUntilBoss = stats.EnemiesBetweenBosses;
+                _enemiesKilled = 0;
                 break;
         }
     }

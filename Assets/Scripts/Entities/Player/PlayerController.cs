@@ -34,7 +34,7 @@ public class PlayerController : Actor, IMoveable, IAttacker
     //---IATTACKER IMPL----
     private IWeapon[] _weapons;
     private float attackCooldownTimer = 0;
-
+   
     //################ #################
     //----------UNITY EV FUNC-----------
     //################ #################
@@ -140,12 +140,13 @@ public class PlayerController : Actor, IMoveable, IAttacker
         attackCooldownTimer = 0;
         _entityCommandEventQueue.AddCommandToQueue(CmdAttack, CommandEventQueue.UpdateFilter.Normal);
     }
-
+    
     private void ClampMoveToScreen()
     {
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        pos.x = Mathf.Clamp(pos.x, 0.05f, 1);
-        pos.y = Mathf.Clamp(pos.y, 0, 1);
+        
+        pos.x = Mathf.Clamp(pos.x, 0.13f, 0.99f);
+        pos.y = Mathf.Clamp(pos.y, 0.08f, 0.92f);
         transform.position = Camera.main.ViewportToWorldPoint(pos);
     }
 }
