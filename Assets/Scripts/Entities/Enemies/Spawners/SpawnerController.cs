@@ -59,25 +59,22 @@ public class SpawnerController : MonoBehaviour, IListener
         
         if(enemySpawners != null)
             SpawnEnemy();
-
-        /* Crashea - Arreglalo o no lo dejes activo toadagarrandoselacabeza.jpg
         if(obstacleSpawners != null)
             SpawnObstacle();
         if(bossSpawners != null)
             SpawnBoss();
-        */
+        
     }
 
     private void SpawnEnemy()
     {
-        if (_creationTime < 0 && _enemiesLeftUntilBoss != 0 && !_isBossSpawned)
+        if (_creationTime < 0 && !_isBossSpawned)
         {
             if (enemySpawners.Count >= _currentDifficulty)
             {
                 int ran = Random.Range(0, _currentDifficulty);
                 enemySpawners[ran].Spawn();
                 _creationTime = _creationCooldown;
-                _enemiesCounter++;
                 EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemySpawned);
                 RandomlyChangePosition();
             }
@@ -95,8 +92,8 @@ public class SpawnerController : MonoBehaviour, IListener
                 SetPosition(6.5f);
                 int ranB = Random.Range(0, obstacleSpawners.Length);
                 obstacleSpawners[ranB].Spawn();
-                _enemiesCounter = 0;
             }
+            _enemiesCounter = 0;
         }
     }
 
@@ -129,6 +126,7 @@ public class SpawnerController : MonoBehaviour, IListener
         {
             case EventConstants.EnemyDeath:
                 _enemiesLeftUntilBoss--;
+                _enemiesCounter++;
                 break;
             case EventConstants.BossDeath:
                 if(_creationCooldown > stats.CreationCooldownDecreasePerBoss) _creationCooldown -= stats.CreationCooldownDecreasePerBoss;
