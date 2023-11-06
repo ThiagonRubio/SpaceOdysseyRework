@@ -189,8 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a7baf2a42c1fde408025f29789d543d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inGameCanvas: {fileID: 1323685549}
-  GameOverCanvas: {fileID: 498488570}
 --- !u!4 &75342346
 Transform:
   m_ObjectHideFlags: 0
@@ -905,6 +903,7 @@ GameObject:
   - component: {fileID: 498488572}
   - component: {fileID: 498488571}
   - component: {fileID: 498488575}
+  - component: {fileID: 498488576}
   m_Layer: 5
   m_Name: WinLoseScreen
   m_TagString: Untagged
@@ -1011,6 +1010,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &498488576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498488570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e951e80243f172745aa30ac6264ca775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHidden: 1
+  fadeInSpeed: 0.5
+  fadeOutSpeed: 1
 --- !u!1 &501266260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,6 +1854,7 @@ GameObject:
   - component: {fileID: 1323685551}
   - component: {fileID: 1323685550}
   - component: {fileID: 1323685554}
+  - component: {fileID: 1323685555}
   m_Layer: 5
   m_Name: InGameUI
   m_TagString: Untagged
@@ -1944,6 +1959,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1323685555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323685549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e951e80243f172745aa30ac6264ca775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHidden: 0
+  fadeInSpeed: 0.5
+  fadeOutSpeed: 1
 --- !u!1001 &1450893200
 PrefabInstance:
   m_ObjectHideFlags: 0

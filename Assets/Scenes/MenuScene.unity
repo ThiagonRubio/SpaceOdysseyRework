@@ -135,13 +135,15 @@ GameObject:
   - component: {fileID: 52146320}
   - component: {fileID: 52146319}
   - component: {fileID: 52146318}
+  - component: {fileID: 52146322}
+  - component: {fileID: 52146323}
   m_Layer: 5
   m_Name: ModeSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &52146318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +229,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &52146322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52146317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e951e80243f172745aa30ac6264ca775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHidden: 1
+  fadeInSpeed: 0.5
+  fadeOutSpeed: 1
+--- !u!225 &52146323
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52146317}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &236272433
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +290,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -485,8 +514,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 288336472}
-        m_TargetAssemblyTypeName: CanvasManager, Assembly-CSharp
-        m_MethodName: SwitchCanvas
+        m_TargetAssemblyTypeName: ChangeCanvas, Assembly-CSharp
+        m_MethodName: ChangeActiveCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -543,11 +572,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 288336467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e951e80243f172745aa30ac6264ca775, type: 3}
+  m_Script: {fileID: 11500000, guid: 1df00679b0bf6cb48b2e5919fbddb94a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCanvas: {fileID: 2140839838}
-  newCanvas: {fileID: 1402733251}
+  canvas1: {fileID: 2140839843}
+  canvas2: {fileID: 1402733256}
 --- !u!1 &457416393
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +611,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -709,8 +738,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 464274811}
-        m_TargetAssemblyTypeName: CanvasManager, Assembly-CSharp
-        m_MethodName: SwitchCanvas
+        m_TargetAssemblyTypeName: ChangeCanvas, Assembly-CSharp
+        m_MethodName: ChangeActiveCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -767,11 +796,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 464274806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e951e80243f172745aa30ac6264ca775, type: 3}
+  m_Script: {fileID: 11500000, guid: 1df00679b0bf6cb48b2e5919fbddb94a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCanvas: {fileID: 1402733251}
-  newCanvas: {fileID: 1567825357}
+  canvas1: {fileID: 1402733256}
+  canvas2: {fileID: 1567825362}
 --- !u!1 &475045920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,7 +1486,7 @@ GameObject:
   - component: {fileID: 840268949}
   - component: {fileID: 840268948}
   - component: {fileID: 840268947}
-  - component: {fileID: 840268946}
+  - component: {fileID: 840268950}
   m_Layer: 5
   m_Name: BackToMenu
   m_TagString: Untagged
@@ -1485,20 +1514,6 @@ RectTransform:
   m_AnchoredPosition: {x: 192, y: -46}
   m_SizeDelta: {x: 384, y: 92}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &840268946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 840268944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e951e80243f172745aa30ac6264ca775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentCanvas: {fileID: 1567825357}
-  newCanvas: {fileID: 1402733251}
 --- !u!114 &840268947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1543,9 +1558,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 840268946}
-        m_TargetAssemblyTypeName: CanvasManager, Assembly-CSharp
-        m_MethodName: SwitchCanvas
+      - m_Target: {fileID: 840268950}
+        m_TargetAssemblyTypeName: ChangeCanvas, Assembly-CSharp
+        m_MethodName: ChangeActiveCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1593,6 +1608,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840268944}
   m_CullTransparentMesh: 1
+--- !u!114 &840268950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840268944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df00679b0bf6cb48b2e5919fbddb94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas1: {fileID: 1567825362}
+  canvas2: {fileID: 1402733256}
 --- !u!1 &947559126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1852,7 +1881,7 @@ GameObject:
   - component: {fileID: 1127578389}
   - component: {fileID: 1127578388}
   - component: {fileID: 1127578387}
-  - component: {fileID: 1127578386}
+  - component: {fileID: 1127578390}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -1880,20 +1909,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -360}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1127578386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127578384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e951e80243f172745aa30ac6264ca775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentCanvas: {fileID: 52146317}
-  newCanvas: {fileID: 1402733251}
 --- !u!114 &1127578387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1938,9 +1953,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1127578386}
-        m_TargetAssemblyTypeName: CanvasManager, Assembly-CSharp
-        m_MethodName: SwitchCanvas
+      - m_Target: {fileID: 1127578390}
+        m_TargetAssemblyTypeName: ChangeCanvas, Assembly-CSharp
+        m_MethodName: ChangeActiveCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1988,6 +2003,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127578384}
   m_CullTransparentMesh: 1
+--- !u!114 &1127578390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127578384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df00679b0bf6cb48b2e5919fbddb94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas1: {fileID: 52146322}
+  canvas2: {fileID: 1402733256}
 --- !u!1 &1181501204
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,7 +2323,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2674,6 +2703,8 @@ GameObject:
   - component: {fileID: 1402733254}
   - component: {fileID: 1402733253}
   - component: {fileID: 1402733252}
+  - component: {fileID: 1402733256}
+  - component: {fileID: 1402733257}
   m_Layer: 5
   m_Name: StartMenu
   m_TagString: Untagged
@@ -2767,6 +2798,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1402733256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402733251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e951e80243f172745aa30ac6264ca775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHidden: 0
+  fadeInSpeed: 0.5
+  fadeOutSpeed: 1
+--- !u!225 &1402733257
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402733251}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1437081862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,8 +2910,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1437081867}
-        m_TargetAssemblyTypeName: CanvasManager, Assembly-CSharp
-        m_MethodName: SwitchCanvas
+        m_TargetAssemblyTypeName: ChangeCanvas, Assembly-CSharp
+        m_MethodName: ChangeActiveCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2910,11 +2968,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1437081862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e951e80243f172745aa30ac6264ca775, type: 3}
+  m_Script: {fileID: 11500000, guid: 1df00679b0bf6cb48b2e5919fbddb94a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCanvas: {fileID: 1402733251}
-  newCanvas: {fileID: 2140839838}
+  canvas1: {fileID: 1402733256}
+  canvas2: {fileID: 2140839843}
 --- !u!1 &1567825357
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,13 +2985,15 @@ GameObject:
   - component: {fileID: 1567825360}
   - component: {fileID: 1567825359}
   - component: {fileID: 1567825358}
+  - component: {fileID: 1567825362}
+  - component: {fileID: 1567825363}
   m_Layer: 5
   m_Name: UpgradeMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1567825358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3017,6 +3077,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1567825362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567825357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e951e80243f172745aa30ac6264ca775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHidden: 1
+  fadeInSpeed: 0.5
+  fadeOutSpeed: 1
+--- !u!225 &1567825363
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567825357}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1656134343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,7 +3572,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3612,8 +3699,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2098999741}
-        m_TargetAssemblyTypeName: CanvasManager, Assembly-CSharp
-        m_MethodName: SwitchCanvas
+        m_TargetAssemblyTypeName: ChangeCanvas, Assembly-CSharp
+        m_MethodName: ChangeActiveCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3670,11 +3757,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2098999736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e951e80243f172745aa30ac6264ca775, type: 3}
+  m_Script: {fileID: 11500000, guid: 1df00679b0bf6cb48b2e5919fbddb94a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCanvas: {fileID: 1402733251}
-  newCanvas: {fileID: 52146317}
+  canvas1: {fileID: 1402733256}
+  canvas2: {fileID: 52146322}
 --- !u!1 &2133058019
 GameObject:
   m_ObjectHideFlags: 0
@@ -3724,13 +3811,15 @@ GameObject:
   - component: {fileID: 2140839841}
   - component: {fileID: 2140839840}
   - component: {fileID: 2140839839}
+  - component: {fileID: 2140839843}
+  - component: {fileID: 2140839844}
   m_Layer: 5
   m_Name: OptionsMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2140839839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3817,3 +3906,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2140839843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140839838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e951e80243f172745aa30ac6264ca775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHidden: 1
+  fadeInSpeed: 0.5
+  fadeOutSpeed: 1
+--- !u!225 &2140839844
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140839838}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

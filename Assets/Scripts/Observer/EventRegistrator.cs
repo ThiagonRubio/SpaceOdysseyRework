@@ -19,6 +19,9 @@ public class EventRegistrator : MonoBehaviour
         
         EventManager.Instance.RegisterEvent(EventConstants.EnemySpawned);
         
+        EventManager.Instance.RegisterEvent(EventConstants.Won);
+        EventManager.Instance.RegisterEvent(EventConstants.Lost);
+        
         Destroy(gameObject);
     }
 }

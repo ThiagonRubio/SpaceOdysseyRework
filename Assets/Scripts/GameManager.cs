@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour, IListener
 {
-    public GameObject inGameCanvas;
-    public GameObject GameOverCanvas;
+    //[SerializeField] private GameObject inGameCanvas;
+    //[SerializeField] private GameObject GameOverCanvas;
 
     public void Start()
     {
@@ -17,8 +17,11 @@ public class GameManager : MonoBehaviour, IListener
     {
         if (invokedEvent == EventConstants.PlayerDeath)
         {
-            GameOverCanvas.SetActive(true);
-            inGameCanvas.SetActive(false);
+            EventManager.Instance.DispatchSimpleEvent(EventConstants.Lost);
+        }
+        if (invokedEvent == EventConstants.BossDeath)
+        {
+            EventManager.Instance.DispatchSimpleEvent(EventConstants.Won);
         }
     }
 }
