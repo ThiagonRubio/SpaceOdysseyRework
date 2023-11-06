@@ -66,6 +66,7 @@ public class PurpleShip : Enemy, IMoveable, IAttacker
         if (other.gameObject.CompareTag("Player") && other.gameObject.TryGetComponent<IDamageable>(out IDamageable damagedPlayer)) 
         {
             damagedPlayer.TakeDamage(crashDamage);
+            EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);
             Die();
         }
     }
@@ -113,15 +114,15 @@ public class PurpleShip : Enemy, IMoveable, IAttacker
     public override void TakeDamage(float damageAmount)
     {
         _actualHealth -= damageAmount;
-        if(_actualHealth <= 0)
+        if (_actualHealth <= 0)
+        {
+            EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);
             Die();
+        }
     }
 
-    public override void Die()
-    {
-        EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);
-        OnPoolableObjectDisable();
-    }
+    public override void Die() => OnPoolableObjectDisable();
+    
 
     public override void Revive()
     {

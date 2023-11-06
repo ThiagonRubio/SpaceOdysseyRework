@@ -17,6 +17,8 @@ public class EventRegistrator : MonoBehaviour
         EventManager.Instance.RegisterEvent(EventConstants.DoubleTapEffect);
         EventManager.Instance.RegisterEvent(EventConstants.TripleShotEffect);
         
+        EventManager.Instance.RegisterEvent(EventConstants.EnemySpawned);
+        
         Destroy(gameObject);
     }
 }

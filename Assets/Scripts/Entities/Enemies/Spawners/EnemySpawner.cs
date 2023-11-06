@@ -11,6 +11,8 @@ public class EnemySpawner : MonoBehaviour, IPoolOwner
 
     public AbstractFactory<IPoolable> CreatorFactory => enemyFactory;
 
+    public Enemy EnemyTypeToCreate => enemyTypeToCreate;
+    
     //------PRIVATE PROPERTIES-------
     [SerializeField] private Enemy enemyTypeToCreate;
     [SerializeField] private int maxPoolSize = 1;

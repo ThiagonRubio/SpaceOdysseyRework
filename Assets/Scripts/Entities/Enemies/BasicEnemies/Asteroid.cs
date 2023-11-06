@@ -96,14 +96,13 @@ public class Asteroid : Enemy, IRotable, IMoveable
         Debug.Log("Me pegaron lpm, me queda " + _actualHealth + " hp. Saludos.");
 
         if (_actualHealth <= 0)
+        {
+            EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);
             Die();
+        }
     }
 
-    public override void Die()
-    {
-        EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);
-        OnPoolableObjectDisable();
-    }
+    public override void Die() => OnPoolableObjectDisable();
 
     public override void Revive()
     {

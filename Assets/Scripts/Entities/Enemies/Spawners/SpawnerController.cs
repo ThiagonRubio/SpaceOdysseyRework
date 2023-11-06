@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class SpawnerController : MonoBehaviour, IListener
 {
+    public SpawnerControllerStats Stats => stats;
+    public int EnemiesLeftUntilBoss => _enemiesLeftUntilBoss;
+    
     private Vector3 _screenSpace;
     
-    [SerializeField] private EnemySpawner[] enemySpawners;
+    [SerializeField] private List<EnemySpawner> enemySpawners;
     [SerializeField] private ObstacleSpawner[] obstacleSpawners;
-    [SerializeField] private EnemySpawner[] bossSpawners;
+    [SerializeField] private List<EnemySpawner> bossSpawners;
 
     [SerializeField] private SpawnerControllerStats stats;
     
@@ -25,7 +28,19 @@ public class SpawnerController : MonoBehaviour, IListener
     void Start()
     {
         _screenSpace = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        enemySpawners = GetComponentsInChildren<EnemySpawner>();
+        EnemySpawner[] spawnersNoFilter= GetComponentsInChildren<EnemySpawner>();
+        for (int i = 0; i < spawnersNoFilter.Length; i++)
+        {
+            if (spawnersNoFilter[i].EnemyTypeToCreate is not Boss)
+            {
+                enemySpawners.Add(spawnersNoFilter[i]);
+            }
+
+            if (spawnersNoFilter[i].EnemyTypeToCreate is Boss)
+            {
+                bossSpawners.Add(spawnersNoFilter[i]);
+            }
+        }
         obstacleSpawners = GetComponentsInChildren<ObstacleSpawner>();
         
         _creationCooldown = stats.StartingCreationCooldown;
@@ -46,20 +61,21 @@ public class SpawnerController : MonoBehaviour, IListener
             SpawnEnemy();
         if(obstacleSpawners != null)
             SpawnObstacle();
-        //if(bossSpawners != null)
-            //SpawnBoss();
+        if(bossSpawners != null)
+            SpawnBoss();
     }
 
     private void SpawnEnemy()
     {
         if (_creationTime < 0 && _enemiesLeftUntilBoss != 0 && !_isBossSpawned)
         {
-            if (enemySpawners.Length >= _currentDifficulty)
+            if (enemySpawners.Count >= _currentDifficulty)
             {
                 int ran = Random.Range(0, _currentDifficulty);
                 enemySpawners[ran].Spawn();
                 _creationTime = _creationCooldown;
                 _enemiesCounter++;
+                EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemySpawned);
                 RandomlyChangePosition();
             }
         }
@@ -69,7 +85,7 @@ public class SpawnerController : MonoBehaviour, IListener
     {
         if (_enemiesCounter >= stats.EnemiesUntilObstacles)
         {
-            if(_currentDifficulty < enemySpawners.Length) _currentDifficulty++;
+            if(_currentDifficulty < enemySpawners.Count) _currentDifficulty++;
             int ranA = Random.Range(0, 100);
             if (ranA <= stats.ObstacleChancePercentage)
             {
@@ -86,7 +102,7 @@ public class SpawnerController : MonoBehaviour, IListener
         if (_enemiesLeftUntilBoss == 0 && !_isBossSpawned)
         {
             SetPosition(0);
-            int ran = Random.Range(0, bossSpawners.Length);
+            int ran = Random.Range(0, bossSpawners.Count);
             bossSpawners[ran].Spawn();
             _creationCooldown -= stats.CreationCooldownDecreasePerBoss;
             _isBossSpawned = true;
