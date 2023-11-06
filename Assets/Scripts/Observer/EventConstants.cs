@@ -1,6 +1,7 @@
 ﻿public class EventConstants
 {
     public const string PlayerDeath = "playerDeath";
+    public const string PlayerWin = "playerWin";
     public const string EnemyDeath = "enemyDeath";
     public const string BossDeath = "bossDeath";
 
@@ -10,4 +11,6 @@
     public const string TripleShotEffect = "tripleShotEffect";
 
     public const string EnemySpawned = "enemySpawned";
+
+
 }
