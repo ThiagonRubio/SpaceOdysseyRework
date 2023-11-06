@@ -56,6 +56,8 @@ public class PlayerController : Actor, IMoveable, IAttacker
 
         ListenForMoveInput();
         ListenForShootInput();
+
+        ClampMoveToScreen();
     }
 
     private void OnEnable()
@@ -137,5 +139,13 @@ public class PlayerController : Actor, IMoveable, IAttacker
     {
         attackCooldownTimer = 0;
         _entityCommandEventQueue.AddCommandToQueue(CmdAttack, CommandEventQueue.UpdateFilter.Normal);
+    }
+
+    private void ClampMoveToScreen()
+    {
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+        pos.x = Mathf.Clamp(pos.x, 0.05f, 1);
+        pos.y = Mathf.Clamp(pos.y, 0, 1);
+        transform.position = Camera.main.ViewportToWorldPoint(pos);
     }
 }

@@ -59,10 +59,13 @@ public class SpawnerController : MonoBehaviour, IListener
         
         if(enemySpawners != null)
             SpawnEnemy();
+
+        /* Crashea - Arreglalo o no lo dejes activo toadagarrandoselacabeza.jpg
         if(obstacleSpawners != null)
             SpawnObstacle();
         if(bossSpawners != null)
             SpawnBoss();
+        */
     }
 
     private void SpawnEnemy()
