@@ -10,10 +10,10 @@ public class PowerUpDropper : MonoBehaviour, IListener //Lo deberían tener los 
 
     [SerializeField] private int dropChancePercentage;
 
-    private void Start()
-    {
-        EventManager.Instance.AddListener(EventConstants.EnemyDeath,this);
-    }
+    // private void Start()
+    // {
+    //     EventManager.Instance.AddListener(EventConstants.EnemyDeath,this);
+    // }
 
     public void OnEventDispatch(string invokedEvent)
     {
