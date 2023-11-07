@@ -7,6 +7,7 @@ public class CmdMove : ICommand
     private Rigidbody2D entityRb;
     private Vector2 moveDirection;
     private float moveSpeed;
+    private float savedDeltaT;
 
     public enum MoveType
     {
@@ -16,12 +17,13 @@ public class CmdMove : ICommand
     private MoveType moveType;
 
     //----CONSTRUCTOR----
-    public CmdMove(Rigidbody2D entityRb, Vector2 moveDirection, float moveSpeed, MoveType moveType)
+    public CmdMove(Rigidbody2D entityRb, Vector2 moveDirection, float moveSpeed, MoveType moveType, float savedDeltaT)
     {
         this.entityRb = entityRb;
         this.moveDirection = moveDirection;
         this.moveSpeed = moveSpeed;
         this.moveType = moveType;
+        this.savedDeltaT = savedDeltaT;
     }
 
     //----ICOMMAND IMP.----
@@ -29,11 +31,11 @@ public class CmdMove : ICommand
     {
         if (moveType == MoveType.AddForce)
         {
-            entityRb.AddForce(moveDirection * moveSpeed * Time.deltaTime);
+            entityRb.AddForce(moveDirection * moveSpeed * savedDeltaT);
         }
         else if (moveType == MoveType.Translate)
         {
-            entityRb.transform.position += (Vector3)moveDirection * moveSpeed * Time.deltaTime;
+            entityRb.transform.position += (Vector3)moveDirection * moveSpeed * savedDeltaT;
         }
     }
 }

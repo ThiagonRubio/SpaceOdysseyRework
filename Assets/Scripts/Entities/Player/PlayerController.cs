@@ -84,10 +84,10 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     {
         _entityCommandEventQueue = GetComponent<CommandEventQueue>();
 
-        _cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed, CmdMove.MoveType.AddForce);
-        _cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed, CmdMove.MoveType.AddForce);
-        _cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed, CmdMove.MoveType.AddForce);
-        _cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed, CmdMove.MoveType.AddForce);
+        _cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
+        _cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
+        _cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
+        _cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
 
         _cmdAttack = new CmdAttack(Weapon);
     }
@@ -123,19 +123,23 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
         {
             if (directionValue.x < 0)
             {
-                EntityCommandEventQueue.AddCommandToQueue(CmdMoveLeft, CommandEventQueue.UpdateFilter.Fixed);
+                _cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
+                EntityCommandEventQueue.AddCommandToQueue(_cmdMoveLeft, CommandEventQueue.UpdateFilter.Fixed);
             }
             if (directionValue.x > 0)
             {
-                EntityCommandEventQueue.AddCommandToQueue(CmdMoveRight, CommandEventQueue.UpdateFilter.Fixed);
+                _cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
+                EntityCommandEventQueue.AddCommandToQueue(_cmdMoveRight,CommandEventQueue.UpdateFilter.Fixed);
             }
             if (directionValue.y > 0)
             {
-                EntityCommandEventQueue.AddCommandToQueue(CmdMoveUp, CommandEventQueue.UpdateFilter.Fixed);
+                _cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
+                EntityCommandEventQueue.AddCommandToQueue(_cmdMoveUp, CommandEventQueue.UpdateFilter.Fixed);
             }
             if (directionValue.y < 0)
             {
-                EntityCommandEventQueue.AddCommandToQueue(CmdMoveDown, CommandEventQueue.UpdateFilter.Fixed);
+                _cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
+                EntityCommandEventQueue.AddCommandToQueue(_cmdMoveDown, CommandEventQueue.UpdateFilter.Fixed);
             }
         }
     }

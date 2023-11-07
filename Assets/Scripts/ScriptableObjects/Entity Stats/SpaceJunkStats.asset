@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SpaceJunkStats
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 0
-  <MovementSpeed>k__BackingField: 0.075
+  <MovementSpeed>k__BackingField: 0.75
