@@ -67,6 +67,7 @@ public class PurpleShip : Enemy, IMoveable, IAttacker
         {
             damagedPlayer.TakeDamage(crashDamage);
             EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);
+            ActionsManager.InvokeAction(EventConstants.EnemyDeath, this.transform);
             Die();
         }
     }
@@ -123,6 +124,7 @@ public class PurpleShip : Enemy, IMoveable, IAttacker
         if (_actualHealth <= 0)
         {
             EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);
+            ActionsManager.InvokeAction(EventConstants.EnemyDeath, this.transform);
             Die();
         }
     }

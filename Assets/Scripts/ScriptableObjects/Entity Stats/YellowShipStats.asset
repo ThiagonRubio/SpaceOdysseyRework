@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: YellowShipStats
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 3
-  <MovementSpeed>k__BackingField: 1.15
+  <MovementSpeed>k__BackingField: 3

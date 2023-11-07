@@ -61,6 +61,7 @@ public class YellowShip : Enemy, IMoveable, IAttacker
         {
             damagedPlayer.TakeDamage(crashDamage);
             EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);
+            ActionsManager.InvokeAction(EventConstants.EnemyDeath, this.transform);
             Die();
         }
     }
@@ -124,6 +125,7 @@ public class YellowShip : Enemy, IMoveable, IAttacker
         if (_actualHealth <= 0)
         {
             EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);
+            ActionsManager.InvokeAction(EventConstants.EnemyDeath, this.transform);
             Die();
         }
     }

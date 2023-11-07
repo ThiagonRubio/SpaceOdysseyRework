@@ -98,6 +98,7 @@ public class Asteroid : Enemy, IRotable, IMoveable
         if (_actualHealth <= 0)
         {
             EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);
+            ActionsManager.InvokeAction(EventConstants.EnemyDeath, this.transform);
             Die();
         }
     }

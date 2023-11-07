@@ -4,27 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PowerUpDropper : MonoBehaviour, IListener //Lo deberían tener los enemy
+public class PowerUpDropper : MonoBehaviour
 {
     [SerializeField] private GameObject[] powerUps;
 
     [SerializeField] private int dropChancePercentage;
 
-    // private void Start()
-    // {
-    //     EventManager.Instance.AddListener(EventConstants.EnemyDeath,this);
-    // }
-
-    public void OnEventDispatch(string invokedEvent)
+    private void Start()
     {
-        if (invokedEvent == EventConstants.EnemyDeath)
+        ActionsManager.SubscribeToAction(EventConstants.EnemyDeath, DropPowerUp);
+    }
+
+    public void DropPowerUp(Transform transformReceived)
+    {  
+        int ranA = Random.Range(0, 100);
+        if (ranA <= dropChancePercentage)
         {
-            int ranA = Random.Range(0, 100);
-            if (ranA <= dropChancePercentage)
-            {
-                int ranB = Random.Range(0, powerUps.Length);
-                Instantiate(powerUps[ranB], transform.position, Quaternion.identity);
-            }
+            int ranB = Random.Range(0, powerUps.Length);
+            Instantiate(powerUps[ranB], transformReceived.position, Quaternion.identity);
         }
     }
 }
