@@ -99,8 +99,11 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     //-----INPUTS--------
     private void ListenForMoveInput()
     {
+        entityAnim.SetBool(AnimationConstants.PlayerMoving, true);
         if (_playerInputActions.Normal.Move.IsPressed())
             Move();
+        else
+            entityAnim.SetBool(AnimationConstants.PlayerMoving, false);
     }
     private void ListenForShootInput()
     {

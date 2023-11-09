@@ -28,6 +28,11 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
     {
         actualHealth -= damageAmount;
 
+        entityAnim.SetTrigger(AnimationConstants.TookDamage);
+        
+        if(actualHealth == 1)
+            entityAnim.SetBool(AnimationConstants.Player1Hp, true);
+        
         if (actualHealth <= 0)
             Die();
     }
@@ -49,6 +54,8 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
         if (invokedEvent == EventConstants.ShieldEffect)
         {
             actualHealth++;
+            if(actualHealth != 1)
+                entityAnim.SetBool(AnimationConstants.Player1Hp, false);
             if (actualHealth > 10) //Tope definido en el juego original
             {
                 actualHealth = 10;
