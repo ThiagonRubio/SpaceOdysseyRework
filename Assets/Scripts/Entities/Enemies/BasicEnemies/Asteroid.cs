@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
@@ -103,7 +104,12 @@ public class Asteroid : Enemy, IRotable, IMoveable
         }
     }
 
-    public override void Die() => OnPoolableObjectDisable();
+    public override void Die()
+    {
+        Instantiate(ActorStats.Explosion, transform.position, Quaternion.identity);
+        OnPoolableObjectDisable();
+    }
+        
 
     public override void Revive()
     {

@@ -98,7 +98,11 @@ public class RedShip : Enemy, IMoveable, IAttacker
         }
     }
 
-    public override void Die() => OnPoolableObjectDisable();
+    public override void Die()
+    {
+        Instantiate(ActorStats.Explosion, transform.position, Quaternion.identity);
+        OnPoolableObjectDisable();
+    }
 
     public override void Revive()
     {
