@@ -94,7 +94,7 @@ public class Asteroid : Enemy, IRotable, IMoveable
     public override void TakeDamage(float damageAmount)
     {
         _actualHealth -= damageAmount;
-        Debug.Log("Me pegaron lpm, me queda " + _actualHealth + " hp. Saludos.");
+        entityAnim.SetTrigger(AnimationConstants.TookDamage);
 
         if (_actualHealth <= 0)
         {

@@ -121,6 +121,7 @@ public class PurpleShip : Enemy, IMoveable, IAttacker
     public override void TakeDamage(float damageAmount)
     {
         _actualHealth -= damageAmount;
+        entityAnim.SetTrigger(AnimationConstants.TookDamage);
         if (_actualHealth <= 0)
         {
             EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);
