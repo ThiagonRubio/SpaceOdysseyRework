@@ -10,10 +10,14 @@ public class ObstacleSpawner : MonoBehaviour, IPoolOwner
     public AbstractFactory<IPoolable> CreatorFactory => _obstacleFactory;
 
     public Obstacle ObstacleToCreate => obstacleToCreate;
+
+    public float SpawnYPosition => spawnYPosition;
     
     [SerializeField] private Obstacle obstacleToCreate;
     [SerializeField] private int maxPoolSize = 1;
 
+    [SerializeField] private float spawnYPosition;
+    
     private ObjectPool _obstaclePool;
     private ObstacleFactory _obstacleFactory;
 

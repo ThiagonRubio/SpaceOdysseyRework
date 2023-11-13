@@ -54,11 +54,13 @@ public class PlayersLightsControl : MonoBehaviour, IListener
     {
         if (invokedEvent == EventConstants.NebulaActivation)
         {
+            Debug.Log("Recibo activation");
             _nebulaIsActivated = true;
         }
         
         if (invokedEvent == EventConstants.NebulaDeactivation)
         {
+            Debug.Log("Recibo deactivation");
             _nebulaIsActivated = false;
         }
     }

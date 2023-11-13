@@ -94,8 +94,8 @@ public class SpawnerController : MonoBehaviour, IListener
             int ranA = Random.Range(0, 100);
             if (ranA <= stats.ObstacleChancePercentage)
             {
-                SetPosition(6.5f);
                 int ranB = Random.Range(0, obstacleSpawners.Length);
+                SetPosition(obstacleSpawners[ranB].SpawnYPosition);
                 obstacleSpawners[ranB].Spawn();
             }
             _enemiesCounter = 0;
