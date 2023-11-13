@@ -21,6 +21,7 @@ public class ExplosionMovement : Actor, IMoveable
 
     private void Start()
     {
+        SoundManager.Instance.ReproduceSound(AudioConstants.Explosion, 1);
         InitializeCommands();
     }
 

@@ -95,7 +95,8 @@ public class Asteroid : Enemy, IRotable, IMoveable
     {
         _actualHealth -= damageAmount;
         entityAnim.SetTrigger(AnimationConstants.TookDamage);
-
+        SoundManager.Instance.ReproduceSound(AudioConstants.TookDamage, 1);
+        
         if (_actualHealth <= 0)
         {
             EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);

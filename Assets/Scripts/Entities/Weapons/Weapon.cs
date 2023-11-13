@@ -30,5 +30,7 @@ public class Weapon : MonoBehaviour, IWeapon
     {
         IProjectile newProjectile = _projectileFactory.CreateObject(this);
         newProjectile.SetOwner(this);
+        
+        SoundManager.Instance.ReproduceSound(AudioConstants.ProyectileShot, 1);
     }
 }

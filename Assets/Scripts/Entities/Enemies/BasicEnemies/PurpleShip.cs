@@ -122,6 +122,8 @@ public class PurpleShip : Enemy, IMoveable, IAttacker
     {
         _actualHealth -= damageAmount;
         entityAnim.SetTrigger(AnimationConstants.TookDamage);
+        SoundManager.Instance.ReproduceSound(AudioConstants.TookDamage, 1);
+        
         if (_actualHealth <= 0)
         {
             EventManager.Instance.DispatchSimpleEvent(EventConstants.EnemyDeath);

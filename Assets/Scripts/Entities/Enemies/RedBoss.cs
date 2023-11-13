@@ -80,6 +80,8 @@ public class RedBoss : Boss, IMoveable, IAttacker
     public override void TakeDamage(float damageAmount)
     {
         _actualHealth -= damageAmount;
+        SoundManager.Instance.ReproduceSound(AudioConstants.TookDamage, 1);
+        
         if(_actualHealth <= 0)
             Die();
     }
@@ -87,6 +89,7 @@ public class RedBoss : Boss, IMoveable, IAttacker
     public override void Die()
     {
         EventManager.Instance.DispatchSimpleEvent(EventConstants.BossDeath);
+        Instantiate(ActorStats.Explosion, transform.position, Quaternion.identity);
         OnPoolableObjectDisable();
     }
 

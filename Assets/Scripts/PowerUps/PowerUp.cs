@@ -43,8 +43,9 @@ public class PowerUp : Actor, IPowerUp
     
     public void OnCollisionEnter2D(Collision2D other)
     {
-            Effect();
-            Destroy(gameObject); //También podría ser pooleable
+        SoundManager.Instance.ReproduceSound(AudioConstants.PowerUpPicked, 1);
+        Effect();
+        Destroy(gameObject); //También podría ser pooleable
     }
 
     public void OnBecameInvisible()

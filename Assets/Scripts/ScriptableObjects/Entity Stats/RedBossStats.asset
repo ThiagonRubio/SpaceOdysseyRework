@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 30
   <MovementSpeed>k__BackingField: 1
-  <Explosion>k__BackingField: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
+  <Explosion>k__BackingField: {fileID: 139366, guid: b2b85ecadd06af94e9f3a7d766269871, type: 3}
