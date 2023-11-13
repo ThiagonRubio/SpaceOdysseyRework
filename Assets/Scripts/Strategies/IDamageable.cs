@@ -4,5 +4,4 @@ public interface IDamageable
     float ActualHealth { get; }
     void TakeDamage(float damageAmount);
     void Die();
-    void Revive();
 }

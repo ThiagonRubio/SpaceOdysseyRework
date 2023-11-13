@@ -13,9 +13,4 @@ public class Boss : Enemy
     {
         throw new System.NotImplementedException();
     }
-
-    public override void Revive()
-    {
-        throw new System.NotImplementedException();
-    }
 }

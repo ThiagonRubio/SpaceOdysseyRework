@@ -110,11 +110,4 @@ public class Asteroid : Enemy, IRotable, IMoveable
         Instantiate(ActorStats.Explosion, transform.position, Quaternion.identity);
         OnPoolableObjectDisable();
     }
-        
-
-    public override void Revive()
-    {
-        throw new NotImplementedException();
-    }
-
 }

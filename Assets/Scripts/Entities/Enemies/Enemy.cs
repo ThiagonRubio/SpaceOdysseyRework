@@ -23,8 +23,6 @@ public abstract class Enemy : Actor, IDamageable, IPoolable, IListener
     public abstract void TakeDamage(float damageAmount);
 
     public abstract void Die();
-
-    public abstract void Revive();
     
     public void OnPoolableObjectDisable()
     {

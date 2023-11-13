@@ -45,11 +45,6 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
         Instantiate(ActorStats.Explosion, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
     }
-
-    public void Revive()
-    {
-        throw new System.NotImplementedException();
-    }
     
     public void OnEventDispatch(string invokedEvent)
     {

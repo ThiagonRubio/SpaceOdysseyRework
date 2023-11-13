@@ -92,9 +92,4 @@ public class RedBoss : Boss, IMoveable, IAttacker
         Instantiate(ActorStats.Explosion, transform.position, Quaternion.identity);
         OnPoolableObjectDisable();
     }
-
-    public override void Revive()
-    {
-        throw new System.NotImplementedException();
-    }
 }

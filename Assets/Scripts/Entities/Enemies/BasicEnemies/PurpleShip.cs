@@ -137,10 +137,4 @@ public class PurpleShip : Enemy, IMoveable, IAttacker
         Instantiate(ActorStats.Explosion, transform.position, Quaternion.identity);
         OnPoolableObjectDisable();
     }
-    
-
-    public override void Revive()
-    {
-        throw new System.NotImplementedException();
-    }
 }
