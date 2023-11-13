@@ -9,6 +9,7 @@ public class EventRegistrator : MonoBehaviour
     private void Awake()
     {
         EventManager.Instance.RegisterEvent(EventConstants.PlayerDeath);
+        EventManager.Instance.RegisterEvent(EventConstants.EnemySpawned);
         EventManager.Instance.RegisterEvent(EventConstants.EnemyDeath);
         EventManager.Instance.RegisterEvent(EventConstants.BossDeath);
         
@@ -17,7 +18,8 @@ public class EventRegistrator : MonoBehaviour
         EventManager.Instance.RegisterEvent(EventConstants.DoubleTapEffect);
         EventManager.Instance.RegisterEvent(EventConstants.TripleShotEffect);
         
-        EventManager.Instance.RegisterEvent(EventConstants.EnemySpawned);
+        EventManager.Instance.RegisterEvent(EventConstants.NebulaActivation);
+        EventManager.Instance.RegisterEvent(EventConstants.NebulaDeactivation);
         
         EventManager.Instance.RegisterEvent(EventConstants.Won);
         EventManager.Instance.RegisterEvent(EventConstants.Lost);
