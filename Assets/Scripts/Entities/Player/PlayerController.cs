@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 [RequireComponent(typeof(CommandEventQueue))]
 public class PlayerController : Actor, IMoveable, IAttacker, IListener
@@ -22,6 +23,7 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
     //----PRIVATE VARS----
     private PlayerInputActions _playerInputActions;
+    private PlayerUpgradeableStats _playerUpgradeableStats;
 
     private CommandEventQueue _entityCommandEventQueue;
     private CmdMove _cmdMoveLeft;
@@ -35,6 +37,9 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     private IWeapon[] _weapons;
     private float attackCooldownTimer = 0;
 
+    private float skillCooldownTimer = 0;
+    private bool isSkillActive = false;
+
     private bool gameEnded;
     
     //################ #################
@@ -45,6 +50,7 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     {
         base.Awake();
         _playerInputActions = new PlayerInputActions();
+        _playerUpgradeableStats = GetComponent<PlayerUpgradeableStats>();
         EventManager.Instance.AddListener(EventConstants.Won,this);
     }
 
@@ -61,6 +67,14 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
             ListenForMoveInput();
             ListenForShootInput();
+
+            if (isSkillActive)
+            {
+                skillCooldownTimer += Time.deltaTime;
+                ListenForSkillCooldownDeactivation();
+            }
+            else
+                ListenForSkillActivateInput();
         }
 
         ClampMoveToScreen();
@@ -116,6 +130,22 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
         }
     }
 
+    private void ListenForSkillActivateInput()
+    {
+        if (_playerInputActions.Normal.Skill.WasPressedThisFrame() && isSkillActive == false)
+        {
+            ActivateSkill(true);
+        }
+    }
+    private void ListenForSkillCooldownDeactivation()
+    {
+        if (skillCooldownTimer >= _playerUpgradeableStats.SkillDuration)
+        {
+            skillCooldownTimer = 0;
+            ActivateSkill(false);
+        }
+    }
+
     //---ACTION INTERFACES IMPL---------
     //----COMMAND EXECUTION-----
     public void Move()
@@ -154,14 +184,6 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
         _entityCommandEventQueue.AddCommandToQueue(CmdAttack, CommandEventQueue.UpdateFilter.Normal);
     }
     
-    private void ClampMoveToScreen()
-    {
-        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        
-        pos.x = Mathf.Clamp(pos.x, 0.13f, 0.99f);
-        pos.y = Mathf.Clamp(pos.y, 0.08f, 0.92f);
-        transform.position = Camera.main.ViewportToWorldPoint(pos);
-    }
 
     public void OnEventDispatch(string invokedEvent)
     {
@@ -169,5 +191,21 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
         {
             gameEnded = true;
         } 
+    }
+
+    private void ActivateSkill(bool isActivated)
+    {
+        isSkillActive = isActivated;
+        entityAnim.SetBool(AnimationConstants.PlayerSkillActivation, isActivated);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Player"), isActivated);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyProjectile"), LayerMask.NameToLayer("Player"), isActivated);
+    }
+    private void ClampMoveToScreen()
+    {
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+
+        pos.x = Mathf.Clamp(pos.x, 0.13f, 0.99f);
+        pos.y = Mathf.Clamp(pos.y, 0.08f, 0.92f);
+        transform.position = Camera.main.ViewportToWorldPoint(pos);
     }
 }

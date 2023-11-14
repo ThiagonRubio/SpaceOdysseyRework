@@ -2642,6 +2642,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1862665946654709240, guid: 5c65918627436f440ac752766c6d629f, type: 3}
+      propertyPath: skillDuration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2993427675522167980, guid: 5c65918627436f440ac752766c6d629f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2671,10 +2675,6 @@ PrefabInstance:
       value: -0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 2993427675522167982, guid: 5c65918627436f440ac752766c6d629f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2993427675522167982, guid: 5c65918627436f440ac752766c6d629f, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
@@ -2702,7 +2702,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1862665946654709240, guid: 5c65918627436f440ac752766c6d629f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5c65918627436f440ac752766c6d629f, type: 3}
 --- !u!1 &1947104289
 GameObject:
