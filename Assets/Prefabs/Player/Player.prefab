@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 2993427674389498575}
   m_Layer: 3
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -324,7 +324,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1077396fb64ba44418c7957a0a0f8794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillDuration: 5
+  upgradedMaxHealth: 10
+  upgradedAttack: 1
+  upgradedSpeed: 250
+  upgradedSkillDuration: 5
+  upgradedSkillCooldown: 10
+  upgradedBulletFireRate: 0.5
+  upgradedDoubleTapDuration: 0
+  upgradedTripleShotDuration: 0
+  upgradedCoinMultiplier: 0
+  upgradedExplosionSprite: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
+  upgradedPlayerProjectile: {fileID: 7080718164150825358, guid: 4235374b23e7d5c488e294187d7b6844, type: 3}
 --- !u!114 &2993427675522167983
 MonoBehaviour:
   m_ObjectHideFlags: 0

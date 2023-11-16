@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: RedShipStats
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 3
+  <Attack>k__BackingField: 1
   <MovementSpeed>k__BackingField: 2
   <Explosion>k__BackingField: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}

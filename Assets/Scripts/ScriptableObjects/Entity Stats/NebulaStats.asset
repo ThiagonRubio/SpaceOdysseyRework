@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: NebulaStats
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 0
+  <Attack>k__BackingField: 1
   <MovementSpeed>k__BackingField: 1
   <Explosion>k__BackingField: {fileID: 0}

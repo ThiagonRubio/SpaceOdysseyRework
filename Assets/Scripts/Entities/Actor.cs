@@ -25,6 +25,12 @@ public abstract class Actor : MonoBehaviour
     {
         entityAnim = GetComponent<Animator>();
         entityRb = GetComponent<Rigidbody2D>();
+
+        if (gameObject.CompareTag("Player"))
+        {
+            PlayerSavedStats playerSavedStats = GetComponent<PlayerSavedStats>();
+            stats = playerSavedStats.LoadSavedPlayerStats();
+        }
     }
 
     //################ #################

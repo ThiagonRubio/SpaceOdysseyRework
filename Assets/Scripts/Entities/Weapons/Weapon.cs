@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour, IWeapon
@@ -20,12 +21,31 @@ public class Weapon : MonoBehaviour, IWeapon
     private ObjectPool _projectilesPool;
     private ProjectileFactory _projectileFactory;
 
+    //################ #################
+    //----------UNITY EV FUNC-----------
+    //################ #################
+    private void Awake()
+    {
+        if (gameObject.CompareTag("Player"))
+        {
+            PlayerSavedStats playerSavedStats = GetComponentInParent<PlayerSavedStats>();
+
+            if (playerSavedStats != null)
+            {
+                weaponStats = playerSavedStats.LoadSavedWeaponStats();
+            }
+            else Debug.LogWarning("Missing UpgradedStats Component in Player Weapon's Parent");
+        }
+    }
     private void Start()
     {
         _projectilesPool = GetComponent<ObjectPool>();
         _projectileFactory = new ProjectileFactory(this, Projectile, MaxPoolableObjects);
     }
 
+    //################ #################
+    //----------CLASS METHODS-----------
+    //################ #################
     public void UseWeapon()
     {
         IProjectile newProjectile = _projectileFactory.CreateObject(this);

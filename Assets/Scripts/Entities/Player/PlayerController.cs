@@ -23,7 +23,6 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
     //----PRIVATE VARS----
     private PlayerInputActions _playerInputActions;
-    private PlayerUpgradeableStats _playerUpgradeableStats;
 
     private CommandEventQueue _entityCommandEventQueue;
     private CmdMove _cmdMoveLeft;
@@ -38,6 +37,7 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     private float attackCooldownTimer = 0;
 
     private float skillCooldownTimer = 0;
+    private float skillDurationTimer = 0;
     private bool isSkillActive = false;
 
     private bool gameEnded;
@@ -50,7 +50,8 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     {
         base.Awake();
         _playerInputActions = new PlayerInputActions();
-        _playerUpgradeableStats = GetComponent<PlayerUpgradeableStats>();
+        ResetSkillTimers(true);
+
         EventManager.Instance.AddListener(EventConstants.Won,this);
     }
 
@@ -68,13 +69,17 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
             ListenForMoveInput();
             ListenForShootInput();
 
-            if (isSkillActive)
+            if (isSkillActive == false)
             {
-                skillCooldownTimer += Time.deltaTime;
-                ListenForSkillCooldownDeactivation();
+                skillCooldownTimer -= Time.deltaTime;
+
+                if (skillCooldownTimer <= 0)
+                    ListenForSkillActivateInput();
             }
             else
-                ListenForSkillActivateInput();
+            {
+                ListenForSkillDeactivation();
+            }
         }
 
         ClampMoveToScreen();
@@ -132,17 +137,19 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
     private void ListenForSkillActivateInput()
     {
-        if (_playerInputActions.Normal.Skill.WasPressedThisFrame() && isSkillActive == false)
+        if (_playerInputActions.Normal.Skill.WasPressedThisFrame())
         {
             ActivateSkill(true);
         }
     }
-    private void ListenForSkillCooldownDeactivation()
+    private void ListenForSkillDeactivation()
     {
-        if (skillCooldownTimer >= _playerUpgradeableStats.SkillDuration)
+        skillDurationTimer -= Time.deltaTime;
+
+        if (skillDurationTimer <= 0)
         {
-            skillCooldownTimer = 0;
             ActivateSkill(false);
+            ResetSkillTimers(false);
         }
     }
 
@@ -199,6 +206,17 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
         entityAnim.SetBool(AnimationConstants.PlayerSkillActivation, isActivated);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Player"), isActivated);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyProjectile"), LayerMask.NameToLayer("Player"), isActivated);
+    }
+    private void ResetSkillTimers(bool isGameStarting)
+    {
+        PlayerSavedStats playerUpgradeableStats = GetComponent<PlayerSavedStats>();
+
+        skillCooldownTimer = playerUpgradeableStats.SkillCooldown;
+        skillDurationTimer = playerUpgradeableStats.SkillDuration;
+
+        //Para que la skill se pueda usar inmediatamente al iniciar
+        if (isGameStarting)
+            skillCooldownTimer = 0;
     }
     private void ClampMoveToScreen()
     {
