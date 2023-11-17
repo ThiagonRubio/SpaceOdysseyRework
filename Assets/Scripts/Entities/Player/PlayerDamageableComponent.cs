@@ -17,7 +17,9 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
     private void Start()
     {
         actualHealth = ActorStats.MaxHealth;
-        EventManager.Instance.AddListener(EventConstants.ShieldEffect, this);
+        if (actualHealth > 10)
+            actualHealth = 10;
+        EventManager.Instance.AddListener(EventConstants.MedicKitEffect, this);
     }
 
     //################ #################
@@ -48,7 +50,7 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
     
     public void OnEventDispatch(string invokedEvent)
     {
-        if (invokedEvent == EventConstants.ShieldEffect)
+        if (invokedEvent == EventConstants.MedicKitEffect)
         {
             actualHealth++;
             if(actualHealth > 1)
