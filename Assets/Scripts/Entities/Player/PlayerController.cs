@@ -42,6 +42,9 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
     private bool gameEnded;
     
+    
+    private PlayerSavedStats playerUpgradeableStats;
+    
     //################ #################
     //----------UNITY EV FUNC-----------
     //################ #################
@@ -50,6 +53,7 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     {
         base.Awake();
         _playerInputActions = new PlayerInputActions();
+        playerUpgradeableStats = GetComponent<PlayerSavedStats>();
         ResetSkillTimers(true);
 
         EventManager.Instance.AddListener(EventConstants.Won,this);
@@ -149,6 +153,8 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
         if (skillDurationTimer <= 0)
         {
             ActivateSkill(false);
+            entityAnim.SetTrigger(AnimationConstants.PlayerSkillDeactivation);
+            SoundManager.Instance.ReproduceSound(AudioConstants.SkillDeactivate, 1);
             ResetSkillTimers(false);
         }
     }
@@ -203,14 +209,16 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     private void ActivateSkill(bool isActivated)
     {
         isSkillActive = isActivated;
-        entityAnim.SetBool(AnimationConstants.PlayerSkillActivation, isActivated);
+        if (isActivated)
+        {
+            entityAnim.SetTrigger(AnimationConstants.PlayerSkillActivation);
+            SoundManager.Instance.ReproduceSound(AudioConstants.SkillActivate, 1);
+        }
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Player"), isActivated);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyProjectile"), LayerMask.NameToLayer("Player"), isActivated);
     }
     private void ResetSkillTimers(bool isGameStarting)
     {
-        PlayerSavedStats playerUpgradeableStats = GetComponent<PlayerSavedStats>();
-
         skillCooldownTimer = playerUpgradeableStats.SkillCooldown;
         skillDurationTimer = playerUpgradeableStats.SkillDuration;
 

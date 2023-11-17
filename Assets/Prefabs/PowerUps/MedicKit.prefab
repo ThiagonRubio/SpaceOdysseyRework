@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5414680277394294513}
   - component: {fileID: 5414680277394294524}
   m_Layer: 10
-  m_Name: Shield
+  m_Name: MedicKit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 5414680277394294523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.61, y: -1.21, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3457897959ebc3249a2c79ebedb58763, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a1d0ed78d5dc3142bfcb5e92e720886, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,14 +106,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.6153846, y: 4.6153846}
+    oldSize: {x: 11.769231, y: 11.753846}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.6153846, y: 4.6153846}
+  m_Size: {x: 11.769231, y: 11.753846}
   m_EdgeRadius: 0
 --- !u!50 &5414680277394294526
 Rigidbody2D:
