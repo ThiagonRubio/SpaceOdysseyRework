@@ -1,12 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class PlayerSavedStats : MonoBehaviour
 {
     public float SkillDuration => upgradedSkillDuration;
     public float SkillCooldown => upgradedSkillCooldown;
-
+    public float UpgradedCoinMultiplier => upgradedCoinMultiplier;
+    
     [SerializeField] private float upgradedMaxHealth;
     [SerializeField] private float upgradedAttack;
     [SerializeField] private float upgradedSpeed;
@@ -22,16 +25,20 @@ public class PlayerSavedStats : MonoBehaviour
     //################ #################
     //----------CLASS METHODS-----------
     //################ #################
-    public void SaveStats()
+
+    private void Awake()
     {
-        //Aca guardas los valores cuando el player haga save
+        if (SaveSystem.LoadPlayerStats() != null)
+        {
+            PlayerSavedStats var = SaveSystem.LoadPlayerStats();
+            AssignValues(var);
+        }
+        else
+        {
+            SaveSystem.SavePlayerStats(this);
+        }
     }
-    public void LoadStats()
-    {
-        //Aca reescribir los valores que sacas del JSON con todas las stats guardadas, y llamar este metodo antes de
-        //crear los SO con los metodos de abajo
-    }
-  
+
     public ActorStats LoadSavedPlayerStats()
     {
         ActorStats playerStats = new ActorStats(upgradedMaxHealth, upgradedSpeed, upgradedExplosionSprite);
@@ -41,5 +48,20 @@ public class PlayerSavedStats : MonoBehaviour
     {
         WeaponStats playerDefaultWeapon = new WeaponStats(upgradedPlayerProjectile, upgradedBulletFireRate, upgradedAttack, 15);
         return playerDefaultWeapon;
+    }
+
+    private void AssignValues(PlayerSavedStats stats)
+    {
+        upgradedMaxHealth = stats.upgradedMaxHealth;
+        upgradedAttack = stats.upgradedAttack;
+        upgradedSpeed = stats.upgradedSpeed;
+        upgradedSkillDuration = stats.upgradedSkillDuration;
+        upgradedSkillCooldown = stats.upgradedSkillCooldown;
+        upgradedBulletFireRate = stats.upgradedBulletFireRate;
+        upgradedDoubleTapDuration = stats.upgradedDoubleTapDuration;
+        upgradedTripleShotDuration = stats.upgradedTripleShotDuration;
+        upgradedCoinMultiplier = stats.upgradedCoinMultiplier;
+        upgradedExplosionSprite = stats.upgradedExplosionSprite;
+        upgradedPlayerProjectile = stats.upgradedPlayerProjectile;
     }
 }
