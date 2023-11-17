@@ -6,29 +6,37 @@ using UnityEngine;
 public class MoneyController : MonoBehaviour
 {
     [SerializeField] private float _money;
-    
+    private GameData data;
     void Start()
     {
-        // if (SaveSystem.LoadMoney() != null)
-        // {
-        //     MoneyController var = SaveSystem.LoadMoney();
-        //     _money = var._money;
-        // }
-        // else
-        // {
-        //     SaveSystem.SaveMoney(this);
-        // }
+        if (SaveSystem.LoadFromJson() != null)
+        {
+            data = SaveSystem.LoadFromJson();
+            _money = data.MoneyStored;
+        }
+        else
+        {
+            data = new GameData();
+            SaveSystem.SaveToJson(data);
+        }
     }
 
     public void AddMoney(float addedMoney)
     {
         _money += addedMoney;
-        SaveSystem.SaveMoney(this);
+        SaveCurrentMoneyStored();
     }
 
     public void SubtractMoney(float subtractedMoney)
     {
         _money -= subtractedMoney;
-        SaveSystem.SaveMoney(this);
+        SaveCurrentMoneyStored();
+    }
+
+    public void SaveCurrentMoneyStored()
+    {
+        data = SaveSystem.LoadFromJson();
+        data.MoneyStored = _money;
+        SaveSystem.SaveToJson(data);
     }
 }
