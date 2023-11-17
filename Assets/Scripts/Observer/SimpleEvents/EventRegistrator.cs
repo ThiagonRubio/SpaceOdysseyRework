@@ -14,7 +14,7 @@ public class EventRegistrator : MonoBehaviour
         EventManager.Instance.RegisterEvent(EventConstants.BossDeath);
         
         EventManager.Instance.RegisterEvent(EventConstants.NukeEffect);
-        EventManager.Instance.RegisterEvent(EventConstants.ShieldEffect);
+        EventManager.Instance.RegisterEvent(EventConstants.MedicKitEffect);
         EventManager.Instance.RegisterEvent(EventConstants.DoubleTapEffect);
         EventManager.Instance.RegisterEvent(EventConstants.TripleShotEffect);
         

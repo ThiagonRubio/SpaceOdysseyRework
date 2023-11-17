@@ -77,7 +77,7 @@ public class PowerUp : Actor, IPowerUp
                 EventManager.Instance.DispatchSimpleEvent(EventConstants.NukeEffect);
                 break;
             case PowerUpType.Shield:
-                EventManager.Instance.DispatchSimpleEvent(EventConstants.ShieldEffect);
+                EventManager.Instance.DispatchSimpleEvent(EventConstants.MedicKitEffect);
                 break;
             case PowerUpType.DoubleTap:
                 EventManager.Instance.DispatchSimpleEvent(EventConstants.DoubleTapEffect);

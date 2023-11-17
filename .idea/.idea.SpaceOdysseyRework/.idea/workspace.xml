@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="44aac10a-6ab2-4f07-8d1e-c4245e7617f0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PowerUps/Shield.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PowerUps/Shield.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animation/PlayerShip/Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Animation/PlayerShip/Idle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animation/PlayerShip/PlayerShip.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Animation/PlayerShip/PlayerShip.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/PlayerDamageableComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/PlayerDamageableComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Observer/SimpleEvents/EventConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Observer/SimpleEvents/EventConstants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Observer/SimpleEvents/EventRegistrator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Observer/SimpleEvents/EventRegistrator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PowerUps/PowerUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PowerUps/PowerUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/Entity Stats/PlayerStats.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/Entity Stats/PlayerStats.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +50,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Score",
+    "git-widget-placeholder": "Dev",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -152,6 +151,7 @@
       <workItem from="1699885064918" duration="5508000" />
       <workItem from="1699894472399" duration="3152000" />
       <workItem from="1700235577322" duration="2786000" />
+      <workItem from="1700245435434" duration="153000" />
     </task>
     <servers />
   </component>
