@@ -5,20 +5,20 @@ using UnityEngine;
 [RequireComponent(typeof(MoneyController))]
 public class ScoreCounter : MonoBehaviour, IListener
 {
-    [SerializeField] private float _score;
-    [SerializeField] private float _coinMultiplier;
+    private float _score;
+    private float _coinMultiplier;
     private MoneyController _moneyController;
 
-    [SerializeField] private ScoreStats scoreStats;
+    private const float NUKE_SCORE = 200;
     
     void Start()
     {
         _moneyController = GetComponent<MoneyController>();
-        _coinMultiplier = SaveSystem.LoadPlayerStats().UpgradedCoinMultiplier;
+        // _coinMultiplier = SaveSystem.LoadPlayerStats().UpgradedCoinMultiplier;
         
         EventManager.Instance.AddListener(EventConstants.NukeEffect, this);
         ActionsManager.SubscribeToAction(EventConstants.EnemyDeath, EnemyScoreSelection);
-        EventManager.Instance.AddListener(EventConstants.BossDeath, this);
+        ActionsManager.SubscribeToAction(EventConstants.BossDeath, EnemyScoreSelection);
         
         EventManager.Instance.AddListener(EventConstants.Lost, this);
         EventManager.Instance.AddListener(EventConstants.Won, this);
@@ -38,33 +38,7 @@ public class ScoreCounter : MonoBehaviour, IListener
     
     public void EnemyScoreSelection(Transform deadEnemy)
     {
-        Debug.Log("Registro que murió alguien");
-        switch (deadEnemy.name)
-        {
-            case "Asteroid":
-            {
-                Debug.Log("Fue un asteroide");
-                AddScore(scoreStats.AsteroidScore);
-                break;
-            }
-            case "RedShip":
-            {
-                
-                Debug.Log("Fue una nave roja");
-                AddScore(scoreStats.RedShipScore);
-                break;
-            }
-            case "PurpleShip":
-            {
-                AddScore(scoreStats.PurpleShipScore);
-                break;
-            }
-            case "YellowShip":
-            {
-                AddScore(scoreStats.YellowShipScore);
-                break;
-            }
-        }
+        AddScore(deadEnemy.GetComponent<Enemy>().ScoreGiven);
     }
     
     public void OnEventDispatch(string invokedEvent)
@@ -73,12 +47,7 @@ public class ScoreCounter : MonoBehaviour, IListener
         {
             case EventConstants.NukeEffect:
             {
-                AddScore(scoreStats.NukeScore);
-                break;
-            }
-            case EventConstants.BossDeath:
-            {
-                AddScore(scoreStats.RedBosscore);
+                AddScore(NUKE_SCORE);
                 break;
             }
             case EventConstants.Lost:

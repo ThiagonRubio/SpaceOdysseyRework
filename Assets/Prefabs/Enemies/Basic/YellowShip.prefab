@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 91ff5bfbe0b0e8446a8507bb67f21f0f, type: 2}
+  scoreGiven: 200
   crashDamage: 2
   verticalSpeed: 0.3
 --- !u!114 &7015098362647774885

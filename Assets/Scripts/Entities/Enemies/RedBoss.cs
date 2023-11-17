@@ -89,6 +89,7 @@ public class RedBoss : Boss, IMoveable, IAttacker
     public override void Die()
     {
         EventManager.Instance.DispatchSimpleEvent(EventConstants.BossDeath);
+        ActionsManager.InvokeAction(EventConstants.BossDeath, transform);
         Instantiate(ActorStats.Explosion, transform.position, Quaternion.identity);
         OnPoolableObjectDisable();
     }

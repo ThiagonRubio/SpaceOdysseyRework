@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -45,6 +46,8 @@ public static class SaveSystem
      
          PlayerSavedStats savedStats = upgradedStats;
      
+         Debug.Log("Guardo player stats");
+         
          formatter.Serialize(stream, savedStats);
          stream.Close();
      }
@@ -67,4 +70,10 @@ public static class SaveSystem
              return null;
          }
      }
+
+     // private IEnumerator CloseStream()
+     // {
+     //     yield return new WaitForSeconds(1);
+     //     
+     // }
 }

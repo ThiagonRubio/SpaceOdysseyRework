@@ -10,7 +10,11 @@ public abstract class Enemy : Actor, IDamageable, IPoolable, IListener
     public float MaxHealth => ActorStats.MaxHealth;
     public float ActualHealth => _actualHealth;
 
+    public float ScoreGiven => scoreGiven;
+    
     protected float _actualHealth;
+
+    [SerializeField] protected float scoreGiven;
     
     protected virtual void Start()
     {

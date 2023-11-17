@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 5160f4dd7bb5d4a48bff91f443145891, type: 2}
+  scoreGiven: 50
   rotationSpeedMin: 10
   rotationSpeedMax: 15
   crashDamage: 1

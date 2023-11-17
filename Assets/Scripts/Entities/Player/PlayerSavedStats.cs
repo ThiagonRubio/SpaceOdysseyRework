@@ -28,15 +28,15 @@ public class PlayerSavedStats : MonoBehaviour
 
     private void Awake()
     {
-        if (SaveSystem.LoadPlayerStats() != null)
-        {
-            PlayerSavedStats var = SaveSystem.LoadPlayerStats();
-            AssignValues(var);
-        }
-        else
-        {
-            SaveSystem.SavePlayerStats(this);
-        }
+        // if (SaveSystem.LoadPlayerStats() != null)
+        // {
+        //     PlayerSavedStats var = SaveSystem.LoadPlayerStats();
+        //     AssignValues(var);
+        // }
+        // else
+        // {
+        //    SaveSystem.SavePlayerStats(this);
+        // }
     }
 
     public ActorStats LoadSavedPlayerStats()

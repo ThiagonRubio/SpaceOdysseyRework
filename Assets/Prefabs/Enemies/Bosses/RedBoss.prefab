@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: ff4819a0e00851748892fb21d2f810c7, type: 2}
+  scoreGiven: 400
   crashDamage: 5
   xPos: 4
 --- !u!60 &1803591392377330179

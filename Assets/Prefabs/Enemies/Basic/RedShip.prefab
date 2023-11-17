@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 7f43fd8271672d641810cfd1b3396a6b, type: 2}
+  scoreGiven: 125
   crashDamage: 2
 --- !u!114 &8717408562707923527
 MonoBehaviour:
