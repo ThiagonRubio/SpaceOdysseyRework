@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(MoneyController))]
 public class ScoreCounter : MonoBehaviour, IListener
 {
+    public float Score => _score;
+    
     private float _score;
     private float _coinMultiplier;
     private MoneyController _moneyController;
