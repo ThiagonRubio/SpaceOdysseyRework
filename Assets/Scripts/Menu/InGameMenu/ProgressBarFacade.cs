@@ -25,6 +25,12 @@ public class ProgressBarFacade : MonoBehaviour, IListener
         }
     }
 
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener(EventConstants.EnemyDeath, this);
+        EventManager.Instance.RemoveListener(EventConstants.BossDeath, this);
+    }
+
     public void OnEventDispatch(string invokedEvent)
     {
         if (invokedEvent == EventConstants.EnemyDeath)

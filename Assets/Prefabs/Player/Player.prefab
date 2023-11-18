@@ -266,6 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2993427675522167982}
   - component: {fileID: 2993427675522167979}
+  - component: {fileID: 7738666374984074731}
   - component: {fileID: 4441217899125135929}
   - component: {fileID: 2993427675522167983}
   - component: {fileID: 2993427675522167957}
@@ -312,6 +313,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4414afc610352640b4dbd4f8eca2598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7738666374984074731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993427675522167980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff78c5b277b24a40ae19573f435ba4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4441217899125135929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1077396fb64ba44418c7957a0a0f8794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradedMaxHealth: 10
+  debugForceSaveSerializedValuesOnStart: 0
+  upgradedMaxHealth: 1
   upgradedAttack: 1
   upgradedSpeed: 250
   upgradedSkillDuration: 5
@@ -332,9 +346,10 @@ MonoBehaviour:
   upgradedBulletFireRate: 0.5
   upgradedDoubleTapDuration: 0
   upgradedTripleShotDuration: 0
-  upgradedCoinMultiplier: 0
+  upgradedCoinMultiplier: 0.1
   upgradedExplosionSprite: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
   upgradedPlayerProjectile: {fileID: 7080718164150825358, guid: 4235374b23e7d5c488e294187d7b6844, type: 3}
+  moneyStored: 0
 --- !u!114 &2993427675522167983
 MonoBehaviour:
   m_ObjectHideFlags: 0

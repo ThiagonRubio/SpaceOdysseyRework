@@ -39,12 +39,20 @@ public class RedShip : Enemy, IMoveable, IAttacker
     {
         Move();
 
-        attackCooldownTimer += Time.deltaTime;
-        if(attackCooldownTimer >= Weapon[0].FireRate) Attack();
+        if (canAttack)
+        {
+            attackCooldownTimer += Time.deltaTime;
+            if (attackCooldownTimer + randomAttackTime >= Weapon[0].FireRate) Attack();
+        }
     }
 
+    private void OnBecameVisible()
+    {
+        canAttack = true;
+    }
     private void OnBecameInvisible()
     {
+        canAttack = false;
         OnPoolableObjectDisable();
     }
 

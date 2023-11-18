@@ -24,7 +24,7 @@ public class EventManager
         if (simpleEvents.TryGetValue(eventID, out _listeners) && !_listeners.Contains(p_listener))
         {
             _listeners.Add(p_listener);
-            Debug.Log($"Yo {p_listener} me subscribo al evento {eventID}");
+            //Debug.Log($"Yo {p_listener} me subscribo al evento {eventID}");
         }
     }
         
@@ -46,7 +46,7 @@ public class EventManager
     {
         if (simpleEvents.TryGetValue(eventID, out var listeners))
         {
-            Debug.Log($"Despacho el evento {eventID}");
+            //Debug.Log($"Despacho el evento {eventID}");
             for (int i = listeners.Count - 1; i >= 0; i--)
             {
                 listeners[i].OnEventDispatch(eventID);
@@ -59,7 +59,7 @@ public class EventManager
         if(!simpleEvents.ContainsKey(eventID))
         {
             simpleEvents.Add(eventID, new List<IListener>());
-            Debug.Log($"registro el evento {eventID}");
+           //Debug.Log($"registro el evento {eventID}");
         }
     }
 }

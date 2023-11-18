@@ -11,6 +11,11 @@ public class FinalCanvasTextChange : MonoBehaviour, IListener
         EventManager.Instance.AddListener(EventConstants.Won,this);
         EventManager.Instance.AddListener(EventConstants.Lost,this);
     }
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener(EventConstants.Won, this);
+        EventManager.Instance.RemoveListener(EventConstants.Lost, this);
+    }
 
 
     public void OnEventDispatch(string invokedEvent)

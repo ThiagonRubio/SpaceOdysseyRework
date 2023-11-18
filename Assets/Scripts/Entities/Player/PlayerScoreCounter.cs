@@ -2,21 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(MoneyController))]
-public class ScoreCounter : MonoBehaviour, IListener
+public class PlayerScoreCounter : MonoBehaviour, IListener
 {
     public float Score => _score;
     
     private float _score;
     private float _coinMultiplier;
-    private MoneyController _moneyController;
 
     private const float NUKE_SCORE = 200;
     
-    void Start()
+    private void Start()
     {
-        _moneyController = GetComponent<MoneyController>();
-        // _coinMultiplier = SaveSystem.LoadPlayerStats().UpgradedCoinMultiplier;
+        _coinMultiplier = GetComponent<PlayerSavedStats>().UpgradedCoinMultiplier;
         
         EventManager.Instance.AddListener(EventConstants.NukeEffect, this);
         ActionsManager.SubscribeToAction(EventConstants.EnemyDeath, EnemyScoreSelection);
@@ -25,7 +22,15 @@ public class ScoreCounter : MonoBehaviour, IListener
         EventManager.Instance.AddListener(EventConstants.Lost, this);
         EventManager.Instance.AddListener(EventConstants.Won, this);
     }
-    
+    private void OnDisable()
+    {
+        ActionsManager.UnsubscribeToAction(EventConstants.EnemyDeath, EnemyScoreSelection);
+        ActionsManager.UnsubscribeToAction(EventConstants.BossDeath, EnemyScoreSelection);
+        EventManager.Instance.RemoveListener(EventConstants.NukeEffect, this);
+        EventManager.Instance.RemoveListener(EventConstants.Lost, this);
+        EventManager.Instance.RemoveListener(EventConstants.Won, this);
+    }
+
     private void AddScore(float addedScore)
     {
         _score += addedScore;
@@ -34,7 +39,6 @@ public class ScoreCounter : MonoBehaviour, IListener
     private int ScoreToCoinConversion(float score, float coinMultiplier)
     {
         int money = Mathf.RoundToInt(score * coinMultiplier);
-        Debug.Log(money);
         return money;
     }
     
@@ -54,14 +58,19 @@ public class ScoreCounter : MonoBehaviour, IListener
             }
             case EventConstants.Lost:
             {
-                _moneyController.AddMoney(ScoreToCoinConversion(_score, _coinMultiplier));
+                AddMoney(ScoreToCoinConversion(_score, _coinMultiplier));
                 break;
             }
             case EventConstants.Won:
             {
-                _moneyController.AddMoney(ScoreToCoinConversion(_score, _coinMultiplier));
+                AddMoney(ScoreToCoinConversion(_score, _coinMultiplier));
                 break;
             }
         }
+    }
+
+    private void AddMoney(float addedMoney)
+    {
+        GetComponent<PlayerSavedStats>().SaveMoneyData(addedMoney);
     }
 }

@@ -14,14 +14,22 @@ public abstract class Enemy : Actor, IDamageable, IPoolable, IListener
     
     protected float _actualHealth;
 
+    protected float randomAttackTime = 0;
+    protected bool canAttack = false;
+
     [SerializeField] protected float scoreGiven;
     
     protected virtual void Start()
     {
         _actualHealth = MaxHealth;
+        randomAttackTime = UnityEngine.Random.Range(0.1f, 0.4f);
        
         //Suscripción a eventos
         EventManager.Instance.AddListener(EventConstants.NukeEffect, this);
+    }
+    protected virtual void OnDisable()
+    {
+        EventManager.Instance.RemoveListener(EventConstants.NukeEffect, this);
     }
 
     public abstract void TakeDamage(float damageAmount);

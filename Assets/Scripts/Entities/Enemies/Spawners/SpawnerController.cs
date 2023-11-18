@@ -54,6 +54,12 @@ public class SpawnerController : MonoBehaviour, IListener
         EventManager.Instance.AddListener(EventConstants.BossDeath, this);
         EventManager.Instance.AddListener(EventConstants.Won, this);
     }
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener(EventConstants.EnemyDeath, this);
+        EventManager.Instance.RemoveListener(EventConstants.BossDeath, this);
+        EventManager.Instance.RemoveListener(EventConstants.Won, this);
+    }
 
     void Update()
     {

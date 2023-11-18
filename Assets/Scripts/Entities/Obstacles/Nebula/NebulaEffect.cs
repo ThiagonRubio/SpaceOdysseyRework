@@ -16,12 +16,19 @@ public class NebulaEffect : MonoBehaviour, IListener
     {
         _globalLight = GameObject.FindGameObjectWithTag("GlobalLight").GetComponent<Light2D>();
 
-        _thisObstacle = GetComponent<Obstacle>();
-        
+        _thisObstacle = GetComponent<Obstacle>();     
+    }
+    private void OnEnable()
+    {
         EventManager.Instance.AddListener(EventConstants.NebulaActivation, this);
         EventManager.Instance.AddListener(EventConstants.NebulaDeactivation, this);
     }
-    
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener(EventConstants.NebulaActivation, this);
+        EventManager.Instance.RemoveListener(EventConstants.NebulaDeactivation, this);
+    }
+
     void Update()
     {
         if (_isOn)

@@ -49,15 +49,23 @@ public class PurpleShip : Enemy, IMoveable, IAttacker
     {
         Move();
         ChangeDirection();
-        
-        attackCooldownTimer += Time.deltaTime;
-        if(attackCooldownTimer >= Weapon[0].FireRate) Attack();
+
+        if (canAttack)
+        {
+            attackCooldownTimer += Time.deltaTime;
+            if (attackCooldownTimer + randomAttackTime >= Weapon[0].FireRate) Attack();
+        }
     }
 
+    private void OnBecameVisible()
+    {
+        canAttack = true;
+    }
     private void OnBecameInvisible()
     {
         transform.rotation = new Quaternion(0,0,0,0);
         _isMovingToLeft = false;
+        canAttack = false;
         OnPoolableObjectDisable();
     }
 

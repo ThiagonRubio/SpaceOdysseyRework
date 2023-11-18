@@ -30,6 +30,12 @@ public class CanvasSwitch : MonoBehaviour, IListener
         canvasGroup.blocksRaycasts = false;
     }
 
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener(EventConstants.Won, this);
+        EventManager.Instance.RemoveListener(EventConstants.Lost, this);
+    }
+
     private void Update()
     {
         if (!isHidden)

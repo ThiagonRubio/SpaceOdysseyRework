@@ -42,7 +42,6 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
 
     public void Die()
     {
-        print("I died, que triste. Saludos.");
         EventManager.Instance.DispatchSimpleEvent(EventConstants.PlayerDeath);
         Instantiate(ActorStats.Explosion, transform.position, Quaternion.identity);
         gameObject.SetActive(false);

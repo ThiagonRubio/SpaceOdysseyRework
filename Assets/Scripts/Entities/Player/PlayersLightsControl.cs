@@ -11,10 +11,15 @@ public class PlayersLightsControl : MonoBehaviour, IListener
 
     private bool _nebulaIsActivated;
     
-    void Start()
+    void OnEnable()
     {
         EventManager.Instance.AddListener(EventConstants.NebulaActivation, this);
         EventManager.Instance.AddListener(EventConstants.NebulaDeactivation, this);
+    }
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener(EventConstants.NebulaActivation, this);
+        EventManager.Instance.RemoveListener(EventConstants.NebulaDeactivation, this);
     }
 
     void Update()

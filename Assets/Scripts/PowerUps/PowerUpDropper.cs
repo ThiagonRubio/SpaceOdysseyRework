@@ -10,9 +10,13 @@ public class PowerUpDropper : MonoBehaviour
 
     [SerializeField] private int dropChancePercentage;
 
-    private void Start()
+    private void OnEnable()
     {
         ActionsManager.SubscribeToAction(EventConstants.EnemyDeath, DropPowerUp);
+    }
+    private void OnDisable()
+    {
+        ActionsManager.UnsubscribeToAction(EventConstants.EnemyDeath, DropPowerUp);
     }
 
     public void DropPowerUp(Transform transformReceived)

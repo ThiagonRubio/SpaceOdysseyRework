@@ -9,7 +9,12 @@ public class PlayerSavedStats : MonoBehaviour
     public float SkillDuration => upgradedSkillDuration;
     public float SkillCooldown => upgradedSkillCooldown;
     public float UpgradedCoinMultiplier => upgradedCoinMultiplier;
-    
+    public float MoneyStored => moneyStored;
+    public PlayerSavedStats LoadedSessionPlayerData => loadedSessionData;
+
+    //----PRIVATE VARS----
+    private PlayerSavedStats loadedSessionData;
+
     [SerializeField] private float upgradedMaxHealth;
     [SerializeField] private float upgradedAttack;
     [SerializeField] private float upgradedSpeed;
@@ -21,6 +26,8 @@ public class PlayerSavedStats : MonoBehaviour
     [SerializeField] private float upgradedCoinMultiplier;
     [SerializeField] private GameObject upgradedExplosionSprite;
     [SerializeField] private Projectile upgradedPlayerProjectile;
+    [SerializeField] private float moneyStored;
+
 
     //################ #################
     //----------CLASS METHODS-----------
@@ -28,40 +35,38 @@ public class PlayerSavedStats : MonoBehaviour
 
     private void Awake()
     {
-        // if (SaveSystem.LoadPlayerStats() != null)
-        // {
-        //     PlayerSavedStats var = SaveSystem.LoadPlayerStats();
-        //     AssignValues(var);
-        // }
-        // else
-        // {
-        //    SaveSystem.SavePlayerStats(this);
-        // }
+        //Para Forzar a que se sobrescriba todos los valores por los setteados a mano para testear descomentar
+        //o edita el .txt del json directamente
+        //SaveData();
+
+        if (SaveSystem.GetIfSaveFileExists() == false)
+        {
+            SaveData();
+            Debug.LogWarning("Player Save doesn't exist. Creating new one.");
+        }
+        else SaveSystem.LoadFromJson(this);
     }
 
     public ActorStats LoadSavedPlayerStats()
     {
-        ActorStats playerStats = new ActorStats(upgradedMaxHealth, upgradedSpeed, upgradedExplosionSprite);
+        ActorStats playerStats = ActorStats.CreateInstance<ActorStats>();
+        playerStats.ConstructStats(upgradedMaxHealth, upgradedSpeed, upgradedExplosionSprite);
         return playerStats;
     }
     public WeaponStats LoadSavedWeaponStats()
     {
-        WeaponStats playerDefaultWeapon = new WeaponStats(upgradedPlayerProjectile, upgradedBulletFireRate, upgradedAttack, 15);
+        WeaponStats playerDefaultWeapon = WeaponStats.CreateInstance<WeaponStats>();
+        playerDefaultWeapon.ConstructWeaponStats(upgradedPlayerProjectile, upgradedBulletFireRate, upgradedAttack, 15);
         return playerDefaultWeapon;
     }
-
-    private void AssignValues(PlayerSavedStats stats)
+    public void SaveData()
     {
-        upgradedMaxHealth = stats.upgradedMaxHealth;
-        upgradedAttack = stats.upgradedAttack;
-        upgradedSpeed = stats.upgradedSpeed;
-        upgradedSkillDuration = stats.upgradedSkillDuration;
-        upgradedSkillCooldown = stats.upgradedSkillCooldown;
-        upgradedBulletFireRate = stats.upgradedBulletFireRate;
-        upgradedDoubleTapDuration = stats.upgradedDoubleTapDuration;
-        upgradedTripleShotDuration = stats.upgradedTripleShotDuration;
-        upgradedCoinMultiplier = stats.upgradedCoinMultiplier;
-        upgradedExplosionSprite = stats.upgradedExplosionSprite;
-        upgradedPlayerProjectile = stats.upgradedPlayerProjectile;
+        loadedSessionData = this;
+        SaveSystem.SaveToJson(loadedSessionData);
+    }
+    public void SaveMoneyData(float moneyToAdd)
+    {
+        moneyStored += moneyToAdd;
+        SaveData();
     }
 }

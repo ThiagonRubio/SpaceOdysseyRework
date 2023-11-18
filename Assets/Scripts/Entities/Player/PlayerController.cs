@@ -55,8 +55,6 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
         _playerInputActions = new PlayerInputActions();
         playerUpgradeableStats = GetComponent<PlayerSavedStats>();
         ResetSkillTimers(true);
-
-        EventManager.Instance.AddListener(EventConstants.Won,this);
     }
 
     private void Start()
@@ -92,10 +90,12 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     private void OnEnable()
     {
         _playerInputActions.Enable();
+        EventManager.Instance.AddListener(EventConstants.Won, this);
     }
     private void OnDisable()
     {
         _playerInputActions.Disable();
+        EventManager.Instance.RemoveListener(EventConstants.Won, this);
     }
 
     //################ #################

@@ -44,10 +44,21 @@ public class RedBoss : Boss, IMoveable, IAttacker
             Move();
         }
         
-        attackCooldownTimer += Time.deltaTime;
-        if(attackCooldownTimer >= Weapon[0].FireRate) Attack();
+        if (canAttack)
+        {
+            attackCooldownTimer += Time.deltaTime;
+            if (attackCooldownTimer >= Weapon[0].FireRate) Attack();
+        }
     }
-    
+    private void OnBecameVisible()
+    {
+        canAttack = true;
+    }
+    private void OnBecameInvisible()
+    {
+        canAttack = false;
+    }
+
     public void InitializeCommands()
     {
         _entityCommandEventQueue = GetComponent<CommandEventQueue>();

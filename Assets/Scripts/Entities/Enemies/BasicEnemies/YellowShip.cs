@@ -50,9 +50,12 @@ public class YellowShip : Enemy, IMoveable, IAttacker
     {
         Move();
         ChangeDirection();
-        
-        attackCooldownTimer += Time.deltaTime;
-        if(attackCooldownTimer >= Weapon[0].FireRate) Attack();
+
+        if (canAttack)
+        {
+            attackCooldownTimer += Time.deltaTime;
+            if (attackCooldownTimer + randomAttackTime >= Weapon[0].FireRate) Attack();
+        }
     }
     
     private void OnCollisionEnter2D(Collision2D other)
@@ -65,7 +68,16 @@ public class YellowShip : Enemy, IMoveable, IAttacker
             Die();
         }
     }
-    
+    private void OnBecameVisible()
+    {
+        canAttack = true;
+    }
+    private void OnBecameInvisible()
+    {
+        canAttack = false;
+        OnPoolableObjectDisable();
+    }
+
     public void InitializeCommands()
     {
         _entityCommandEventQueue = GetComponent<CommandEventQueue>();
