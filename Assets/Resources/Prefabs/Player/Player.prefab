@@ -337,7 +337,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1077396fb64ba44418c7957a0a0f8794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugForceSaveSerializedValuesOnStart: 0
   upgradedMaxHealth: 1
   upgradedAttack: 1
   upgradedSpeed: 250

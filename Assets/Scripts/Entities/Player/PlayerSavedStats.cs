@@ -28,33 +28,35 @@ public class PlayerSavedStats : MonoBehaviour
     [SerializeField] private Projectile upgradedPlayerProjectile;
     [SerializeField] private float moneyStored;
 
-
     //################ #################
     //----------CLASS METHODS-----------
     //################ #################
 
     private void Awake()
     {
-        //Para Forzar a que se sobrescriba todos los valores por los setteados a mano para testear descomentar
-        //o edita el .txt del json directamente
-        //SaveData();
+        //Para Forzar a que se sobrescriba todos los valores edita el .txt del json directamente
 
         if (SaveSystem.GetIfSaveFileExists() == false)
         {
             SaveData();
             Debug.LogWarning("Player Save doesn't exist. Creating new one.");
         }
-        else SaveSystem.LoadFromJson(this);
+        else 
+        {
+            SaveSystem.LoadFromJson(this);
+        }
     }
 
-    public ActorStats LoadSavedPlayerStats()
+    public ActorStats GetPlayerStats()
     {
+        LoadMiscResources();
         ActorStats playerStats = ActorStats.CreateInstance<ActorStats>();
         playerStats.ConstructStats(upgradedMaxHealth, upgradedSpeed, upgradedExplosionSprite);
         return playerStats;
     }
-    public WeaponStats LoadSavedWeaponStats()
+    public WeaponStats GetPlayerWeaponStats()
     {
+        LoadWeaponResources();
         WeaponStats playerDefaultWeapon = WeaponStats.CreateInstance<WeaponStats>();
         playerDefaultWeapon.ConstructWeaponStats(upgradedPlayerProjectile, upgradedBulletFireRate, upgradedAttack, 15);
         return playerDefaultWeapon;
@@ -68,5 +70,14 @@ public class PlayerSavedStats : MonoBehaviour
     {
         moneyStored += moneyToAdd;
         SaveData();
+    }
+    //Porque solo existe 1 solo tipo de cada uno no hay que diferenciar pero queda hecho para hacer extensible si hace falta
+    private void LoadMiscResources()
+    {
+        upgradedExplosionSprite = Resources.Load<GameObject>("Prefabs/Explosion/Explosion");
+    }
+    private void LoadWeaponResources()
+    {
+        upgradedPlayerProjectile = Resources.Load<Projectile>("Prefabs/Projectiles/PlayerProjectile");
     }
 }
