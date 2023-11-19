@@ -38,8 +38,7 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
     private float skillCooldownTimer = 0;
     private float skillDurationTimer = 0;
-    public bool isSkillActive = false;
-    public bool isSkillInCooldown = false;
+    private bool isSkillActive = false;
 
     private bool gameEnded;
     
@@ -78,7 +77,6 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
                 if (skillCooldownTimer <= 0)
                     ListenForSkillActivateInput();
-
             }
             else
             {
@@ -143,7 +141,6 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
     private void ListenForSkillActivateInput()
     {
-        isSkillInCooldown = false;
         if (_playerInputActions.Normal.Skill.WasPressedThisFrame())
         {
             ActivateSkill(true);
@@ -156,7 +153,6 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
         if (skillDurationTimer <= 0)
         {
             ActivateSkill(false);
-            isSkillInCooldown = true;
             entityAnim.SetTrigger(AnimationConstants.PlayerSkillDeactivation);
             SoundManager.Instance.ReproduceSound(AudioConstants.SkillDeactivate, 1);
             ResetSkillTimers(false);
