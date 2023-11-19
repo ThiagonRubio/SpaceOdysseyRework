@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
@@ -29,8 +28,13 @@ public class Weapon : MonoBehaviour, IWeapon
     {
         if (gameObject.CompareTag("Player"))
         {
-            //Esto es super cabezoide pero bue, hay que esperar que cargue el player antes del arma
-            StartCoroutine(RetrievePlayerWeaponSavedData());
+            PlayerSavedStats playerSavedStats = GetComponentInParent<PlayerSavedStats>();
+
+            if (playerSavedStats != null)
+            {
+                weaponStats = playerSavedStats.LoadSavedWeaponStats();
+            }
+            else Debug.LogWarning("Missing UpgradedStats Component in Player Weapon's Parent");
         }
     }
     private void Start()
@@ -48,16 +52,5 @@ public class Weapon : MonoBehaviour, IWeapon
         newProjectile.SetOwner(this);
         
         SoundManager.Instance.ReproduceSound(AudioConstants.ProyectileShot, 1);
-    }
-    private IEnumerator RetrievePlayerWeaponSavedData()
-    {
-        yield return new WaitForFixedUpdate();
-        PlayerSavedStats playerSavedStats = GetComponentInParent<PlayerSavedStats>();
-
-        if (playerSavedStats != null)
-        {
-            weaponStats = playerSavedStats.GetPlayerWeaponStats();
-        }
-        else Debug.LogWarning("Missing UpgradedStats Component in Player Weapon's Parent");
     }
 }
