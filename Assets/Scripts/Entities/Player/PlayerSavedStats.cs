@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerSavedStats : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class PlayerSavedStats : MonoBehaviour
     public float UpgradedCoinMultiplier => upgradedCoinMultiplier;
     public float MoneyStored => moneyStored;
     public PlayerSavedStats CurrentSessionPlayerData => sessionData;
-
+    public PlayerUpgradesBoughtStats UpgradesBoughtData => upgradesBoughtStats;
+    
     //----PRIVATE VARS----
     private PlayerSavedStats sessionData;
 
@@ -26,6 +28,7 @@ public class PlayerSavedStats : MonoBehaviour
     [SerializeField, HideInInspector] private GameObject upgradedExplosionSprite;
     [SerializeField, HideInInspector] private Projectile upgradedPlayerProjectile;
     [SerializeField, HideInInspector] private float moneyStored;
+    [SerializeField, HideInInspector] private PlayerUpgradesBoughtStats upgradesBoughtStats;
 
     //################ #################
     //----------CLASS METHODS-----------
@@ -77,16 +80,16 @@ public class PlayerSavedStats : MonoBehaviour
         defaultFile.upgradedMaxHealth = 1;
         defaultFile.upgradedAttack = 1;
         defaultFile.upgradedSpeed = 250;
-        defaultFile.upgradedSkillDuration = 5;
+        defaultFile.upgradedSkillDuration = 1;
         defaultFile.upgradedSkillCooldown = 10;
         defaultFile.upgradedBulletFireRate = 0.5f;
-        defaultFile.upgradedDoubleTapDuration = 5;
-        defaultFile.upgradedTripleShotDuration = 5;
-        defaultFile.upgradedCoinMultiplier = 0.1f;
+        defaultFile.upgradedDoubleTapDuration = 2;
+        defaultFile.upgradedTripleShotDuration = 2;
+        defaultFile.upgradedCoinMultiplier = 0.2f;
         defaultFile.moneyStored = 0;
         defaultFile.upgradedExplosionSprite = Resources.Load<GameObject>("Prefabs/Explosion/Explosion");
         defaultFile.upgradedPlayerProjectile = Resources.Load<Projectile>("Prefabs/Projectiles/PlayerProjectile");
-
+        defaultFile.upgradesBoughtStats.InitDefaultStats();
         return defaultFile;
     }
     //Porque solo existe 1 solo tipo de cada uno no hay que diferenciar pero queda hecho para hacer extensible si hace falta
