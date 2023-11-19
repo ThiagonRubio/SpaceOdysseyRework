@@ -29,7 +29,7 @@ public abstract class Actor : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             PlayerSavedStats playerSavedStats = GetComponent<PlayerSavedStats>();
-            stats = playerSavedStats.LoadSavedPlayerStats();
+            stats = playerSavedStats.GetPlayerStats();
         }
     }
 
