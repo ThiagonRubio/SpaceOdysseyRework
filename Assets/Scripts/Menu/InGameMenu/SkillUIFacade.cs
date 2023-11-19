@@ -10,11 +10,13 @@ public class SkillUIFacade : MonoBehaviour
     [SerializeField] GameObject player;
     public Animator animator;
     public ParticleSystem skillParticles;
+    [SerializeField] private float timeSubtractedFromParticleDuration;
 
     public void StartFacade()
     {
         var main = skillParticles.main;
-        main.duration = playerSavedStats.SkillDuration - (playerSavedStats.SkillDuration * 0.3f);
+        //main.duration = playerSavedStats.SkillDuration - (playerSavedStats.SkillDuration * 0.2f);
+        main.duration = playerSavedStats.SkillDuration - timeSubtractedFromParticleDuration;
     }
 
     public void UpdateFacade()
