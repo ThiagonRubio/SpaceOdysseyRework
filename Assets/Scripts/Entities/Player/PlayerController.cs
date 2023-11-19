@@ -42,9 +42,6 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
     private bool gameEnded;
     
-    
-    private PlayerSavedStats playerUpgradeableStats;
-    
     //################ #################
     //----------UNITY EV FUNC-----------
     //################ #################
@@ -53,7 +50,6 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     {
         base.Awake();
         _playerInputActions = new PlayerInputActions();
-        playerUpgradeableStats = GetComponent<PlayerSavedStats>();
         ResetSkillTimers(true);
     }
 
@@ -219,8 +215,10 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     }
     private void ResetSkillTimers(bool isGameStarting)
     {
-        skillCooldownTimer = playerUpgradeableStats.SkillCooldown;
-        skillDurationTimer = playerUpgradeableStats.SkillDuration;
+        PlayerSavedStats stats = GetComponent<PlayerSavedStats>(); 
+
+        skillCooldownTimer = stats.SkillCooldown;
+        skillDurationTimer = stats.SkillDuration;
 
         //Para que la skill se pueda usar inmediatamente al iniciar
         if (isGameStarting)

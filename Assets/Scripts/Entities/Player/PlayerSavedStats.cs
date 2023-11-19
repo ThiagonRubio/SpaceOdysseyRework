@@ -3,30 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class PlayerSavedStats : MonoBehaviour
 {
     public float SkillDuration => upgradedSkillDuration;
     public float SkillCooldown => upgradedSkillCooldown;
     public float UpgradedCoinMultiplier => upgradedCoinMultiplier;
     public float MoneyStored => moneyStored;
-    public PlayerSavedStats LoadedSessionPlayerData => loadedSessionData;
+    public PlayerSavedStats CurrentSessionPlayerData => sessionData;
 
     //----PRIVATE VARS----
-    private PlayerSavedStats loadedSessionData;
+    private PlayerSavedStats sessionData;
 
-    [SerializeField] private float upgradedMaxHealth;
-    [SerializeField] private float upgradedAttack;
-    [SerializeField] private float upgradedSpeed;
-    [SerializeField] private float upgradedSkillDuration;
-    [SerializeField] private float upgradedSkillCooldown;
-    [SerializeField] private float upgradedBulletFireRate;
-    [SerializeField] private float upgradedDoubleTapDuration;
-    [SerializeField] private float upgradedTripleShotDuration;
-    [SerializeField] private float upgradedCoinMultiplier;
-    [SerializeField] private GameObject upgradedExplosionSprite;
-    [SerializeField] private Projectile upgradedPlayerProjectile;
-    [SerializeField] private float moneyStored;
+    [SerializeField, HideInInspector] private float upgradedMaxHealth;
+    [SerializeField, HideInInspector] private float upgradedAttack;
+    [SerializeField, HideInInspector] private float upgradedSpeed;
+    [SerializeField, HideInInspector] private float upgradedSkillDuration;
+    [SerializeField, HideInInspector] private float upgradedSkillCooldown;
+    [SerializeField, HideInInspector] private float upgradedBulletFireRate;
+    [SerializeField, HideInInspector] private float upgradedDoubleTapDuration;
+    [SerializeField, HideInInspector] private float upgradedTripleShotDuration;
+    [SerializeField, HideInInspector] private float upgradedCoinMultiplier;
+    [SerializeField, HideInInspector] private GameObject upgradedExplosionSprite;
+    [SerializeField, HideInInspector] private Projectile upgradedPlayerProjectile;
+    [SerializeField, HideInInspector] private float moneyStored;
 
     //################ #################
     //----------CLASS METHODS-----------
@@ -38,12 +37,13 @@ public class PlayerSavedStats : MonoBehaviour
 
         if (SaveSystem.GetIfSaveFileExists() == false)
         {
-            SaveData();
+            SaveData(InitDefaultSaveFile());
             Debug.LogWarning("Player Save doesn't exist. Creating new one.");
         }
         else 
         {
             SaveSystem.LoadFromJson(this);
+            Debug.Log("Money stored is " + moneyStored);
         }
     }
 
@@ -61,15 +61,33 @@ public class PlayerSavedStats : MonoBehaviour
         playerDefaultWeapon.ConstructWeaponStats(upgradedPlayerProjectile, upgradedBulletFireRate, upgradedAttack, 15);
         return playerDefaultWeapon;
     }
-    public void SaveData()
-    {
-        loadedSessionData = this;
-        SaveSystem.SaveToJson(loadedSessionData);
-    }
     public void SaveMoneyData(float moneyToAdd)
     {
         moneyStored += moneyToAdd;
-        SaveData();
+        SaveData(this);
+    }
+    private void SaveData(PlayerSavedStats sessionData)
+    {
+        SaveSystem.SaveToJson(sessionData);
+    }
+    private PlayerSavedStats InitDefaultSaveFile()
+    {
+        PlayerSavedStats defaultFile = this;
+
+        defaultFile.upgradedMaxHealth = 1;
+        defaultFile.upgradedAttack = 1;
+        defaultFile.upgradedSpeed = 250;
+        defaultFile.upgradedSkillDuration = 5;
+        defaultFile.upgradedSkillCooldown = 10;
+        defaultFile.upgradedBulletFireRate = 0.5f;
+        defaultFile.upgradedDoubleTapDuration = 5;
+        defaultFile.upgradedTripleShotDuration = 5;
+        defaultFile.upgradedCoinMultiplier = 0.1f;
+        defaultFile.moneyStored = 0;
+        defaultFile.upgradedExplosionSprite = Resources.Load<GameObject>("Prefabs/Explosion/Explosion");
+        defaultFile.upgradedPlayerProjectile = Resources.Load<Projectile>("Prefabs/Projectiles/PlayerProjectile");
+
+        return defaultFile;
     }
     //Porque solo existe 1 solo tipo de cada uno no hay que diferenciar pero queda hecho para hacer extensible si hace falta
     private void LoadMiscResources()
