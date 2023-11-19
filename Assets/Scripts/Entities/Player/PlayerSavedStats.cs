@@ -69,6 +69,41 @@ public class PlayerSavedStats : MonoBehaviour
         moneyStored += moneyToAdd;
         SaveData(this);
     }
+
+    public void SaveUpgradedStat(string upgradedStat, float updatedValue)
+    {
+        switch (upgradedStat)
+        {
+            case UpgradeableStatsConstants.HealthPoints:
+                upgradedMaxHealth = updatedValue;
+                break;
+            case UpgradeableStatsConstants.Attack:
+                upgradedAttack = updatedValue;
+                break;
+            case UpgradeableStatsConstants.Speed:
+                upgradedSpeed = updatedValue;
+                break;
+            case UpgradeableStatsConstants.SkillDuration:
+                upgradedSkillDuration = updatedValue;
+                break;
+            case UpgradeableStatsConstants.SkillCooldown:
+                upgradedSkillCooldown = updatedValue;
+                break;
+            case UpgradeableStatsConstants.FireRate:
+                upgradedBulletFireRate = updatedValue;
+                break;
+            case UpgradeableStatsConstants.DoubleTap:
+                upgradedDoubleTapDuration = updatedValue;
+                break;
+            case UpgradeableStatsConstants.TripleShot:
+                upgradedTripleShotDuration = updatedValue;
+                break;
+            case UpgradeableStatsConstants.CoinMultiplier:
+                upgradedCoinMultiplier = updatedValue;
+                break;
+        }
+        SaveData(this);
+    }
     private void SaveData(PlayerSavedStats sessionData)
     {
         SaveSystem.SaveToJson(sessionData);
