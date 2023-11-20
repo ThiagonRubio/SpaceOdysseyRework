@@ -15,4 +15,4 @@ MonoBehaviour:
   <Projectile>k__BackingField: {fileID: 7080718164150825358, guid: 4235374b23e7d5c488e294187d7b6844, type: 3}
   <FireRate>k__BackingField: 0.5
   <Damage>k__BackingField: 1
-  <MaxPoolableObjects>k__BackingField: 30
+  <MaxPoolableObjects>k__BackingField: 40

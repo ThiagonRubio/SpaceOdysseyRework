@@ -47,6 +47,7 @@ public class Weapon : MonoBehaviour, IWeapon
         {
             IProjectile newProjectile = _projectileFactory.CreateObject(this);
             newProjectile.GameObject.transform.position = spawnPoints[i].transform.position;
+            newProjectile.GameObject.transform.rotation = spawnPoints[i].transform.rotation;
             newProjectile.SetOwner(this);
         }
         
