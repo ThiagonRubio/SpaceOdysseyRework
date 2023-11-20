@@ -880,7 +880,7 @@ RectTransform:
   - {fileID: 501266261}
   - {fileID: 329043083}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1119,9 +1119,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 643980679}
-  - component: {fileID: 643980678}
-  - component: {fileID: 643980680}
+  - component: {fileID: 643980682}
   - component: {fileID: 643980681}
+  - component: {fileID: 643980680}
   m_Layer: 0
   m_Name: UIFacade
   m_TagString: Untagged
@@ -1129,21 +1129,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &643980678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643980677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 467e73b0ad165364dbc81c0c530853d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBarPrefab: {fileID: 7805114845416332819, guid: 8cde9f784437efc48b74805b0d9325c4, type: 3}
-  healthBarParent: {fileID: 956860417}
-  PlayerDamageable: {fileID: 1918898708}
 --- !u!4 &643980679
 Transform:
   m_ObjectHideFlags: 0
@@ -1168,13 +1153,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 643980677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bbbfe055acce034585022e32dfb31df, type: 3}
+  m_Script: {fileID: 11500000, guid: 186a0dd0e4c8bc74aac00fe5f2cd33d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressSlider: {fileID: 1483159256}
-  stats: {fileID: 11400000, guid: 1c7527a2bf8bc734c9f16bbc1c4d60c2, type: 2}
-  barPartition: 0
-  progress: 0
+  _skillUIFacade: {fileID: 1947104295}
 --- !u!114 &643980681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1184,14 +1166,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 643980677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fbe9fb8cbbbd114493ef50808e122a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bbbfe055acce034585022e32dfb31df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSavedStats: {fileID: 1918898715}
-  playerController: {fileID: 1918898714}
-  player: {fileID: 289142103}
-  animator: {fileID: 1947104294}
-  skillParticles: {fileID: 1735550471}
+  _progressBarFacade: {fileID: 1483159257}
+--- !u!114 &643980682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643980677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704bce8927a7af2429f6a4114683b278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBarFacade: {fileID: 956860418}
 --- !u!1001 &651219714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1453,8 +1444,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 956860414}
-  - component: {fileID: 956860416}
   - component: {fileID: 956860417}
+  - component: {fileID: 956860418}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1482,19 +1473,6 @@ RectTransform:
   m_AnchoredPosition: {x: -532, y: 480}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &956860416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956860413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 704bce8927a7af2429f6a4114683b278, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthBarFacade: {fileID: 643980678}
 --- !u!114 &956860417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1519,6 +1497,21 @@ MonoBehaviour:
   m_Spacing: {x: -80, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &956860418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956860413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 467e73b0ad165364dbc81c0c530853d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarPrefab: {fileID: 7805114845416332819, guid: 8cde9f784437efc48b74805b0d9325c4, type: 3}
+  healthBarParent: {fileID: 956860417}
+  PlayerDamageable: {fileID: 1918898708}
 --- !u!1 &977309878
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,10 +2281,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1483159254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1adbea526bd11e41a5326cf28ff2f4a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5768442d8e54ee945bf87d9c71c1b4ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progressBarFacade: {fileID: 643980680}
+  progressSlider: {fileID: 1483159256}
+  stats: {fileID: 11400000, guid: 1c7527a2bf8bc734c9f16bbc1c4d60c2, type: 2}
+  barPartition: 0
+  progress: 0
 --- !u!1001 &1498269328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7588,8 +7584,8 @@ GameObject:
   - component: {fileID: 1947104290}
   - component: {fileID: 1947104292}
   - component: {fileID: 1947104291}
-  - component: {fileID: 1947104293}
   - component: {fileID: 1947104294}
+  - component: {fileID: 1947104295}
   m_Layer: 5
   m_Name: Skill
   m_TagString: Untagged
@@ -7655,19 +7651,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947104289}
   m_CullTransparentMesh: 1
---- !u!114 &1947104293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947104289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 186a0dd0e4c8bc74aac00fe5f2cd33d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _skillUIFacade: {fileID: 643980681}
 --- !u!95 &1947104294
 Animator:
   serializedVersion: 5
@@ -7689,6 +7672,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1947104295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947104289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fbe9fb8cbbbd114493ef50808e122a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSavedStats: {fileID: 1918898715}
+  playerController: {fileID: 1918898714}
+  player: {fileID: 289142103}
+  animator: {fileID: 1947104294}
+  skillParticles: {fileID: 1735550471}
 --- !u!1001 &1960561618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8107,7 +8107,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6052510042606966664, guid: 735a0843546c72b448d68036a94cb5fa, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6052510042606966664, guid: 735a0843546c72b448d68036a94cb5fa, type: 3}
       propertyPath: m_LocalPosition.x
