@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,25 +6,31 @@ using UnityEngine.UI;
 
 public class HealthBarUI : MonoBehaviour
 {
-    public GameObject healthBarPrefab;
-    public GridLayoutGroup healthBarParent;
-    public PlayerDamageableComponent PlayerDamageable;
-    private List<GameObject> healthBars = new List<GameObject>();
+    [SerializeField] private GameObject healthBarPrefab;
+    private GridLayoutGroup _healthBarParent;
+    private PlayerDamageableComponent _playerDamageable;
+    private List<GameObject> _healthBars = new List<GameObject>();
+
+    private void Start()
+    {
+        _healthBarParent = GetComponent<GridLayoutGroup>();
+        _playerDamageable = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDamageableComponent>();
+    }
 
     public void InitializeHealthBars()
     {
-        for (int i = 0; i < PlayerDamageable.MaxHealth; i++)
+        for (int i = 0; i < _playerDamageable.MaxHealth; i++)
         {
-            GameObject healthBarInstance = Instantiate(healthBarPrefab, healthBarParent.transform);
-            healthBars.Add(healthBarInstance);
+            GameObject healthBarInstance = Instantiate(healthBarPrefab, _healthBarParent.transform);
+            _healthBars.Add(healthBarInstance);
         }
     }
 
     public void UpdateHealthBars()
     {
-        for (int i = 0; i < healthBars.Count; i++)
+        for (int i = 0; i < _healthBars.Count; i++)
         {
-            healthBars[i].SetActive(i < PlayerDamageable.ActualHealth);
+            _healthBars[i].SetActive(i < _playerDamageable.ActualHealth);
         }
     }
 }

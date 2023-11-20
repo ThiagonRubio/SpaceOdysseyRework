@@ -32,11 +32,6 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
     private CmdAttack _cmdAttack;
 
-    //----PUBLC VARS----
-
-    public bool IsSkillInCooldown => _isSkillInCooldown;
-    public bool IsSkillActive => _isSkillActive;
-
     //---IATTACKER IMPL----
     private IWeapon[] _weapons;
     private float attackCooldownTimer = 0;
@@ -44,9 +39,10 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     private float skillCooldownTimer = 0;
     private float skillDurationTimer = 0;
     private bool _isSkillActive = false;
-    private bool _isSkillInCooldown = false;
     
     private bool gameEnded;
+
+    [SerializeField] private SkillFacade skillUIFacade;
     
     //################ #################
     //----------UNITY EV FUNC-----------
@@ -75,11 +71,12 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
             if (_isSkillActive == false)
             {
+                skillUIFacade.UpdateSkillUI(AnimationConstants.SkillInCooldown);
                 skillCooldownTimer -= Time.deltaTime;
 
                 if (skillCooldownTimer <= 0)
                 {
-                    _isSkillInCooldown = false;
+                    skillUIFacade.UpdateSkillUI(AnimationConstants.SkillAvailable);
                     ListenForSkillActivateInput();
                 }
             }
@@ -148,7 +145,7 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     {
         if (_playerInputActions.Normal.Skill.WasPressedThisFrame())
         {
-            _isSkillInCooldown = true;
+            skillUIFacade.UpdateSkillUI(AnimationConstants.SkillActive);
             ActivateSkill(true);
         }
     }

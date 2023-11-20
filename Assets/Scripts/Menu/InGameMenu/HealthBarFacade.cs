@@ -12,7 +12,7 @@ public class HealthBarFacade : MonoBehaviour
         _healthBarFacade.InitializeHealthBars();
     }
 
-    private void Update()
+    public void UpdateHealth()
     {
         _healthBarFacade.UpdateHealthBars();
     }

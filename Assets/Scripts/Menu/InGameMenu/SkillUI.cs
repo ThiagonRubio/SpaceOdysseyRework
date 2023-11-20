@@ -1,54 +1,59 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SkillUI : MonoBehaviour
 {
-    public PlayerSavedStats playerSavedStats;
-    public PlayerController playerController;
-    [SerializeField] GameObject player;
-    public Animator animator;
-    public ParticleSystem skillParticles;
+    [SerializeField] private PlayerSavedStats playerSavedStats;
+    private Animator _animator;
+    [SerializeField] private ParticleSystem _skillParticles;
+    [SerializeField] private float timeReducedFromParticleDuration;
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     public void StartFacade()
     {
-        var main = skillParticles.main;
-        main.duration = playerSavedStats.SkillDuration - (playerSavedStats.SkillDuration * 0.3f);
+        var main = _skillParticles.main;
+        main.duration = playerSavedStats.SkillDuration - timeReducedFromParticleDuration;
     }
 
-    public void UpdateFacade()
+    public void ResetAnimatorBooleans()
     {
-        animator.SetBool("active", false);
-        animator.SetBool("available", false);
-        animator.SetBool("cooldown", false);
-
-        if (playerController.IsSkillActive == true)
+        _animator.SetBool(AnimationConstants.SkillActive, false);
+        _animator.SetBool(AnimationConstants.SkillAvailable, false);
+        _animator.SetBool(AnimationConstants.SkillInCooldown, false);
+    }
+    
+    public void ChangeSkillUIState(string state)
+    {
+        switch (state)
         {
-            if (!skillParticles.isPlaying)
-            {
-                skillParticles.Play();
-                Debug.Log("particles playing");
-            }
-            if (animator.GetBool("active") == false)
-            {
-                animator.SetBool("active", true);
-            }
-        }
-
-        if (playerController.IsSkillInCooldown == false)
-        {
-            if (animator.GetBool("available") == false)
-            {
-                animator.SetBool("available", true);
-            }
-        }
-
-        if (playerController.IsSkillInCooldown == true)
-        {
-            if (animator.GetBool("cooldown") == false)
-            {
-                animator.SetBool("cooldown", true);
-            }
+            case AnimationConstants.SkillActive:
+                if (!_skillParticles.isPlaying)
+                {
+                    _skillParticles.Play();
+                }
+                if (_animator.GetBool(state) == false)
+                {
+                    _animator.SetBool(state, true);
+                }
+                break;
+            case AnimationConstants.SkillAvailable:
+                if (_animator.GetBool(state) == false)
+                {
+                    _animator.SetBool(state, true);
+                }
+                break;
+            case AnimationConstants.SkillInCooldown:
+                if (_animator.GetBool(state) == false)
+                {
+                    _animator.SetBool(state, true);
+                }
+                break;
         }
     }
 }

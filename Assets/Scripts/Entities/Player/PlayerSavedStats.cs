@@ -36,6 +36,8 @@ public class PlayerSavedStats : MonoBehaviour
 
     private void Awake()
     {
+        upgradesBoughtStats = GetComponent<PlayerUpgradesBoughtStats>();
+        
         //Para Forzar a que se sobrescriba todos los valores edita el .txt del json directamente
 
         if (SaveSystem.GetIfSaveFileExists() == false)
@@ -125,6 +127,7 @@ public class PlayerSavedStats : MonoBehaviour
         defaultFile.upgradedExplosionSprite = Resources.Load<GameObject>("Prefabs/Explosion/Explosion");
         defaultFile.upgradedPlayerProjectile = Resources.Load<Projectile>("Prefabs/Projectiles/PlayerProjectile");
         defaultFile.upgradesBoughtStats.InitDefaultStats();
+        
         return defaultFile;
     }
     //Porque solo existe 1 solo tipo de cada uno no hay que diferenciar pero queda hecho para hacer extensible si hace falta

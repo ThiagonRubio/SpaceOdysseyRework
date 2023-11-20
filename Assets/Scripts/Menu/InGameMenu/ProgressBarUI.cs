@@ -1,53 +1,48 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 
-public class ProgressBarUI : MonoBehaviour, IListener
+public class ProgressBarUI : MonoBehaviour /* , IListener */
 {
-    public Slider progressSlider;
+    private Slider _progressSlider;
     public SpawnerControllerStats Stats => stats;
     [SerializeField] private SpawnerControllerStats stats;
 
-    public float barPartition;
-    public float progress = 0;
+    private float _barPartition;
+    private float _progress = 0;
+
+    private void Start()
+    {
+        _progressSlider = GetComponent<Slider>();
+    }
 
     public void ProgressBarStart()
     {
-        EventManager.Instance.AddListener(EventConstants.EnemyDeath, this);
-        EventManager.Instance.AddListener(EventConstants.BossDeath, this);
-        barPartition = 1f / Stats.EnemiesBetweenBosses;
+        _barPartition = 1f / Stats.EnemiesBetweenBosses;
 
-        if (progressSlider != null)
+        if (_progressSlider != null)
         {
-            progressSlider.value = progress;
+            _progressSlider.value = _progress;
         }
     }
 
-    private void OnDisable()
+    public void EnemyDied()
     {
-        EventManager.Instance.RemoveListener(EventConstants.EnemyDeath, this);
-        EventManager.Instance.RemoveListener(EventConstants.BossDeath, this);
+        _progress += _barPartition;
+        _progress = Mathf.Clamp01(_progress);
+
+        if (_progressSlider != null)
+        {
+            _progressSlider.value = _progress;
+        }
     }
 
-    public void OnEventDispatch(string invokedEvent)
+    public void BossDied()
     {
-        if (invokedEvent == EventConstants.EnemyDeath)
-        {
-            progress += barPartition;
-            progress = Mathf.Clamp01(progress);
-
-            if (progressSlider != null)
-            {
-                progressSlider.value = progress;
-            }
-        }
-
-        if (invokedEvent == EventConstants.BossDeath)
-        {
-            progress = 0;
-            progressSlider.value = progress;
-        }
+        _progress = 0;
+        _progressSlider.value = _progress;
     }
 }

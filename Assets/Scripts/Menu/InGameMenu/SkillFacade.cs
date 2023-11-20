@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class SkillFacade : MonoBehaviour
 {
-    [SerializeField] private SkillUI _skillUIFacade;
+    [SerializeField] private SkillUI skillUIFacade;
 
     void Start()
     {
-        _skillUIFacade.StartFacade();
+        skillUIFacade.StartFacade();
     }
 
-    void Update()
+    public void UpdateSkillUI(string state)
     {
-        _skillUIFacade.UpdateFacade();
+        skillUIFacade.ResetAnimatorBooleans();
+        skillUIFacade.ChangeSkillUIState(state);
     }
 }

@@ -295,11 +295,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyTypeToCreate: {fileID: 8717408562707923523, guid: 0f3ce553d0edaf248a3bf3901d0861d4, type: 3}
   maxPoolSize: 10
---- !u!1 &289142103 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2993427675522167980, guid: 5c65918627436f440ac752766c6d629f, type: 3}
-  m_PrefabInstance: {fileID: 1839203369}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &329043082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186a0dd0e4c8bc74aac00fe5f2cd33d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillUIFacade: {fileID: 1947104295}
+  skillUIFacade: {fileID: 1947104295}
 --- !u!114 &643980681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1169,7 +1164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bbbfe055acce034585022e32dfb31df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progressBarFacade: {fileID: 1483159257}
+  progressBarFacade: {fileID: 1483159257}
 --- !u!114 &643980682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1179,7 +1174,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 643980677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 704bce8927a7af2429f6a4114683b278, type: 3}
+  m_Script: {fileID: 11500000, guid: 467e73b0ad165364dbc81c0c530853d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBarFacade: {fileID: 956860418}
@@ -1506,12 +1501,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 956860413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 467e73b0ad165364dbc81c0c530853d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7dc1fc0e6f2deff4d842f017afdbff89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 7805114845416332819, guid: 8cde9f784437efc48b74805b0d9325c4, type: 3}
-  healthBarParent: {fileID: 956860417}
-  PlayerDamageable: {fileID: 1918898708}
 --- !u!1 &977309878
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,10 +2277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5768442d8e54ee945bf87d9c71c1b4ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressSlider: {fileID: 1483159256}
   stats: {fileID: 11400000, guid: 1c7527a2bf8bc734c9f16bbc1c4d60c2, type: 2}
-  barPartition: 0
-  progress: 0
 --- !u!1001 &1498269328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2557,8 +2547,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1735550473}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2865,8 +2854,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
-      minScalar: 0.1
+      scalar: 0.3
+      minScalar: 0.15
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3249,7 +3238,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0.8855095, y: 0.26050282, z: 0}
     m_Rotation: {x: -0, y: 0, z: 0}
-    m_Scale: {x: 2.8478224, y: 1.1228428, z: 0}
+    m_Scale: {x: 2.9705055, y: 1.5729429, z: 0}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -3447,7 +3436,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 70
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -7399,12 +7388,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735550470}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.26, y: -4.47, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 44, y: 35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1715052644}
+  m_Father: {fileID: 1947104290}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1788279613
@@ -7477,6 +7466,10 @@ PrefabInstance:
       propertyPath: skillDuration
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2993427675522167957, guid: 5c65918627436f440ac752766c6d629f, type: 3}
+      propertyPath: healthBarUIFacade
+      value: 
+      objectReference: {fileID: 643980682}
     - target: {fileID: 2993427675522167980, guid: 5c65918627436f440ac752766c6d629f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7533,6 +7526,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2993427675522167983, guid: 5c65918627436f440ac752766c6d629f, type: 3}
+      propertyPath: skillUIFacade
+      value: 
+      objectReference: {fileID: 643980680}
     - target: {fileID: 4441217899125135929, guid: 5c65918627436f440ac752766c6d629f, type: 3}
       propertyPath: debugForceSaveSerializedValuesOnStart
       value: 0
@@ -7540,34 +7537,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1862665946654709240, guid: 5c65918627436f440ac752766c6d629f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5c65918627436f440ac752766c6d629f, type: 3}
---- !u!114 &1918898708 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2993427675522167957, guid: 5c65918627436f440ac752766c6d629f, type: 3}
-  m_PrefabInstance: {fileID: 1839203369}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289142103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbb558a0257af594c9143708186a5545, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1918898714 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2993427675522167983, guid: 5c65918627436f440ac752766c6d629f, type: 3}
-  m_PrefabInstance: {fileID: 1839203369}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289142103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b9dc66086ef1e4eb17fc56f1cdc709, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1918898715 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4441217899125135929, guid: 5c65918627436f440ac752766c6d629f, type: 3}
   m_PrefabInstance: {fileID: 1839203369}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289142103}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1077396fb64ba44418c7957a0a0f8794, type: 3}
@@ -7604,7 +7579,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1735550473}
   m_Father: {fileID: 1323685553}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7685,10 +7661,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSavedStats: {fileID: 1918898715}
-  playerController: {fileID: 1918898714}
-  player: {fileID: 289142103}
-  animator: {fileID: 1947104294}
-  skillParticles: {fileID: 1735550471}
+  _skillParticles: {fileID: 1735550471}
+  timeReducedFromParticleDuration: 0.5
 --- !u!1001 &1960561618
 PrefabInstance:
   m_ObjectHideFlags: 0
