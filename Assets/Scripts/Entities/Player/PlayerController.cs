@@ -32,14 +32,20 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
     private CmdAttack _cmdAttack;
 
+    //----PUBLC VARS----
+
+    public bool IsSkillInCooldown => _isSkillInCooldown;
+    public bool IsSkillActive => _isSkillActive;
+
     //---IATTACKER IMPL----
     private IWeapon[] _weapons;
     private float attackCooldownTimer = 0;
 
     private float skillCooldownTimer = 0;
     private float skillDurationTimer = 0;
-    private bool isSkillActive = false;
-
+    private bool _isSkillActive = false;
+    private bool _isSkillInCooldown = false;
+    
     private bool gameEnded;
     
     //################ #################
@@ -67,12 +73,15 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
             ListenForMoveInput();
             ListenForShootInput();
 
-            if (isSkillActive == false)
+            if (_isSkillActive == false)
             {
                 skillCooldownTimer -= Time.deltaTime;
 
                 if (skillCooldownTimer <= 0)
+                {
+                    _isSkillInCooldown = false;
                     ListenForSkillActivateInput();
+                }
             }
             else
             {
@@ -139,6 +148,7 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     {
         if (_playerInputActions.Normal.Skill.WasPressedThisFrame())
         {
+            _isSkillInCooldown = true;
             ActivateSkill(true);
         }
     }
@@ -204,7 +214,7 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
     private void ActivateSkill(bool isActivated)
     {
-        isSkillActive = isActivated;
+        _isSkillActive = isActivated;
         if (isActivated)
         {
             entityAnim.SetTrigger(AnimationConstants.PlayerSkillActivation);
