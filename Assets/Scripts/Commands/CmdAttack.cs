@@ -17,7 +17,8 @@ public class CmdAttack : ICommand
     {
         for (int i = 0; i < equippedWeapons.Length; i++)
         {
-            equippedWeapons[i].UseWeapon();
+            if (equippedWeapons[i].GameObject.activeInHierarchy)
+                equippedWeapons[i].UseWeapon();
         }
     }
 }

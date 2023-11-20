@@ -8,6 +8,8 @@ public class PlayerSavedStats : MonoBehaviour
 {
     public float SkillDuration => upgradedSkillDuration;
     public float SkillCooldown => upgradedSkillCooldown;
+    public float TripleShotDuration => upgradedTripleShotDuration;
+    public float DoubleTapDuration => upgradedDoubleTapDuration;
     public float UpgradedCoinMultiplier => upgradedCoinMultiplier;
     public float MoneyStored => moneyStored;
     public PlayerSavedStats CurrentSessionPlayerData => sessionData;
@@ -63,7 +65,7 @@ public class PlayerSavedStats : MonoBehaviour
     {
         LoadWeaponResources();
         WeaponStats playerDefaultWeapon = WeaponStats.CreateInstance<WeaponStats>();
-        playerDefaultWeapon.ConstructWeaponStats(upgradedPlayerProjectile, upgradedBulletFireRate, upgradedAttack, 15);
+        playerDefaultWeapon.ConstructWeaponStats(upgradedPlayerProjectile, upgradedBulletFireRate, upgradedAttack, 30);
         return playerDefaultWeapon;
     }
     public void SaveMoneyData(float moneyToAdd)

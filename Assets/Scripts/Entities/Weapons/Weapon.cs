@@ -1,11 +1,10 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour, IWeapon
 {
-    public GameObject GameObject => this.GameObject;
+    public GameObject GameObject => this.gameObject;
     public ObjectPool ObjectPool => _projectilesPool;
     public AbstractFactory<IPoolable> CreatorFactory => _projectileFactory;
 
@@ -44,8 +43,12 @@ public class Weapon : MonoBehaviour, IWeapon
     //################ #################
     public void UseWeapon()
     {
-        IProjectile newProjectile = _projectileFactory.CreateObject(this);
-        newProjectile.SetOwner(this);
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            IProjectile newProjectile = _projectileFactory.CreateObject(this);
+            newProjectile.GameObject.transform.position = spawnPoints[i].transform.position;
+            newProjectile.SetOwner(this);
+        }
         
         SoundManager.Instance.ReproduceSound(AudioConstants.ProyectileShot, 1);
     }
