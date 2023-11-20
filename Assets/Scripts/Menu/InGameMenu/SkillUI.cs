@@ -4,15 +4,52 @@ using UnityEngine;
 
 public class SkillUI : MonoBehaviour
 {
-    [SerializeField] private SkillUIFacade _skillUIFacade;
+    public PlayerSavedStats playerSavedStats;
+    public PlayerController playerController;
+    [SerializeField] GameObject player;
+    public Animator animator;
+    public ParticleSystem skillParticles;
 
-    void Start()
+    public void StartFacade()
     {
-        _skillUIFacade.StartFacade();
+        var main = skillParticles.main;
+        main.duration = playerSavedStats.SkillDuration - (playerSavedStats.SkillDuration * 0.3f);
     }
 
-    void Update()
+    public void UpdateFacade()
     {
-        _skillUIFacade.UpdateFacade();
+        animator.SetBool("active", false);
+        animator.SetBool("available", false);
+        animator.SetBool("cooldown", false);
+
+        if (playerController.IsSkillActive == true)
+        {
+            if (!skillParticles.isPlaying)
+            {
+                skillParticles.Play();
+                Debug.Log("particles playing");
+            }
+            if (animator.GetBool("active") == false)
+            {
+                animator.SetBool("active", true);
+            }
+        }
+
+        if (playerController.IsSkillInCooldown == false)
+        {
+            if (animator.GetBool("available") == false)
+            {
+                animator.SetBool("available", true);
+            }
+        }
+
+        if (playerController.IsSkillInCooldown == true)
+        {
+            if (animator.GetBool("cooldown") == false)
+            {
+                animator.SetBool("cooldown", true);
+            }
+        }
     }
 }
+
