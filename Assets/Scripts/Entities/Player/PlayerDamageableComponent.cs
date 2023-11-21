@@ -10,6 +10,7 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
 
     //---IDAMAGEABLE PRIVATE-----
     private float actualHealth;
+    [SerializeField] private HealthBarFacade healthBarUIFacade;
 
     //################ #################
     //----------UNITY EV FUNC-----------
@@ -19,6 +20,7 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
         actualHealth = ActorStats.MaxHealth;
         if (actualHealth > 10)
             actualHealth = 10;
+        healthBarUIFacade.UpdateHealth();
         EventManager.Instance.AddListener(EventConstants.MedicKitEffect, this);
     }
 
@@ -32,6 +34,8 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
 
         entityAnim.SetTrigger(AnimationConstants.TookDamage);
         SoundManager.Instance.ReproduceSound(AudioConstants.TookDamage, 1);
+        
+        healthBarUIFacade.UpdateHealth();
         
         if(actualHealth == 1)
             entityAnim.SetBool(AnimationConstants.Player1Hp, true);
@@ -52,6 +56,7 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
         if (invokedEvent == EventConstants.MedicKitEffect)
         {
             actualHealth++;
+            healthBarUIFacade.UpdateHealth();
             if(actualHealth > 1)
                 entityAnim.SetBool(AnimationConstants.Player1Hp, false);
             if (actualHealth > 10) //Tope definido en el juego original

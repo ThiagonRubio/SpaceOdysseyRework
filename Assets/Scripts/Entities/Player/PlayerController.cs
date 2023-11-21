@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 [RequireComponent(typeof(CommandEventQueue))]
 public class PlayerController : Actor, IMoveable, IAttacker, IListener
@@ -38,13 +37,12 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
     private float skillCooldownTimer = 0;
     private float skillDurationTimer = 0;
-    public bool isSkillActive = false;
-    public bool isSkillInCooldown = false;
-
+    private bool _isSkillActive = false;
+    
     private bool gameEnded;
-    
-    
-    private PlayerSavedStats playerUpgradeableStats;
+
+    [SerializeField] private SkillFacade skillUIFacade;
+    [SerializeField] private PauseFacade pauseUIFacade;
     
     //################ #################
     //----------UNITY EV FUNC-----------
@@ -54,7 +52,6 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     {
         base.Awake();
         _playerInputActions = new PlayerInputActions();
-        playerUpgradeableStats = GetComponent<PlayerSavedStats>();
         ResetSkillTimers(true);
     }
 
@@ -67,23 +64,30 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     {
         if (!gameEnded)
         {
-            attackCooldownTimer += Time.deltaTime;
-
-            ListenForMoveInput();
-            ListenForShootInput();
-
-            if (isSkillActive == false)
+            if (!pauseUIFacade.PauseManager.IsPaused)
             {
-                skillCooldownTimer -= Time.deltaTime;
+                attackCooldownTimer += Time.deltaTime;
 
-                if (skillCooldownTimer <= 0)
-                    ListenForSkillActivateInput();
+                ListenForMoveInput();
+                ListenForShootInput();
 
+                if (_isSkillActive == false)
+                {
+                    skillUIFacade.UpdateSkillUI(AnimationConstants.SkillInCooldown);
+                    skillCooldownTimer -= Time.deltaTime;
+
+                    if (skillCooldownTimer <= 0)
+                    {
+                        skillUIFacade.UpdateSkillUI(AnimationConstants.SkillAvailable);
+                        ListenForSkillActivateInput();
+                    }
+                }
+                else
+                {
+                    ListenForSkillDeactivation();
+                }
             }
-            else
-            {
-                ListenForSkillDeactivation();
-            }
+            ListenForPauseInput();
         }
 
         ClampMoveToScreen();
@@ -143,9 +147,9 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
     private void ListenForSkillActivateInput()
     {
-        isSkillInCooldown = false;
         if (_playerInputActions.Normal.Skill.WasPressedThisFrame())
         {
+            skillUIFacade.UpdateSkillUI(AnimationConstants.SkillActive);
             ActivateSkill(true);
         }
     }
@@ -156,10 +160,26 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
         if (skillDurationTimer <= 0)
         {
             ActivateSkill(false);
-            isSkillInCooldown = true;
             entityAnim.SetTrigger(AnimationConstants.PlayerSkillDeactivation);
             SoundManager.Instance.ReproduceSound(AudioConstants.SkillDeactivate, 1);
             ResetSkillTimers(false);
+        }
+    }
+
+    private void ListenForPauseInput()
+    {
+        if (_playerInputActions.Normal.Pause.WasPressedThisFrame())
+        {
+            if (!pauseUIFacade.PauseManager.IsPaused)
+            {
+                pauseUIFacade.PauseGame();
+                return;
+            }
+            if (pauseUIFacade.PauseManager.IsPaused)
+            {
+                pauseUIFacade.ContinueGame();
+                return;
+            }
         }
     }
 
@@ -212,7 +232,7 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
 
     private void ActivateSkill(bool isActivated)
     {
-        isSkillActive = isActivated;
+        _isSkillActive = isActivated;
         if (isActivated)
         {
             entityAnim.SetTrigger(AnimationConstants.PlayerSkillActivation);
@@ -223,8 +243,10 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     }
     private void ResetSkillTimers(bool isGameStarting)
     {
-        skillCooldownTimer = playerUpgradeableStats.SkillCooldown;
-        skillDurationTimer = playerUpgradeableStats.SkillDuration;
+        PlayerSavedStats stats = GetComponent<PlayerSavedStats>(); 
+
+        skillCooldownTimer = stats.SkillCooldown;
+        skillDurationTimer = stats.SkillDuration;
 
         //Para que la skill se pueda usar inmediatamente al iniciar
         if (isGameStarting)
