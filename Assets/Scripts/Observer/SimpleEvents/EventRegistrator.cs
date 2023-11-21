@@ -24,6 +24,8 @@ public class EventRegistrator : MonoBehaviour
         EventManager.Instance.RegisterEvent(EventConstants.Won);
         EventManager.Instance.RegisterEvent(EventConstants.Lost);
         
+        EventManager.Instance.RegisterEvent(EventConstants.VolumeChanged);
+        
         Destroy(gameObject);
     }
 }

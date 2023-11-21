@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4904338514426584784}
   - component: {fileID: 4904338514426584787}
   - component: {fileID: 4904338514426584785}
+  - component: {fileID: 7078896883094026378}
+  - component: {fileID: 5483746356492100105}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: SoundManager
@@ -152,3 +154,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7078896883094026378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4904338514426584786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3482262ab600b894f95f833c2669920d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5483746356492100105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4904338514426584786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d089ae0638d82df43b83cc446979a8d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: sfx

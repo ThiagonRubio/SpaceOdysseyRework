@@ -646,6 +646,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas1: {fileID: 2140839843}
   canvas2: {fileID: 1402733256}
+--- !u!114 &394729598 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4904338514426584787, guid: 6ab0ba1273c78c04386b787f9666b908, type: 3}
+  m_PrefabInstance: {fileID: 116446963}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beba008ccb1008142bc44c4fe18b6f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &394729600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5483746356492100105, guid: 6ab0ba1273c78c04386b787f9666b908, type: 3}
+  m_PrefabInstance: {fileID: 116446963}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d089ae0638d82df43b83cc446979a8d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &396250609 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1570764605494479646, guid: 85abb7a1661428e4eba88598c9fa4757, type: 3}
+  m_PrefabInstance: {fileID: 795304733}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d089ae0638d82df43b83cc446979a8d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &457416393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,6 +1370,8 @@ GameObject:
   m_Component:
   - component: {fileID: 692359572}
   - component: {fileID: 692359573}
+  - component: {fileID: 692359575}
+  - component: {fileID: 692359574}
   m_Layer: 5
   m_Name: SFXVolume
   m_TagString: Untagged
@@ -1417,7 +1452,44 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 692359574}
+        m_TargetAssemblyTypeName: VolumeChangerSlide, Assembly-CSharp
+        m_MethodName: SaveNewVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &692359574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692359571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e644b65f2c5c924caeb7b277881d34c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: sfx
+--- !u!114 &692359575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692359571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3482262ab600b894f95f833c2669920d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &710326599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,9 +1588,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 710326601}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: ChangeToDesiredScene
+      - m_Target: {fileID: 394729600}
+        m_TargetAssemblyTypeName: VolumeChangedReceiver, Assembly-CSharp
+        m_MethodName: RemoveListenerFromEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 396250609}
+        m_TargetAssemblyTypeName: VolumeChangedReceiver, Assembly-CSharp
+        m_MethodName: RemoveListenerFromEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1531,6 +1615,18 @@ MonoBehaviour:
       - m_Target: {fileID: 710326605}
         m_TargetAssemblyTypeName: SetGameMode, Assembly-CSharp
         m_MethodName: SetGameModeAsEndlessMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 710326601}
+        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
+        m_MethodName: ChangeToDesiredScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2837,6 +2933,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1299061405}
   - component: {fileID: 1299061406}
+  - component: {fileID: 1299061408}
+  - component: {fileID: 1299061407}
   m_Layer: 5
   m_Name: SFXVolume
   m_TagString: Untagged
@@ -2917,7 +3015,44 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1299061407}
+        m_TargetAssemblyTypeName: VolumeChangerSlide, Assembly-CSharp
+        m_MethodName: SaveNewVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1299061407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299061404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e644b65f2c5c924caeb7b277881d34c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: bgm
+--- !u!114 &1299061408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299061404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3482262ab600b894f95f833c2669920d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1379746692
 GameObject:
   m_ObjectHideFlags: 0
@@ -3603,9 +3738,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1656134345}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: ChangeToDesiredScene
+      - m_Target: {fileID: 394729600}
+        m_TargetAssemblyTypeName: VolumeChangedReceiver, Assembly-CSharp
+        m_MethodName: RemoveListenerFromEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 396250609}
+        m_TargetAssemblyTypeName: VolumeChangedReceiver, Assembly-CSharp
+        m_MethodName: RemoveListenerFromEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3618,6 +3765,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1656134349}
         m_TargetAssemblyTypeName: SetGameMode, Assembly-CSharp
         m_MethodName: SetGameModeAsStageMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1656134345}
+        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
+        m_MethodName: ChangeToDesiredScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4143,6 +4302,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1656134343}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 394729598}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

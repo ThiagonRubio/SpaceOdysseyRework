@@ -15,4 +15,6 @@
     
     public const string Won = "won";
     public const string Lost = "lost";
+
+    public const string VolumeChanged = "volumeChanged";
 }

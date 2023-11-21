@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2741687823985428470}
   - component: {fileID: 2741687823985428471}
   - component: {fileID: 2741687823985428469}
+  - component: {fileID: 8487534569852838688}
+  - component: {fileID: 1570764605494479646}
   m_Layer: 0
   m_Name: MenuBGM
   m_TagString: BGMMenu
@@ -139,3 +141,28 @@ AudioHighPassFilter:
   m_Enabled: 0
   m_CutoffFrequency: 2200
   m_HighpassResonanceQ: 1
+--- !u!114 &8487534569852838688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2741687823985428464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3482262ab600b894f95f833c2669920d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1570764605494479646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2741687823985428464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d089ae0638d82df43b83cc446979a8d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: bgm

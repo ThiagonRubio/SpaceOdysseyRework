@@ -43,4 +43,13 @@ public class SoundManager : MonoBehaviour
     {
         controlAudio.PlayOneShot(_audiosDictionary[audioName], volume);
     }
+
+    public void ButtonClicked()
+    {
+        ReproduceSound(AudioConstants.ButtonClicked,1);
+    }
+    public void ButtonSelected()
+    {
+        ReproduceSound(AudioConstants.ButtonSelected,1);
+    }
 }
