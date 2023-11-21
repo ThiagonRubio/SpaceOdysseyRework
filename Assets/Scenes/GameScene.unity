@@ -1783,6 +1783,7 @@ GameObject:
   - component: {fileID: 643980680}
   - component: {fileID: 643980681}
   - component: {fileID: 643980683}
+  - component: {fileID: 643980684}
   m_Layer: 0
   m_Name: UIFacade
   m_TagString: Untagged
@@ -1857,6 +1858,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseManager: {fileID: 464547786}
+--- !u!114 &643980684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643980677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f408b3084455677479020719b1fdfc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreUI: {fileID: 1993018627}
 --- !u!1001 &651219714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8488,6 +8502,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 7738666374984074731, guid: 5c65918627436f440ac752766c6d629f, type: 3}
+      propertyPath: scoreFacade
+      value: 
+      objectReference: {fileID: 643980684}
     m_RemovedComponents:
     - {fileID: 1862665946654709240, guid: 5c65918627436f440ac752766c6d629f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5c65918627436f440ac752766c6d629f, type: 3}
@@ -8839,6 +8857,7 @@ GameObject:
   - component: {fileID: 1993018624}
   - component: {fileID: 1993018626}
   - component: {fileID: 1993018625}
+  - component: {fileID: 1993018627}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -8902,6 +8921,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993018623}
   m_CullTransparentMesh: 1
+--- !u!114 &1993018627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993018623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943c8254aabb9b14cae16c8e56508cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshProUGUI: {fileID: 393955650}
 --- !u!1 &2006515373
 GameObject:
   m_ObjectHideFlags: 0

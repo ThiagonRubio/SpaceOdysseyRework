@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerScoreCounter : MonoBehaviour, IListener
 {
+    [SerializeField] ScoreFacade scoreFacade;
     public float Score => _score;
     
     private float _score;
@@ -34,6 +35,7 @@ public class PlayerScoreCounter : MonoBehaviour, IListener
     private void AddScore(float addedScore)
     {
         _score += addedScore;
+        scoreFacade.UpdateScoreUI(_score);
     }
     
     private int ScoreToCoinConversion(float score, float coinMultiplier)
