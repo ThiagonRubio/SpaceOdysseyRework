@@ -4,25 +4,14 @@ using UnityEngine;
 
 public class PauseFacade : MonoBehaviour
 {
+    public PauseManager PauseManager => pauseManager;
+    
     [SerializeField] PauseManager pauseManager;
 
     private void Start()
     {
         ContinueGame();
     }
-
-    private void Update()
-    {
-        if(Input.GetButtonDown("Cancel"))
-        {
-            if(!pauseManager.IsPaused)
-            {
-                PauseGame();
-            }
-            else ContinueGame();
-        }
-    }
-    
     public void PauseGame()
     {
         pauseManager.PauseGame();

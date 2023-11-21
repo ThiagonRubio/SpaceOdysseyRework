@@ -42,6 +42,7 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     private bool gameEnded;
 
     [SerializeField] private SkillFacade skillUIFacade;
+    [SerializeField] private PauseFacade pauseUIFacade;
     
     //################ #################
     //----------UNITY EV FUNC-----------
@@ -63,26 +64,30 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     {
         if (!gameEnded)
         {
-            attackCooldownTimer += Time.deltaTime;
-
-            ListenForMoveInput();
-            ListenForShootInput();
-
-            if (_isSkillActive == false)
+            if (!pauseUIFacade.PauseManager.IsPaused)
             {
-                skillUIFacade.UpdateSkillUI(AnimationConstants.SkillInCooldown);
-                skillCooldownTimer -= Time.deltaTime;
+                attackCooldownTimer += Time.deltaTime;
 
-                if (skillCooldownTimer <= 0)
+                ListenForMoveInput();
+                ListenForShootInput();
+
+                if (_isSkillActive == false)
                 {
-                    skillUIFacade.UpdateSkillUI(AnimationConstants.SkillAvailable);
-                    ListenForSkillActivateInput();
+                    skillUIFacade.UpdateSkillUI(AnimationConstants.SkillInCooldown);
+                    skillCooldownTimer -= Time.deltaTime;
+
+                    if (skillCooldownTimer <= 0)
+                    {
+                        skillUIFacade.UpdateSkillUI(AnimationConstants.SkillAvailable);
+                        ListenForSkillActivateInput();
+                    }
+                }
+                else
+                {
+                    ListenForSkillDeactivation();
                 }
             }
-            else
-            {
-                ListenForSkillDeactivation();
-            }
+            ListenForPauseInput();
         }
 
         ClampMoveToScreen();
@@ -158,6 +163,23 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
             entityAnim.SetTrigger(AnimationConstants.PlayerSkillDeactivation);
             SoundManager.Instance.ReproduceSound(AudioConstants.SkillDeactivate, 1);
             ResetSkillTimers(false);
+        }
+    }
+
+    private void ListenForPauseInput()
+    {
+        if (_playerInputActions.Normal.Pause.WasPressedThisFrame())
+        {
+            if (!pauseUIFacade.PauseManager.IsPaused)
+            {
+                pauseUIFacade.PauseGame();
+                return;
+            }
+            if (pauseUIFacade.PauseManager.IsPaused)
+            {
+                pauseUIFacade.ContinueGame();
+                return;
+            }
         }
     }
 
