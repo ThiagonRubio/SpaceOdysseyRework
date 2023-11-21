@@ -28,6 +28,7 @@ public class UpgradeMenuController : MonoBehaviour
     
     void Start()
     {
+        _stats = GetComponent<PlayerSavedStats>();
         SaveSystem.LoadFromJson(_stats);
     }
 
