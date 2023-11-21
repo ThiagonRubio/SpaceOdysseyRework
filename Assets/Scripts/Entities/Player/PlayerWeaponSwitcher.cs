@@ -56,7 +56,6 @@ public class PlayerWeaponSwitcher : MonoBehaviour, IListener
                 tripleShotWeapon.gameObject.SetActive(true);
                 break; 
             case EventConstants.DoubleTapEffect:
-                print("no se que poronga hace esto pero pew pew");
                 defaultWeapon.gameObject.SetActive(false);
                 doubleTapWeapon.gameObject.SetActive(true);
                 tripleShotWeapon.gameObject.SetActive(false);
