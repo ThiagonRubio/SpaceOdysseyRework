@@ -10,6 +10,7 @@ public class HealthBarFacade : MonoBehaviour
     private void Start()
     {
         _healthBarFacade.InitializeHealthBars();
+        ApagarMarcoRojoPordefecto();
     }
 
     public void UpdateHealth()
@@ -17,4 +18,8 @@ public class HealthBarFacade : MonoBehaviour
         _healthBarFacade.UpdateHealthBars();
     }
 
+    public void ApagarMarcoRojoPordefecto()
+    {
+        _healthBarFacade.ApagarMarcoRojoPorDefecto();
+    }
 }

@@ -22,7 +22,7 @@ public class HealthBarUI : MonoBehaviour
         }
         UpdateHealthBars();
     }
-
+ 
     public void UpdateHealthBars()
     {
         for (int i = 0; i < _healthBars.Count; i++)
@@ -38,5 +38,10 @@ public class HealthBarUI : MonoBehaviour
         {
             redFrameFadeEffectScript.ShowUI();
         }
+    }
+
+    public void ApagarMarcoRojoPorDefecto()
+    {
+        redFrameFadeEffectScript.AutomaticallyHideUI();
     }
 }

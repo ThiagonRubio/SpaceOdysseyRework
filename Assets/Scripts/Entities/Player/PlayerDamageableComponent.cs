@@ -22,12 +22,19 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
             actualHealth = 10;
         healthBarUIFacade.UpdateHealth();
         EventManager.Instance.AddListener(EventConstants.MedicKitEffect, this);
+        Invoke("CheckHP",0.1f);
     }
 
     //################ #################
     //----------CLASS METHODS-----------
     //################ #################
 
+    private void CheckHP()
+    {
+        if(actualHealth > 1)
+            healthBarUIFacade.ApagarMarcoRojoPordefecto();
+    }
+    
     public void TakeDamage(float damageAmount)
     {
         actualHealth -= damageAmount;
