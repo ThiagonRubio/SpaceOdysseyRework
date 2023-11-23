@@ -11,6 +11,8 @@ public class HealthBarUI : MonoBehaviour
     [SerializeField] private PlayerDamageableComponent _playerDamageable;
     private List<GameObject> _healthBars = new List<GameObject>();
 
+    [SerializeField] private FadeEffect redFrameFadeEffectScript;
+    
     public void InitializeHealthBars()
     {
         for (int i = 0; i < 10; i++)
@@ -26,6 +28,15 @@ public class HealthBarUI : MonoBehaviour
         for (int i = 0; i < _healthBars.Count; i++)
         {
             _healthBars[i].SetActive(i < _playerDamageable.ActualHealth);
+        }
+
+        if (_playerDamageable.ActualHealth > 1)
+        {
+            redFrameFadeEffectScript.AutomaticallyHideUI();
+        }
+        else
+        {
+            redFrameFadeEffectScript.ShowUI();
         }
     }
 }

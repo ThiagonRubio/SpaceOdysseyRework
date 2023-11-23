@@ -5,19 +5,35 @@ using UnityEngine.UI;
 
 public class FadeEffect : MonoBehaviour
 {
-    public CanvasGroup canvasGroup;
+    [SerializeField] private CanvasGroup canvasGroup;
 
-    public bool fadeIn = false;
-    public bool fadeOut = false;
+    private bool fadeIn = false;
+    private bool fadeOut = false;
 
-    public void showUI()
+    public void ShowUI()
     {
         fadeIn = true;
+        fadeOut = false;
     }
 
-    public void hideUI()
+    public void HideUI()
     {
         fadeOut = true;
+        fadeIn = false;
+    }
+
+    public void AutomaticallyShowUI()
+    {
+        fadeIn = false;
+        fadeOut = false;
+        canvasGroup.alpha = 1;
+    }
+    
+    public void AutomaticallyHideUI()
+    {
+        fadeIn = false;
+        fadeOut = false;
+        canvasGroup.alpha = 0;
     }
 
     private void Start()
