@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerScoreCounter : MonoBehaviour, IListener
 {
     [SerializeField] ScoreFacade scoreFacade;
+    [SerializeField] MoneyFacade moneyFacade;
+    
     public float Score => _score;
     
     private float _score;
@@ -61,11 +63,15 @@ public class PlayerScoreCounter : MonoBehaviour, IListener
             case EventConstants.Lost:
             {
                 AddMoney(ScoreToCoinConversion(_score, _coinMultiplier));
+                moneyFacade.UpdateActualMoney(_score,_coinMultiplier, ScoreToCoinConversion(_score, _coinMultiplier));
+                moneyFacade.UpdateTotalMoney(moneyStored);
                 break;
             }
             case EventConstants.Won:
             {
                 AddMoney(ScoreToCoinConversion(_score, _coinMultiplier));
+                moneyFacade.UpdateActualMoney(_score, _coinMultiplier, ScoreToCoinConversion(_score, _coinMultiplier));
+                moneyFacade.UpdateTotalMoney(moneyStored);
                 break;
             }
         }
