@@ -33,11 +33,17 @@ public class UpgradesUI : MonoBehaviour
         ChangeTexts();
     }
 
-    private void ChangeTexts()
+    public void ChangeTexts()
     {
         GetUpgradeStats(upgradeType);
-        print(_upgradesBought + "la concha de tu madre facundo b");
-        priceText.text = "$" + _prices[_upgradesBought];
+
+        if (_upgradesBought == _prices.Length - 1)
+        {
+            priceText.text = "MAX";
+        }
+        else priceText.text = "$" + _prices[_upgradesBought];
+
+        upgradeQuantityText.text = _upgradesBought + "/" + (_prices.Length - 1);
     }
     
     private void GetUpgradeStats(UpgradeType upgradeType)

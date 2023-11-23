@@ -58,7 +58,7 @@ public class UpgradeMenuController : MonoBehaviour
 
     public void HpUpgradeButton()
     {
-        if (_stats.HpUpgradesBought < hpPrices.Length)
+        if (_stats.HpUpgradesBought < hpPrices.Length - 1)
         {
             int index = _stats.HpUpgradesBought;
             if (_stats.MoneyStored >= hpPrices[index])
@@ -72,7 +72,7 @@ public class UpgradeMenuController : MonoBehaviour
     }
     public void AttackUpgradeButton()
     {
-        if (_stats.AttackUpgradesBought < attackPrices.Length)
+        if (_stats.AttackUpgradesBought < attackPrices.Length - 1)
         {
             int index = _stats.AttackUpgradesBought;
             if (_stats.MoneyStored >= attackPrices[index])
@@ -86,7 +86,7 @@ public class UpgradeMenuController : MonoBehaviour
     }
     public void SpeedUpgradeButton()
     {
-        if (_stats.SpeedUpgradesBought < speedPrices.Length)
+        if (_stats.SpeedUpgradesBought < speedPrices.Length - 1)
         {
             int index = _stats.SpeedUpgradesBought;
             if (_stats.MoneyStored >= speedPrices[index])
@@ -100,7 +100,7 @@ public class UpgradeMenuController : MonoBehaviour
     }
     public void SkillDurationUpgradeButton()
     {
-        if (_stats.SkillDurationUpgradesBought < skillDurationPrices.Length)
+        if (_stats.SkillDurationUpgradesBought < skillDurationPrices.Length - 1)
         {
             int index = _stats.SkillDurationUpgradesBought;
             if (_stats.MoneyStored >= skillDurationPrices[index])
@@ -114,7 +114,7 @@ public class UpgradeMenuController : MonoBehaviour
     }
     public void SkillCooldownUpgradeButton()
     {
-        if (_stats.SkillCooldownUpgradesBought < skillCooldownPrices.Length)
+        if (_stats.SkillCooldownUpgradesBought < skillCooldownPrices.Length - 1)
         {
             int index = _stats.SkillCooldownUpgradesBought;
             if (_stats.MoneyStored >= skillCooldownPrices[index])
@@ -128,7 +128,7 @@ public class UpgradeMenuController : MonoBehaviour
     }
     public void BulletFireRateUpgradeButton()
     {
-        if (_stats.BulletFireRateUpgradesBought < bulletFireRatePrices.Length)
+        if (_stats.BulletFireRateUpgradesBought < bulletFireRatePrices.Length - 1)
         {
             int index = _stats.BulletFireRateUpgradesBought;
             if (_stats.MoneyStored >= bulletFireRatePrices[index])
@@ -142,7 +142,7 @@ public class UpgradeMenuController : MonoBehaviour
     }
     public void DoubleTapUpgradeButton()
     {
-        if (_stats.DoubleTapUpgradesBought < doubleTapPrices.Length)
+        if (_stats.DoubleTapUpgradesBought < doubleTapPrices.Length - 1)
         {
             int index = _stats.DoubleTapUpgradesBought;
             if (_stats.MoneyStored >= doubleTapPrices[index])
@@ -156,7 +156,7 @@ public class UpgradeMenuController : MonoBehaviour
     }
     public void TripleShotUpgradeButton()
     {
-        if (_stats.TripleShotUpgradesBought < tripleShotPrices.Length)
+        if (_stats.TripleShotUpgradesBought < tripleShotPrices.Length - 1)
         {
             int index = _stats.TripleShotUpgradesBought;
             if (_stats.MoneyStored >= tripleShotPrices[index])
@@ -170,7 +170,7 @@ public class UpgradeMenuController : MonoBehaviour
     }
     public void CoinMultiplierUpgradeButton()
     {
-        if (_stats.CoinMultiplierUpgradesBought < coinMultiplierPrices.Length)
+        if (_stats.CoinMultiplierUpgradesBought < coinMultiplierPrices.Length - 1)
         {
             int index = _stats.CoinMultiplierUpgradesBought;
             if (_stats.MoneyStored >= coinMultiplierPrices[index])

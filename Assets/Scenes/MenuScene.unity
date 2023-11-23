@@ -1470,6 +1470,7 @@ GameObject:
   - component: {fileID: 314092046}
   - component: {fileID: 314092045}
   - component: {fileID: 314092044}
+  - component: {fileID: 314092047}
   m_Layer: 5
   m_Name: TRIPLESHOOTDURATION
   m_TagString: Untagged
@@ -1493,7 +1494,7 @@ RectTransform:
   - {fileID: 368751981}
   - {fileID: 814506043}
   m_Father: {fileID: 978998572}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1515,10 +1516,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1987282191}
+    m_SelectOnDown: {fileID: 343890906}
+    m_SelectOnLeft: {fileID: 1979596608}
+    m_SelectOnRight: {fileID: 377568733}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1543,7 +1544,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 314092045}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1392670445}
+        m_TargetAssemblyTypeName: UpgradeMenuController, Assembly-CSharp
+        m_MethodName: TripleShotUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1015165791}
+        m_TargetAssemblyTypeName: UpgradesFacade, Assembly-CSharp
+        m_MethodName: TSButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &314092045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1582,6 +1607,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314092042}
   m_CullTransparentMesh: 1
+--- !u!114 &314092047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314092042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663d04cba8744f5469d855dc89dad662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priceText: {fileID: 2088214473}
+  upgradeQuantityText: {fileID: 814506044}
+  upgradeType: 7
+  upgradeController: {fileID: 1392670445}
 --- !u!1 &316323365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,9 +1682,9 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 840268947}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnDown: {fileID: 377568733}
+    m_SelectOnLeft: {fileID: 1987282191}
+    m_SelectOnRight: {fileID: 1757342286}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1672,6 +1713,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1392670445}
         m_TargetAssemblyTypeName: UpgradeMenuController, Assembly-CSharp
         m_MethodName: HpUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1015165791}
+        m_TargetAssemblyTypeName: UpgradesFacade, Assembly-CSharp
+        m_MethodName: HpButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1747,6 +1800,7 @@ GameObject:
   - component: {fileID: 343890908}
   - component: {fileID: 343890907}
   - component: {fileID: 343890906}
+  - component: {fileID: 343890909}
   m_Layer: 5
   m_Name: COINMULTIPLIER
   m_TagString: Untagged
@@ -1792,10 +1846,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 314092044}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1901299834}
+    m_SelectOnRight: {fileID: 1701873616}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1820,7 +1874,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 343890907}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1392670445}
+        m_TargetAssemblyTypeName: UpgradeMenuController, Assembly-CSharp
+        m_MethodName: CoinMultiplierUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1015165791}
+        m_TargetAssemblyTypeName: UpgradesFacade, Assembly-CSharp
+        m_MethodName: CMButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &343890907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1859,6 +1937,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343890904}
   m_CullTransparentMesh: 1
+--- !u!114 &343890909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343890904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663d04cba8744f5469d855dc89dad662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priceText: {fileID: 2038566106}
+  upgradeQuantityText: {fileID: 459793941}
+  upgradeType: 8
+  upgradeController: {fileID: 1392670445}
 --- !u!1 &368751980
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,6 +2100,7 @@ GameObject:
   - component: {fileID: 377568735}
   - component: {fileID: 377568734}
   - component: {fileID: 377568733}
+  - component: {fileID: 377568736}
   m_Layer: 5
   m_Name: BPS
   m_TagString: Untagged
@@ -2029,7 +2124,7 @@ RectTransform:
   - {fileID: 32971075}
   - {fileID: 1097242072}
   m_Father: {fileID: 978998572}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2051,10 +2146,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 316323367}
+    m_SelectOnDown: {fileID: 1701873616}
+    m_SelectOnLeft: {fileID: 314092044}
+    m_SelectOnRight: {fileID: 1979596608}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2079,7 +2174,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 377568734}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1392670445}
+        m_TargetAssemblyTypeName: UpgradeMenuController, Assembly-CSharp
+        m_MethodName: BulletFireRateUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1015165791}
+        m_TargetAssemblyTypeName: UpgradesFacade, Assembly-CSharp
+        m_MethodName: BFRButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &377568734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2118,6 +2237,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377568731}
   m_CullTransparentMesh: 1
+--- !u!114 &377568736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377568731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663d04cba8744f5469d855dc89dad662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priceText: {fileID: 1102980894}
+  upgradeQuantityText: {fileID: 1097242073}
+  upgradeType: 5
+  upgradeController: {fileID: 1392670445}
 --- !u!114 &394729598 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4904338514426584787, guid: 6ab0ba1273c78c04386b787f9666b908, type: 3}
@@ -4163,13 +4298,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 316323366}
-  - {fileID: 1757342285}
-  - {fileID: 1987282190}
-  - {fileID: 377568732}
-  - {fileID: 1979596607}
-  - {fileID: 314092043}
   - {fileID: 1701873615}
+  - {fileID: 1757342285}
   - {fileID: 1901299833}
+  - {fileID: 1979596607}
+  - {fileID: 377568732}
+  - {fileID: 1987282190}
+  - {fileID: 314092043}
   - {fileID: 343890905}
   m_Father: {fileID: 1567825361}
   m_RootOrder: 3
@@ -4179,6 +4314,60 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 1920, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1015165790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1015165792}
+  - component: {fileID: 1015165791}
+  m_Layer: 0
+  m_Name: UIFacade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1015165791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015165790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74a3129daeb4eb40806801067607350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HpButton: {fileID: 316323370}
+  AtkButton: {fileID: 1701873619}
+  SpdButton: {fileID: 1757342289}
+  SkDurButton: {fileID: 1901299837}
+  SkCoolButton: {fileID: 1979596611}
+  BFRButton: {fileID: 377568736}
+  DTButton: {fileID: 1987282194}
+  TSButton: {fileID: 314092047}
+  CMButton: {fileID: 343890909}
+  moneyUI: {fileID: 1967631914}
+--- !u!4 &1015165792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015165790}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.862941, y: -0.66087496, z: -0.064439245}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1022874052
 GameObject:
   m_ObjectHideFlags: 0
@@ -5752,27 +5941,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fc445cce08c3f4397e521654c1903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpPrices: 050000000a0000000f000000
-  attackPrices: 
-  speedPrices: 
-  skillDurationPrices: 
-  skillCooldownPrices: 
-  bulletFireRatePrices: 
-  doubleTapPrices: 
-  tripleShotPrices: 
-  coinMultiplierPrices: 
+  hpPrices: 3200000064000000c8000000900100002003000040060000800c0000001900000032000000000000
+  attackPrices: 64000000e80300008813000000000000
+  speedPrices: 640000002c010000f4010000bc02000000000000
+  skillDurationPrices: c8000000900100005802000020030000e8030000dc050000d007000000000000
+  skillCooldownPrices: c8000000900100005802000020030000e8030000dc050000d007000000000000
+  bulletFireRatePrices: f4010000e803000000000000
+  doubleTapPrices: c8000000900100005802000020030000e803000000000000
+  tripleShotPrices: c8000000900100005802000020030000e803000000000000
+  coinMultiplierPrices: e8030000c4090000a00f00007c150000581b0000342100001027000000000000
   hpValues:
   - 2
   - 3
   - 4
-  attackValues: []
-  speedValues: []
-  skillDurationValues: []
-  skillCooldownValues: []
-  bulletFireRateValues: []
-  doubleTapValues: []
-  tripleShotValues: []
-  coinMultiplierValues: []
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 0
+  attackValues:
+  - 1
+  - 1.5
+  - 2
+  - 0
+  speedValues:
+  - 300
+  - 350
+  - 400
+  - 450
+  - 0
+  skillDurationValues:
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 0
+  skillCooldownValues:
+  - 9
+  - 8
+  - 7
+  - 6
+  - 5
+  - 4
+  - 3
+  - 0
+  bulletFireRateValues:
+  - 0.4
+  - 0.3
+  - 0
+  doubleTapValues:
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 0
+  tripleShotValues:
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 0
+  coinMultiplierValues:
+  - 0.15
+  - 0.2
+  - 0.25
+  - 0.3
+  - 0.35
+  - 0.4
+  - 0.5
+  - 0
 --- !u!114 &1392670446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5796,7 +6040,6 @@ MonoBehaviour:
   upgradedCoinMultiplier: 0
   upgradedExplosionSprite: {fileID: 0}
   upgradedPlayerProjectile: {fileID: 0}
-  moneyStored: 0
   hpUpgradesBought: 0
   attackUpgradesBought: 0
   speedUpgradesBought: 0
@@ -5806,6 +6049,7 @@ MonoBehaviour:
   doubleTapUpgradesBought: 0
   tripleShotUpgradesBought: 0
   coinMultiplierUpgradesBought: 0
+  moneyStored: 0
 --- !u!4 &1392670447
 Transform:
   m_ObjectHideFlags: 0
@@ -6883,6 +7127,7 @@ GameObject:
   - component: {fileID: 1701873618}
   - component: {fileID: 1701873617}
   - component: {fileID: 1701873616}
+  - component: {fileID: 1701873619}
   m_Layer: 5
   m_Name: ATK
   m_TagString: Untagged
@@ -6906,7 +7151,7 @@ RectTransform:
   - {fileID: 2037929340}
   - {fileID: 1112600991}
   m_Father: {fileID: 978998572}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -6928,10 +7173,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 377568733}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 343890906}
+    m_SelectOnRight: {fileID: 1901299834}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -6956,7 +7201,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1701873617}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1392670445}
+        m_TargetAssemblyTypeName: UpgradeMenuController, Assembly-CSharp
+        m_MethodName: AttackUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1015165791}
+        m_TargetAssemblyTypeName: UpgradesFacade, Assembly-CSharp
+        m_MethodName: AtkButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1701873617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6995,6 +7264,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701873614}
   m_CullTransparentMesh: 1
+--- !u!114 &1701873619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701873614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663d04cba8744f5469d855dc89dad662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priceText: {fileID: 94489314}
+  upgradeQuantityText: {fileID: 1112600992}
+  upgradeType: 1
+  upgradeController: {fileID: 1392670445}
 --- !u!1 &1721821227
 GameObject:
   m_ObjectHideFlags: 0
@@ -7083,6 +7368,7 @@ GameObject:
   - component: {fileID: 1757342288}
   - component: {fileID: 1757342287}
   - component: {fileID: 1757342286}
+  - component: {fileID: 1757342289}
   m_Layer: 5
   m_Name: SPD
   m_TagString: Untagged
@@ -7106,7 +7392,7 @@ RectTransform:
   - {fileID: 1913814223}
   - {fileID: 114479722}
   m_Father: {fileID: 978998572}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -7128,10 +7414,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 840268947}
+    m_SelectOnDown: {fileID: 1979596608}
+    m_SelectOnLeft: {fileID: 316323367}
+    m_SelectOnRight: {fileID: 1987282191}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -7156,7 +7442,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1757342287}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1392670445}
+        m_TargetAssemblyTypeName: UpgradeMenuController, Assembly-CSharp
+        m_MethodName: SpeedUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1015165791}
+        m_TargetAssemblyTypeName: UpgradesFacade, Assembly-CSharp
+        m_MethodName: SpdButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1757342287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7195,6 +7505,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757342284}
   m_CullTransparentMesh: 1
+--- !u!114 &1757342289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757342284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663d04cba8744f5469d855dc89dad662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priceText: {fileID: 42949887}
+  upgradeQuantityText: {fileID: 114479723}
+  upgradeType: 2
+  upgradeController: {fileID: 1392670445}
 --- !u!1 &1779349569
 GameObject:
   m_ObjectHideFlags: 0
@@ -7786,6 +8112,7 @@ GameObject:
   - component: {fileID: 1901299836}
   - component: {fileID: 1901299835}
   - component: {fileID: 1901299834}
+  - component: {fileID: 1901299837}
   m_Layer: 5
   m_Name: SKILLDURATION
   m_TagString: Untagged
@@ -7809,7 +8136,7 @@ RectTransform:
   - {fileID: 461442069}
   - {fileID: 552158976}
   m_Father: {fileID: 978998572}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -7831,10 +8158,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 1979596608}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1701873616}
+    m_SelectOnRight: {fileID: 343890906}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -7859,7 +8186,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1901299835}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1392670445}
+        m_TargetAssemblyTypeName: UpgradeMenuController, Assembly-CSharp
+        m_MethodName: SkillDurationUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1015165791}
+        m_TargetAssemblyTypeName: UpgradesFacade, Assembly-CSharp
+        m_MethodName: SkDurButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1901299835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7898,6 +8249,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901299832}
   m_CullTransparentMesh: 1
+--- !u!114 &1901299837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901299832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663d04cba8744f5469d855dc89dad662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priceText: {fileID: 276575056}
+  upgradeQuantityText: {fileID: 552158977}
+  upgradeType: 3
+  upgradeController: {fileID: 1392670445}
 --- !u!1 &1913814222
 GameObject:
   m_ObjectHideFlags: 0
@@ -8179,6 +8546,7 @@ GameObject:
   - component: {fileID: 1967631911}
   - component: {fileID: 1967631913}
   - component: {fileID: 1967631912}
+  - component: {fileID: 1967631914}
   m_Layer: 5
   m_Name: CurrentMoney
   m_TagString: Untagged
@@ -8303,6 +8671,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967631910}
   m_CullTransparentMesh: 1
+--- !u!114 &1967631914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967631910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bde295d3e5ca144dae1c29d2e49e180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 1967631912}
+  upgradeController: {fileID: 1392670445}
 --- !u!1 &1979596606
 GameObject:
   m_ObjectHideFlags: 0
@@ -8315,6 +8697,7 @@ GameObject:
   - component: {fileID: 1979596610}
   - component: {fileID: 1979596609}
   - component: {fileID: 1979596608}
+  - component: {fileID: 1979596611}
   m_Layer: 5
   m_Name: SKILLCOOLDOWN
   m_TagString: Untagged
@@ -8360,10 +8743,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1757342286}
+    m_SelectOnDown: {fileID: 1901299834}
+    m_SelectOnLeft: {fileID: 377568733}
+    m_SelectOnRight: {fileID: 314092044}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -8388,7 +8771,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1979596609}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1392670445}
+        m_TargetAssemblyTypeName: UpgradeMenuController, Assembly-CSharp
+        m_MethodName: SkillCooldownUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1015165791}
+        m_TargetAssemblyTypeName: UpgradesFacade, Assembly-CSharp
+        m_MethodName: SkCoolButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1979596609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8427,6 +8834,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979596606}
   m_CullTransparentMesh: 1
+--- !u!114 &1979596611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979596606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663d04cba8744f5469d855dc89dad662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priceText: {fileID: 1779349571}
+  upgradeQuantityText: {fileID: 1664928499}
+  upgradeType: 4
+  upgradeController: {fileID: 1392670445}
 --- !u!1 &1987282189
 GameObject:
   m_ObjectHideFlags: 0
@@ -8439,6 +8862,7 @@ GameObject:
   - component: {fileID: 1987282193}
   - component: {fileID: 1987282192}
   - component: {fileID: 1987282191}
+  - component: {fileID: 1987282194}
   m_Layer: 5
   m_Name: DOUBLETAPDURATION
   m_TagString: Untagged
@@ -8462,7 +8886,7 @@ RectTransform:
   - {fileID: 1839411960}
   - {fileID: 1888487475}
   m_Father: {fileID: 978998572}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -8484,10 +8908,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 840268947}
+    m_SelectOnDown: {fileID: 314092044}
+    m_SelectOnLeft: {fileID: 1757342286}
+    m_SelectOnRight: {fileID: 316323367}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -8512,7 +8936,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1987282192}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1392670445}
+        m_TargetAssemblyTypeName: UpgradeMenuController, Assembly-CSharp
+        m_MethodName: DoubleTapUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1015165791}
+        m_TargetAssemblyTypeName: UpgradesFacade, Assembly-CSharp
+        m_MethodName: DTButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1987282192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8551,6 +8999,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987282189}
   m_CullTransparentMesh: 1
+--- !u!114 &1987282194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987282189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663d04cba8744f5469d855dc89dad662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priceText: {fileID: 1919964084}
+  upgradeQuantityText: {fileID: 1888487476}
+  upgradeType: 6
+  upgradeController: {fileID: 1392670445}
 --- !u!1 &2028944552
 GameObject:
   m_ObjectHideFlags: 0
