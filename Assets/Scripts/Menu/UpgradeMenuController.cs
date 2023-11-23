@@ -4,6 +4,26 @@ using UnityEngine;
 
 public class UpgradeMenuController : MonoBehaviour
 {
+    public int[] HpPrices => hpPrices;
+    public int[] AttackPrices => attackPrices;
+    public int[] SpeedPrices => speedPrices;
+    public int[] SkillDurationPrices => skillDurationPrices;
+    public int[] SkillCooldownPrices => skillCooldownPrices;
+    public int[] BulletFireRatePrices => bulletFireRatePrices;
+    public int[] DoubleTapPrices => doubleTapPrices;
+    public int[] TripleShotPrices => tripleShotPrices;
+    public int[] CoinMultiplierPrices => coinMultiplierPrices; 
+
+    public float[] HpValues => hpValues;
+    public float[] AttackValues => attackValues;
+    public float[] SpeedValues => speedValues;
+    public float[] SkillDurationValues => skillDurationValues;
+    public float[] SkillCooldownValues => skillCooldownValues;
+    public float[] BulletFireRateValues => bulletFireRateValues;
+    public float[] DoubleTapValues => doubleTapValues;
+    public float[] TripleShotValues => tripleShotValues;
+    public float[] CoinMultiplierValues => coinMultiplierValues;
+
     [SerializeField] private int[] hpPrices;
     [SerializeField] private int[] attackPrices;
     [SerializeField] private int[] speedPrices;
