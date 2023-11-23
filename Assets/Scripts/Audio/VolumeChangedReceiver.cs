@@ -16,7 +16,7 @@ public class VolumeChangedReceiver : MonoBehaviour, IListener
         SetVolume();
     }
 
-    public void RemoveListenerFromEvent()
+    private void OnDisable()
     {
         EventManager.Instance.RemoveListener(EventConstants.VolumeChanged, this);
     }

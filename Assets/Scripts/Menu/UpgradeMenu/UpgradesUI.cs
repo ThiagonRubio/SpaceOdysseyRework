@@ -4,21 +4,22 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public enum UpgradeType
-{
-    HP,
-    ATK,
-    SPD,
-    SkDur,
-    SkCool,
-    BFR,
-    DT,
-    TS,
-    CM
-}
 
 public class UpgradesUI : MonoBehaviour
 {
+    public enum UpgradeType
+    {
+        HP,
+        ATK,
+        SPD,
+        SkDur,
+        SkCool,
+        BFR,
+        DT,
+        TS,
+        CM
+    }
+
     [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private TextMeshProUGUI upgradeQuantityText;
     private int[] _prices;
@@ -32,10 +33,11 @@ public class UpgradesUI : MonoBehaviour
         ChangeTexts();
     }
 
-    public void ChangeTexts()
+    private void ChangeTexts()
     {
         GetUpgradeStats(upgradeType);
-        priceText.text = "$" + _prices[_upgradesBought + 1];
+        print(_upgradesBought + "la concha de tu madre facundo b");
+        priceText.text = "$" + _prices[_upgradesBought];
     }
     
     private void GetUpgradeStats(UpgradeType upgradeType)
@@ -44,39 +46,39 @@ public class UpgradesUI : MonoBehaviour
         {
             case UpgradeType.HP:
                 _prices = upgradeController.HpPrices;
-                _upgradesBought = upgradeController.UpgradesBoughtStats.HpUpgradesBought;
+                _upgradesBought = upgradeController.CurrentLoadedSessionData.HpUpgradesBought;
                 break;
             case UpgradeType.ATK:
                 _prices = upgradeController.AttackPrices;
-                _upgradesBought = upgradeController.UpgradesBoughtStats.AttackUpgradesBought;
+                _upgradesBought = upgradeController.CurrentLoadedSessionData.AttackUpgradesBought;
                 break;
             case UpgradeType.SPD:
                 _prices = upgradeController.SpeedPrices;
-                _upgradesBought = upgradeController.UpgradesBoughtStats.SpeedUpgradesBought;
+                _upgradesBought = upgradeController.CurrentLoadedSessionData.SpeedUpgradesBought;
                 break;
             case UpgradeType.SkDur:
                 _prices = upgradeController.SkillDurationPrices;
-                _upgradesBought = upgradeController.UpgradesBoughtStats.SkillDurationUpgradesBought;
+                _upgradesBought = upgradeController.CurrentLoadedSessionData.SkillDurationUpgradesBought;
                 break;
             case UpgradeType.SkCool:
                 _prices = upgradeController.SkillCooldownPrices;
-                _upgradesBought = upgradeController.UpgradesBoughtStats.SkillCooldownUpgradesBought;
+                _upgradesBought = upgradeController.CurrentLoadedSessionData.SkillCooldownUpgradesBought;
                 break;
             case UpgradeType.BFR:
                 _prices = upgradeController.BulletFireRatePrices;
-                _upgradesBought = upgradeController.UpgradesBoughtStats.BulletFireRateUpgradesBought;
+                _upgradesBought = upgradeController.CurrentLoadedSessionData.BulletFireRateUpgradesBought;
                 break;
             case UpgradeType.DT:
                 _prices = upgradeController.DoubleTapPrices;
-                _upgradesBought = upgradeController.UpgradesBoughtStats.DoubleTapUpgradesBought;
+                _upgradesBought = upgradeController.CurrentLoadedSessionData.DoubleTapUpgradesBought;
                 break;
             case UpgradeType.TS:
                 _prices = upgradeController.TripleShotPrices;
-                _upgradesBought = upgradeController.UpgradesBoughtStats.TripleShotUpgradesBought;
+                _upgradesBought = upgradeController.CurrentLoadedSessionData.TripleShotUpgradesBought;
                 break;
             case UpgradeType.CM:
                 _prices = upgradeController.CoinMultiplierPrices;
-                _upgradesBought = upgradeController.UpgradesBoughtStats.CoinMultiplierUpgradesBought;
+                _upgradesBought = upgradeController.CurrentLoadedSessionData.CoinMultiplierUpgradesBought;
                 break;
         }
     }

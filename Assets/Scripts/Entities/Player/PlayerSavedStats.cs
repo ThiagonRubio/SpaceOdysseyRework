@@ -12,11 +12,17 @@ public class PlayerSavedStats : MonoBehaviour
     public float DoubleTapDuration => upgradedDoubleTapDuration;
     public float UpgradedCoinMultiplier => upgradedCoinMultiplier;
     public float MoneyStored => moneyStored;
-    public PlayerSavedStats CurrentSessionPlayerData => sessionData;
-    public PlayerUpgradesBoughtStats UpgradesBoughtData => upgradesBoughtStats;
+    public int HpUpgradesBought => hpUpgradesBought;
+    public int AttackUpgradesBought => attackUpgradesBought;
+    public int SpeedUpgradesBought => speedUpgradesBought;
+    public int SkillDurationUpgradesBought => skillDurationUpgradesBought;
+    public int SkillCooldownUpgradesBought => skillCooldownUpgradesBought;
+    public int BulletFireRateUpgradesBought => bulletFireRateUpgradesBought;
+    public int DoubleTapUpgradesBought => doubleTapUpgradesBought;
+    public int TripleShotUpgradesBought => tripleShotUpgradesBought;
+    public int CoinMultiplierUpgradesBought => coinMultiplierUpgradesBought;
     
     //----PRIVATE VARS----
-    private PlayerSavedStats sessionData;
 
     [SerializeField, HideInInspector] private float upgradedMaxHealth;
     [SerializeField, HideInInspector] private float upgradedAttack;
@@ -29,17 +35,23 @@ public class PlayerSavedStats : MonoBehaviour
     [SerializeField, HideInInspector] private float upgradedCoinMultiplier;
     [SerializeField, HideInInspector] private GameObject upgradedExplosionSprite;
     [SerializeField, HideInInspector] private Projectile upgradedPlayerProjectile;
+    [SerializeField, HideInInspector] private int hpUpgradesBought;
+    [SerializeField, HideInInspector] private int attackUpgradesBought;
+    [SerializeField, HideInInspector] private int speedUpgradesBought;
+    [SerializeField, HideInInspector] private int skillDurationUpgradesBought;
+    [SerializeField, HideInInspector] private int skillCooldownUpgradesBought;
+    [SerializeField, HideInInspector] private int bulletFireRateUpgradesBought;
+    [SerializeField, HideInInspector] private int doubleTapUpgradesBought;
+    [SerializeField, HideInInspector] private int tripleShotUpgradesBought;
+    [SerializeField, HideInInspector] private int coinMultiplierUpgradesBought;
     [SerializeField, HideInInspector] private float moneyStored;
-    [SerializeField, HideInInspector] private PlayerUpgradesBoughtStats upgradesBoughtStats;
 
     //################ #################
     //----------CLASS METHODS-----------
     //################ #################
 
     private void Awake()
-    {
-        upgradesBoughtStats = GetComponent<PlayerUpgradesBoughtStats>();
-        
+    {   
         //Para Forzar a que se sobrescriba todos los valores edita el .txt del json directamente
 
         if (SaveSystem.GetIfSaveFileExists() == false)
@@ -108,6 +120,50 @@ public class PlayerSavedStats : MonoBehaviour
         }
         SaveData(this);
     }
+    public void UpgradeBought(string statUpgraded, int maxValue)
+    {
+        switch (statUpgraded)
+        {
+            case UpgradeableStatsConstants.HealthPoints:
+                if (hpUpgradesBought < maxValue - 1)
+                    hpUpgradesBought++;
+                break;
+            case UpgradeableStatsConstants.Attack:
+                if (attackUpgradesBought < maxValue - 1)
+                    attackUpgradesBought++;
+                break;
+            case UpgradeableStatsConstants.Speed:
+                if (speedUpgradesBought < maxValue - 1)
+                    speedUpgradesBought++;
+                break;
+            case UpgradeableStatsConstants.SkillDuration:
+                if (skillDurationUpgradesBought < maxValue - 1)
+                    skillDurationUpgradesBought++;
+                break;
+            case UpgradeableStatsConstants.SkillCooldown:
+                if (skillCooldownUpgradesBought < maxValue - 1)
+                    skillCooldownUpgradesBought++;
+                break;
+            case UpgradeableStatsConstants.FireRate:
+                if (bulletFireRateUpgradesBought < maxValue - 1)
+                    bulletFireRateUpgradesBought++;
+                break;
+            case UpgradeableStatsConstants.DoubleTap:
+                if (doubleTapUpgradesBought < maxValue - 1)
+                    doubleTapUpgradesBought++;
+                break;
+            case UpgradeableStatsConstants.TripleShot:
+                if (tripleShotUpgradesBought < maxValue - 1)
+                    tripleShotUpgradesBought++;
+                break;
+            case UpgradeableStatsConstants.CoinMultiplier:
+                if (coinMultiplierUpgradesBought < maxValue - 1)
+                    coinMultiplierUpgradesBought++;
+                break;
+        }
+        SaveData(this);
+    }
+
     private void SaveData(PlayerSavedStats sessionData)
     {
         SaveSystem.SaveToJson(sessionData);
@@ -128,10 +184,19 @@ public class PlayerSavedStats : MonoBehaviour
         defaultFile.moneyStored = 0;
         defaultFile.upgradedExplosionSprite = Resources.Load<GameObject>("Prefabs/Explosion/Explosion");
         defaultFile.upgradedPlayerProjectile = Resources.Load<Projectile>("Prefabs/Projectiles/PlayerProjectile");
-        defaultFile.upgradesBoughtStats.InitDefaultStats();
-        
+        defaultFile.hpUpgradesBought = 0;
+        defaultFile.attackUpgradesBought = 0;
+        defaultFile.speedUpgradesBought = 0;
+        defaultFile.skillDurationUpgradesBought = 0;
+        defaultFile.skillCooldownUpgradesBought = 0;
+        defaultFile.bulletFireRateUpgradesBought = 0;
+        defaultFile.doubleTapUpgradesBought = 0;
+        defaultFile.tripleShotUpgradesBought = 0;
+        defaultFile.coinMultiplierUpgradesBought = 0;
+
         return defaultFile;
     }
+
     //Porque solo existe 1 solo tipo de cada uno no hay que diferenciar pero queda hecho para hacer extensible si hace falta
     private void LoadMiscResources()
     {
