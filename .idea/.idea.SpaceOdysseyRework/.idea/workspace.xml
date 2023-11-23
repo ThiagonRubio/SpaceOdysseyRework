@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="44aac10a-6ab2-4f07-8d1e-c4245e7617f0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/PowerUpUI/DoubleTapUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UI/PowerUpUI/DoubleTapUI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/PowerUpUI/TripleShotUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UI/PowerUpUI/TripleShotUI.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +164,7 @@
       <workItem from="1700543857547" duration="1080000" />
       <workItem from="1700589024845" duration="119000" />
       <workItem from="1700702886186" duration="3034000" />
+      <workItem from="1700718080559" duration="367000" />
     </task>
     <servers />
   </component>

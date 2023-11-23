@@ -10,10 +10,10 @@ public class PowerUpUI : MonoBehaviour
     private Image image;
     private ParticleSystem particles;
 
-    private void Start()
+    private void Awake()
     {
         image = GetComponent<Image>();
-        particles = GetComponentInChildren<ParticleSystem>();
+        particles = GetComponentInChildren<ParticleSystem>(true);
     }
 
     private void Update()
