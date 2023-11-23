@@ -64,6 +64,7 @@ public class PlayerScoreCounter : MonoBehaviour, IListener
             {
                 AddMoney(ScoreToCoinConversion(_score, _coinMultiplier));
                 moneyFacade.UpdateActualMoney(_score,_coinMultiplier, ScoreToCoinConversion(_score, _coinMultiplier));
+                float moneyStored = GetComponent<PlayerSavedStats>().MoneyStored;
                 moneyFacade.UpdateTotalMoney(moneyStored);
                 break;
             }
@@ -71,6 +72,7 @@ public class PlayerScoreCounter : MonoBehaviour, IListener
             {
                 AddMoney(ScoreToCoinConversion(_score, _coinMultiplier));
                 moneyFacade.UpdateActualMoney(_score, _coinMultiplier, ScoreToCoinConversion(_score, _coinMultiplier));
+                float moneyStored = GetComponent<PlayerSavedStats>().MoneyStored;
                 moneyFacade.UpdateTotalMoney(moneyStored);
                 break;
             }
