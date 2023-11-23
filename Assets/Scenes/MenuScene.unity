@@ -1594,6 +1594,7 @@ GameObject:
   - component: {fileID: 316323369}
   - component: {fileID: 316323368}
   - component: {fileID: 316323367}
+  - component: {fileID: 316323370}
   m_Layer: 5
   m_Name: HP
   m_TagString: Untagged
@@ -1706,6 +1707,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316323365}
   m_CullTransparentMesh: 1
+--- !u!114 &316323370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316323365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663d04cba8744f5469d855dc89dad662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priceText: {fileID: 1401281108}
+  upgradeQuantityText: {fileID: 2028944554}
+  upgradeType: 0
+  upgradeController: {fileID: 1392670445}
 --- !u!1 &343890904
 GameObject:
   m_ObjectHideFlags: 0
@@ -5739,6 +5756,97 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &1392670444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1392670447}
+  - component: {fileID: 1392670446}
+  - component: {fileID: 1392670445}
+  m_Layer: 0
+  m_Name: UpgradeController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1392670445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392670444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61fc445cce08c3f4397e521654c1903c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpPrices: 000000000000000000000000
+  attackPrices: 
+  speedPrices: 
+  skillDurationPrices: 
+  skillCooldownPrices: 
+  bulletFireRatePrices: 
+  doubleTapPrices: 
+  tripleShotPrices: 
+  coinMultiplierPrices: 
+  hpValues:
+  - 0
+  - 0
+  - 0
+  attackValues: []
+  speedValues: []
+  skillDurationValues: []
+  skillCooldownValues: []
+  bulletFireRateValues: []
+  doubleTapValues: []
+  tripleShotValues: []
+  coinMultiplierValues: []
+--- !u!114 &1392670446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392670444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1077396fb64ba44418c7957a0a0f8794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradedMaxHealth: 0
+  upgradedAttack: 0
+  upgradedSpeed: 0
+  upgradedSkillDuration: 0
+  upgradedSkillCooldown: 0
+  upgradedBulletFireRate: 0
+  upgradedDoubleTapDuration: 0
+  upgradedTripleShotDuration: 0
+  upgradedCoinMultiplier: 0
+  upgradedExplosionSprite: {fileID: 0}
+  upgradedPlayerProjectile: {fileID: 0}
+  moneyStored: 0
+  upgradesBoughtStats: {fileID: 0}
+--- !u!4 &1392670447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392670444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1044.6826, y: 467.50116, z: 11.515556}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1401281106
 GameObject:
   m_ObjectHideFlags: 0
