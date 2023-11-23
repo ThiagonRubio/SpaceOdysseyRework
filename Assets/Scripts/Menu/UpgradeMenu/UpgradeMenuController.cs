@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerSavedStats))]
 public class UpgradeMenuController : MonoBehaviour
 {
     public int[] HpPrices => hpPrices;
@@ -24,6 +25,8 @@ public class UpgradeMenuController : MonoBehaviour
     public float[] TripleShotValues => tripleShotValues;
     public float[] CoinMultiplierValues => coinMultiplierValues;
 
+    public PlayerUpgradesBoughtStats UpgradesBoughtStats => _stats.UpgradesBoughtData;
+    
     [SerializeField] private int[] hpPrices;
     [SerializeField] private int[] attackPrices;
     [SerializeField] private int[] speedPrices;
@@ -54,7 +57,6 @@ public class UpgradeMenuController : MonoBehaviour
 
     public void HpUpgradeButton()
     {
-        SaveSystem.LoadFromJson(_stats);
         if (_stats.UpgradesBoughtData.HpUpgradesBought < hpPrices.Length - 1)
         {
             int index = _stats.UpgradesBoughtData.HpUpgradesBought + 1;
@@ -65,10 +67,10 @@ public class UpgradeMenuController : MonoBehaviour
                 _stats.SaveUpgradedStat(UpgradeableStatsConstants.HealthPoints, hpValues[index]);
             }
         }
+        SaveSystem.LoadFromJson(_stats);
     }
     public void AttackUpgradeButton()
     {
-        SaveSystem.LoadFromJson(_stats);
         if (_stats.UpgradesBoughtData.AttackUpgradesBought < attackPrices.Length - 1)
         {
             int index = _stats.UpgradesBoughtData.AttackUpgradesBought + 1;
@@ -79,10 +81,10 @@ public class UpgradeMenuController : MonoBehaviour
                 _stats.SaveUpgradedStat(UpgradeableStatsConstants.Attack, attackValues[index]);
             }
         }
+        SaveSystem.LoadFromJson(_stats);
     }
     public void SpeedUpgradeButton()
     {
-        SaveSystem.LoadFromJson(_stats);
         if (_stats.UpgradesBoughtData.SpeedUpgradesBought < speedPrices.Length - 1)
         {
             int index = _stats.UpgradesBoughtData.SpeedUpgradesBought + 1;
@@ -93,10 +95,10 @@ public class UpgradeMenuController : MonoBehaviour
                 _stats.SaveUpgradedStat(UpgradeableStatsConstants.Speed, speedValues[index]);
             }
         }
+        SaveSystem.LoadFromJson(_stats);
     }
     public void SkillDurationUpgradeButton()
     {
-        SaveSystem.LoadFromJson(_stats);
         if (_stats.UpgradesBoughtData.SkillDurationUpgradesBought < skillDurationPrices.Length - 1)
         {
             int index = _stats.UpgradesBoughtData.SkillDurationUpgradesBought + 1;
@@ -107,10 +109,10 @@ public class UpgradeMenuController : MonoBehaviour
                 _stats.SaveUpgradedStat(UpgradeableStatsConstants.SkillDuration, skillDurationValues[index]);
             }
         }
+        SaveSystem.LoadFromJson(_stats);
     }
     public void SkillCooldownUpgradeButton()
     {
-        SaveSystem.LoadFromJson(_stats);
         if (_stats.UpgradesBoughtData.SkillCooldownUpgradesBought < skillCooldownPrices.Length - 1)
         {
             int index = _stats.UpgradesBoughtData.SkillCooldownUpgradesBought + 1;
@@ -121,10 +123,10 @@ public class UpgradeMenuController : MonoBehaviour
                 _stats.SaveUpgradedStat(UpgradeableStatsConstants.SkillCooldown, skillCooldownValues[index]);
             }
         }
+        SaveSystem.LoadFromJson(_stats);
     }
     public void BulletFireRateUpgradeButton()
     {
-        SaveSystem.LoadFromJson(_stats);
         if (_stats.UpgradesBoughtData.BulletFireRateUpgradesBought < bulletFireRatePrices.Length - 1)
         {
             int index = _stats.UpgradesBoughtData.BulletFireRateUpgradesBought + 1;
@@ -135,10 +137,10 @@ public class UpgradeMenuController : MonoBehaviour
                 _stats.SaveUpgradedStat(UpgradeableStatsConstants.FireRate, bulletFireRateValues[index]);
             }
         }
+        SaveSystem.LoadFromJson(_stats);
     }
     public void DoubleTapUpgradeButton()
     {
-        SaveSystem.LoadFromJson(_stats);
         if (_stats.UpgradesBoughtData.DoubleTapUpgradesBought < doubleTapPrices.Length - 1)
         {
             int index = _stats.UpgradesBoughtData.DoubleTapUpgradesBought + 1;
@@ -149,10 +151,10 @@ public class UpgradeMenuController : MonoBehaviour
                 _stats.SaveUpgradedStat(UpgradeableStatsConstants.DoubleTap, doubleTapValues[index]);
             }
         }
+        SaveSystem.LoadFromJson(_stats);
     }
     public void TripleShotUpgradeButton()
     {
-        SaveSystem.LoadFromJson(_stats);
         if (_stats.UpgradesBoughtData.TripleShotUpgradesBought < tripleShotPrices.Length - 1)
         {
             int index = _stats.UpgradesBoughtData.TripleShotUpgradesBought + 1;
@@ -163,10 +165,10 @@ public class UpgradeMenuController : MonoBehaviour
                 _stats.SaveUpgradedStat(UpgradeableStatsConstants.TripleShot, tripleShotValues[index]);
             }
         }
+        SaveSystem.LoadFromJson(_stats);
     }
     public void CoinMultiplierUpgradeButton()
     {
-        SaveSystem.LoadFromJson(_stats);
         if (_stats.UpgradesBoughtData.CoinMultiplierUpgradesBought < coinMultiplierPrices.Length - 1)
         {
             int index = _stats.UpgradesBoughtData.CoinMultiplierUpgradesBought + 1;
@@ -177,5 +179,6 @@ public class UpgradeMenuController : MonoBehaviour
                 _stats.SaveUpgradedStat(UpgradeableStatsConstants.CoinMultiplier, coinMultiplierValues[index]);
             }
         }
+        SaveSystem.LoadFromJson(_stats);
     }
 }
