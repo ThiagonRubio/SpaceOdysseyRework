@@ -54,15 +54,16 @@ public class PlayerWeaponSwitcher : MonoBehaviour, IListener
                 defaultWeapon.gameObject.SetActive(false);
                 doubleTapWeapon.gameObject.SetActive(false);
                 tripleShotWeapon.gameObject.SetActive(true);
+                powerUpWeaponDurationLeft = stats.TripleShotDuration;
                 break; 
             case EventConstants.DoubleTapEffect:
                 defaultWeapon.gameObject.SetActive(false);
                 doubleTapWeapon.gameObject.SetActive(true);
                 tripleShotWeapon.gameObject.SetActive(false);
+                powerUpWeaponDurationLeft = stats.DoubleTapDuration;
                 break;
         }
-
-        powerUpWeaponDurationLeft = stats.TripleShotDuration;
+        //Brian la puta madre
     }
     private void RevertToDefaultWeapon()
     {
