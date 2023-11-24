@@ -20,7 +20,7 @@ public class Weapon : MonoBehaviour, IWeapon
     
     private ObjectPool _projectilesPool;
     private ProjectileFactory _projectileFactory;
-
+    
     //################ #################
     //----------UNITY EV FUNC-----------
     //################ #################
@@ -35,12 +35,17 @@ public class Weapon : MonoBehaviour, IWeapon
     private void Start()
     {
         _projectilesPool = GetComponent<ObjectPool>();
-        _projectileFactory = new ProjectileFactory(this, Projectile, MaxPoolableObjects);
+        Invoke("InitializeFactory",0.02f);
     }
 
     //################ #################
     //----------CLASS METHODS-----------
     //################ #################
+    private void InitializeFactory()
+    {
+        _projectileFactory = new ProjectileFactory(this, Projectile, MaxPoolableObjects);
+    }
+    
     public void UseWeapon()
     {
         for (int i = 0; i < spawnPoints.Length; i++)
@@ -53,7 +58,7 @@ public class Weapon : MonoBehaviour, IWeapon
         
         SoundManager.Instance.ReproduceSound(AudioConstants.ProyectileShot, 1);
     }
-    private IEnumerator RetrievePlayerWeaponSavedData()
+    public IEnumerator RetrievePlayerWeaponSavedData()
     {
         yield return new WaitForFixedUpdate();
         PlayerSavedStats playerSavedStats = GetComponentInParent<PlayerSavedStats>();

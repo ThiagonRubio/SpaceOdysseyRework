@@ -19,8 +19,7 @@ public class PlayerWeaponSwitcher : MonoBehaviour, IListener
     {
         EventManager.Instance.AddListener(EventConstants.TripleShotEffect, this);
         EventManager.Instance.AddListener(EventConstants.DoubleTapEffect, this);
-
-        RevertToDefaultWeapon();
+        Invoke("RevertToDefaultWeapon", 0.01f);
     }
     private void OnDisable()
     {
@@ -63,7 +62,6 @@ public class PlayerWeaponSwitcher : MonoBehaviour, IListener
                 powerUpWeaponDurationLeft = stats.DoubleTapDuration;
                 break;
         }
-        //Brian la puta madre
     }
     private void RevertToDefaultWeapon()
     {
