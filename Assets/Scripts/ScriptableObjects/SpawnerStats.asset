@@ -15,6 +15,6 @@ MonoBehaviour:
   <StartingCreationCooldown>k__BackingField: 3
   <CreationCooldownDecreasePerBoss>k__BackingField: 0.5
   <StartingDifficulty>k__BackingField: 2
-  <EnemiesBetweenBosses>k__BackingField: 1
+  <EnemiesBetweenBosses>k__BackingField: 25
   <EnemiesUntilObstacles>k__BackingField: 15
   <ObstacleChancePercentage>k__BackingField: 50

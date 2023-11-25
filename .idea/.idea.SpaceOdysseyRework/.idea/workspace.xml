@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="44aac10a-6ab2-4f07-8d1e-c4245e7617f0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpaceOdysseyRework/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/RedBoss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/RedBoss.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/PlayerDamageableComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/PlayerDamageableComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Weapons/RaycastWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Weapons/RaycastWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/ButtonSound.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/ButtonSound.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/InGameMenu/PauseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/InGameMenu/PauseManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/InGameMenu/PowerUpFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/InGameMenu/PowerUpFacade.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpawnerStats.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpawnerStats.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +68,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../BuildsSpaceOdysseyRework/Build_06_11\SpaceOdysseyRework.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../BuildsSpaceOdysseyRework/Build_24_11(Posible final)\SpaceOdysseyRework.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\BuildsSpaceOdysseyRework\Build_30_10" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -173,6 +170,7 @@
       <workItem from="1700804377859" duration="1295000" />
       <workItem from="1700805865630" duration="2368000" />
       <workItem from="1700866308908" duration="2929000" />
+      <workItem from="1700875157596" duration="1675000" />
     </task>
     <servers />
   </component>
