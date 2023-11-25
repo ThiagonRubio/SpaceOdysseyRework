@@ -11,6 +11,8 @@ public abstract class Enemy : Actor, IDamageable, IPoolable, IListener
     public float ActualHealth => _actualHealth;
 
     public float ScoreGiven => scoreGiven;
+
+    public bool CanDie => canDie;
     
     protected float _actualHealth;
 
@@ -18,18 +20,23 @@ public abstract class Enemy : Actor, IDamageable, IPoolable, IListener
     protected bool canAttack = false;
 
     [SerializeField] protected float scoreGiven;
-    
+    private bool canDie;
     protected virtual void Start()
     {
         _actualHealth = MaxHealth;
         randomAttackTime = UnityEngine.Random.Range(0.1f, 0.4f);
-       
+
+        canDie = true;
+        
         //Suscripción a eventos
-        EventManager.Instance.AddListener(EventConstants.NukeEffect, this);
+        if(this as Boss == false)
+            EventManager.Instance.AddListener(EventConstants.NukeEffect, this);
+        EventManager.Instance.AddListener(EventConstants.Lost, this);
     }
     protected virtual void OnDisable()
     {
         EventManager.Instance.RemoveListener(EventConstants.NukeEffect, this);
+        EventManager.Instance.RemoveListener(EventConstants.Lost, this);
     }
 
     public abstract void TakeDamage(float damageAmount);
@@ -46,6 +53,8 @@ public abstract class Enemy : Actor, IDamageable, IPoolable, IListener
     {
         if (invokedEvent == EventConstants.NukeEffect)
             Die();
+        if (invokedEvent == EventConstants.Lost)
+            canDie = false;
     }
     
     public IProduct Clone()

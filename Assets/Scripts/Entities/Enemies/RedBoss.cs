@@ -93,7 +93,7 @@ public class RedBoss : Boss, IMoveable, IAttacker
         _actualHealth -= damageAmount;
         SoundManager.Instance.ReproduceSound(AudioConstants.TookDamage, 1);
         
-        if(_actualHealth <= 0)
+        if(_actualHealth <= 0 && CanDie)
             Die();
     }
 

@@ -12,6 +12,8 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
     private float actualHealth;
     [SerializeField] private HealthBarFacade healthBarUIFacade;
 
+    private bool canDie;
+    
     //################ #################
     //----------UNITY EV FUNC-----------
     //################ #################
@@ -22,6 +24,8 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
             actualHealth = 10;
         healthBarUIFacade.UpdateHealth();
         EventManager.Instance.AddListener(EventConstants.MedicKitEffect, this);
+        EventManager.Instance.AddListener(EventConstants.Won, this);
+        canDie = true;
         Invoke("CheckHP",0.1f);
     }
 
@@ -47,7 +51,7 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
         if(actualHealth == 1)
             entityAnim.SetBool(AnimationConstants.Player1Hp, true);
         
-        if (actualHealth <= 0)
+        if (actualHealth <= 0 && canDie)
             Die();
     }
 
@@ -71,6 +75,11 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
             {
                 actualHealth = 10;
             }
+        }
+
+        if (invokedEvent == EventConstants.Won)
+        {
+            canDie = false;
         }
     }
 }
