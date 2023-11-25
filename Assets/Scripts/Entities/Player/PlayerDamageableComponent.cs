@@ -55,6 +55,7 @@ public class PlayerDamageableComponent : Actor, IDamageable, IListener
     {
         EventManager.Instance.DispatchSimpleEvent(EventConstants.PlayerDeath);
         Instantiate(ActorStats.Explosion, transform.position, Quaternion.identity);
+        EventManager.Instance.RemoveListener(EventConstants.MedicKitEffect, this);
         gameObject.SetActive(false);
     }
     

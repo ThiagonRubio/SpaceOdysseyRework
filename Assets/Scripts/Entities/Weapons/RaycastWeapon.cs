@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RaycastWeapon : MonoBehaviour, IWeapon
 {
-    public GameObject GameObject => this.GameObject;
+    public GameObject GameObject => this.gameObject;
     public ObjectPool ObjectPool => _projectilesPool;
     public AbstractFactory<IPoolable> CreatorFactory => _projectileFactory;
 

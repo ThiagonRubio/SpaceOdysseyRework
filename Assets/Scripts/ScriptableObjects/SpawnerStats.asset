@@ -17,4 +17,4 @@ MonoBehaviour:
   <StartingDifficulty>k__BackingField: 2
   <EnemiesBetweenBosses>k__BackingField: 25
   <EnemiesUntilObstacles>k__BackingField: 15
-  <ObstacleChancePercentage>k__BackingField: 30
+  <ObstacleChancePercentage>k__BackingField: 50

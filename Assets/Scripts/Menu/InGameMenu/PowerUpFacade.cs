@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,12 @@ public class PowerUpFacade : MonoBehaviour, IListener
 
         DoubleTapUI.gameObject.SetActive(false);
         TripleShotUI.gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener(EventConstants.TripleShotEffect, this);
+        EventManager.Instance.RemoveListener(EventConstants.DoubleTapEffect, this);
     }
 
     public void OnEventDispatch(string invokedEvent)

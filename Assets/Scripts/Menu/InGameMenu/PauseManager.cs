@@ -14,12 +14,19 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GameObject pauseDefaultSelectedButton;
     [SerializeField] private GameObject winLoseDefaultSelectedButton;
-    
+    private CanvasGroup pauseCanvasCanvasGroup;
+
+    private void Start()
+    {
+        pauseCanvasCanvasGroup = pauseCanvas.GetComponent<CanvasGroup>();
+    }
 
     public void PauseGame()
     {
         Time.timeScale = 0f;
         pauseCanvas.gameObject.SetActive(true);
+        if (pauseCanvasCanvasGroup != null)
+            pauseCanvasCanvasGroup.interactable = true;
         bgmHighPassFilter.enabled = true;
         eventSystem.SetSelectedGameObject(pauseDefaultSelectedButton);
         _isPaused = true;
@@ -29,6 +36,8 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         pauseCanvas.gameObject.SetActive(false);
+        if (pauseCanvasCanvasGroup != null)
+            pauseCanvasCanvasGroup.interactable = false;
         bgmHighPassFilter.enabled = false;
         eventSystem.SetSelectedGameObject(winLoseDefaultSelectedButton);
         _isPaused = false;

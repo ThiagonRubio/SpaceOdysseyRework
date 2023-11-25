@@ -794,6 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5295e31815f4c7c4cae128f19772e9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scenesSoundManager: {fileID: 0}
 --- !u!1 &276013973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,6 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5295e31815f4c7c4cae128f19772e9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scenesSoundManager: {fileID: 0}
 --- !u!1 &386652893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,6 +1201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5295e31815f4c7c4cae128f19772e9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scenesSoundManager: {fileID: 0}
 --- !u!1 &393955648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,6 +1954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5295e31815f4c7c4cae128f19772e9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scenesSoundManager: {fileID: 0}
 --- !u!165 &535832384 stripped
 AudioHighPassFilter:
   m_CorrespondingSourceObject: {fileID: 2741687823985428469, guid: 412d23864036a2648a34ce23fc5b1e86, type: 3}
