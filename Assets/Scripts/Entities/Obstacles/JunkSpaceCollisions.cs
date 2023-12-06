@@ -10,8 +10,13 @@ public class JunkSpaceCollisions : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy") && other.gameObject.TryGetComponent<Enemy>(out Enemy enemyHit)) 
         {
-            if(enemyHit is not Asteroid) 
-                enemyHit.Die();
+            if (enemyHit is not Asteroid)
+            {
+                if(enemyHit.TryGetComponent<IDamageable>(out IDamageable damaged))
+                {
+                    damaged.Die();
+                }
+            }
         }
         if (other.gameObject.CompareTag("Projectile") && other.gameObject.TryGetComponent<IProjectile>(out IProjectile projectileHit)) 
         {

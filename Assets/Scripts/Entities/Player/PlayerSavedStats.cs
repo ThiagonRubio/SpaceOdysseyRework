@@ -182,8 +182,11 @@ public class PlayerSavedStats : MonoBehaviour
         defaultFile.upgradedTripleShotDuration = 4;
         defaultFile.upgradedCoinMultiplier = 0.2f;
         defaultFile.moneyStored = 0;
+        
+        //Esto hay que evitarlo (CONSIGNA)
         defaultFile.upgradedExplosionSprite = Resources.Load<GameObject>("Prefabs/Explosion/Explosion");
         defaultFile.upgradedPlayerProjectile = Resources.Load<Projectile>("Prefabs/Projectiles/PlayerProjectile");
+        
         defaultFile.hpUpgradesBought = 0;
         defaultFile.attackUpgradesBought = 0;
         defaultFile.speedUpgradesBought = 0;
@@ -198,6 +201,8 @@ public class PlayerSavedStats : MonoBehaviour
     }
 
     //Porque solo existe 1 solo tipo de cada uno no hay que diferenciar pero queda hecho para hacer extensible si hace falta
+    
+    //Esto hay que evitarlo (CONSIGNA)
     private void LoadMiscResources()
     {
         upgradedExplosionSprite = Resources.Load<GameObject>("Prefabs/Explosion/Explosion");

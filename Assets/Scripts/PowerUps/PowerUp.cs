@@ -89,8 +89,6 @@ public class PowerUp : Actor, IPowerUp
         
     }
 
-    
-
     public IProduct Clone()
     {
         return Instantiate(this);
