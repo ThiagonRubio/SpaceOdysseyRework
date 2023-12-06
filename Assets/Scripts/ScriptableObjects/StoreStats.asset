@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250a10db8c652bf4f972629b7c27313d, type: 3}
+  m_Name: StoreStats
+  m_EditorClassIdentifier: 
+  <HpPrices>k__BackingField: 3200000064000000c8000000900100002003000040060000800c000000000000
+  <AttackPrices>k__BackingField: e80300008813000000000000
+  <SpeedPrices>k__BackingField: 2c010000f401000000000000
+  <SkillDurationPrices>k__BackingField: c8000000900100005802000020030000e803000000000000
+  <SkillCooldownPrices>k__BackingField: c8000000900100005802000020030000e8030000dc050000d007000000000000
+  <BulletFireRatePrices>k__BackingField: f4010000e803000000000000
+  <DoubleTapPrices>k__BackingField: 5802000020030000e803000000000000
+  <TripleShotPrices>k__BackingField: 5802000020030000e803000000000000
+  <CoinMultiplierPrices>k__BackingField: c4090000a00f00007c150000581b00003421000000000000
+  <HpValues>k__BackingField:
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 0
+  <AttackValues>k__BackingField:
+  - 1.5
+  - 2
+  - 0
+  <SpeedValues>k__BackingField:
+  - 400
+  - 450
+  - 0
+  <SkillDurationValues>k__BackingField:
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 0
+  <SkillCooldownValues>k__BackingField:
+  - 9
+  - 8
+  - 7
+  - 6
+  - 5
+  - 4
+  - 3
+  - 0
+  <BulletFireRateValues>k__BackingField:
+  - 0.4
+  - 0.3
+  - 0
+  <DoubleTapValues>k__BackingField:
+  - 5
+  - 6
+  - 7
+  - 0
+  <TripleShotValues>k__BackingField:
+  - 5
+  - 6
+  - 7
+  - 0
+  <CoinMultiplierValues>k__BackingField:
+  - 0.25
+  - 0.3
+  - 0.35
+  - 0.4
+  - 0.5
+  - 0

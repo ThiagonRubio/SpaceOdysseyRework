@@ -172,15 +172,15 @@ public class PlayerSavedStats : MonoBehaviour
     {
         PlayerSavedStats defaultFile = this;
 
-        defaultFile.upgradedMaxHealth = 1;
-        defaultFile.upgradedAttack = 0.5f;
-        defaultFile.upgradedSpeed = 250;
-        defaultFile.upgradedSkillDuration = 1;
+        defaultFile.upgradedMaxHealth = 3;
+        defaultFile.upgradedAttack = 1f;
+        defaultFile.upgradedSpeed = 350;
+        defaultFile.upgradedSkillDuration = 3;
         defaultFile.upgradedSkillCooldown = 10;
         defaultFile.upgradedBulletFireRate = 0.5f;
-        defaultFile.upgradedDoubleTapDuration = 2;
-        defaultFile.upgradedTripleShotDuration = 2;
-        defaultFile.upgradedCoinMultiplier = 0.1f;
+        defaultFile.upgradedDoubleTapDuration = 4;
+        defaultFile.upgradedTripleShotDuration = 4;
+        defaultFile.upgradedCoinMultiplier = 0.2f;
         defaultFile.moneyStored = 0;
         defaultFile.upgradedExplosionSprite = Resources.Load<GameObject>("Prefabs/Explosion/Explosion");
         defaultFile.upgradedPlayerProjectile = Resources.Load<Projectile>("Prefabs/Projectiles/PlayerProjectile");

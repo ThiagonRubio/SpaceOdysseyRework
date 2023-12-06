@@ -21,10 +21,26 @@ public class EventManager
 
     public void AddListener(string eventID, IListener p_listener)
     {
-        if (simpleEvents.TryGetValue(eventID, out _listeners) && !_listeners.Contains(p_listener))
+        if (simpleEvents.TryGetValue(eventID, out _listeners))
         {
-            _listeners.Add(p_listener);
+            if (!_listeners.Contains(p_listener))
+            {
+                _listeners.Add(p_listener);
+            }
             //Debug.Log($"Yo {p_listener} me subscribo al evento {eventID}");
+        }
+        else
+        {
+            RegisterEvent(eventID);
+            
+            if (simpleEvents.TryGetValue(eventID, out _listeners))
+            {
+                if (!_listeners.Contains(p_listener))
+                {
+                    _listeners.Add(p_listener);
+                }
+                //Debug.Log($"Yo {p_listener} me subscribo al evento {eventID}");
+            }
         }
     }
         
