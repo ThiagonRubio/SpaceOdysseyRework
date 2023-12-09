@@ -82,11 +82,6 @@ public class YellowShip : Enemy, IMoveable, IAttacker
     {
         _entityCommandEventQueue = GetComponent<CommandEventQueue>();
         
-        _cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed, CmdMove.MoveType.Translate, Time.deltaTime);
-        _cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed, CmdMove.MoveType.Translate, Time.deltaTime);
-        _cmdMoveUp = new CmdMove(entityRb, Vector2.up, verticalSpeed, CmdMove.MoveType.Translate, Time.deltaTime);
-        _cmdMoveDown = new CmdMove(entityRb, Vector2.down, verticalSpeed, CmdMove.MoveType.Translate, Time.deltaTime);
-
         _cmdAttack = new CmdAttack(Weapon);
     }
 
