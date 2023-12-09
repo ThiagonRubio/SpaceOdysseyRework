@@ -24,8 +24,9 @@ public class CommandEventQueue : MonoBehaviour
     {
         while (eventQueue.Count > 0)
         {
+            Debug.Log(eventQueue.Count);
             var command = eventQueue.Dequeue();
-
+            Debug.Log(eventQueue.Count);
             if (isCommandQueueFrozen)
             {
                 continue;

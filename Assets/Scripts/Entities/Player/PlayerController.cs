@@ -112,12 +112,6 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     public void InitializeCommands()
     {
         _entityCommandEventQueue = GetComponent<CommandEventQueue>();
-
-        _cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
-        _cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
-        _cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
-        _cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
-
         _cmdAttack = new CmdAttack(Weapon);
     }
     public void SetWeaponToUse(IWeapon[] weaponsToUse)

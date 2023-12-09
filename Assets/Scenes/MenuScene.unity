@@ -805,7 +805,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4904338514426584784, guid: 6ab0ba1273c78c04386b787f9666b908, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4904338514426584784, guid: 6ab0ba1273c78c04386b787f9666b908, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4023,7 +4023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2741687823985428470, guid: 85abb7a1661428e4eba88598c9fa4757, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2741687823985428470, guid: 85abb7a1661428e4eba88598c9fa4757, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4615,7 +4615,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1022874052
 GameObject:
@@ -5881,63 +5881,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247567918}
   m_CullTransparentMesh: 1
---- !u!1001 &1273276285
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 240400974104690565, guid: 62b9bf88b58600d429c4a4e75c61c5c8, type: 3}
-      propertyPath: m_Name
-      value: EventRegistrator
-      objectReference: {fileID: 0}
-    - target: {fileID: 240400974104690567, guid: 62b9bf88b58600d429c4a4e75c61c5c8, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 240400974104690567, guid: 62b9bf88b58600d429c4a4e75c61c5c8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 240400974104690567, guid: 62b9bf88b58600d429c4a4e75c61c5c8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 240400974104690567, guid: 62b9bf88b58600d429c4a4e75c61c5c8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 240400974104690567, guid: 62b9bf88b58600d429c4a4e75c61c5c8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 240400974104690567, guid: 62b9bf88b58600d429c4a4e75c61c5c8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 240400974104690567, guid: 62b9bf88b58600d429c4a4e75c61c5c8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 240400974104690567, guid: 62b9bf88b58600d429c4a4e75c61c5c8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 240400974104690567, guid: 62b9bf88b58600d429c4a4e75c61c5c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 240400974104690567, guid: 62b9bf88b58600d429c4a4e75c61c5c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 240400974104690567, guid: 62b9bf88b58600d429c4a4e75c61c5c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 62b9bf88b58600d429c4a4e75c61c5c8, type: 3}
 --- !u!1 &1299061404
 GameObject:
   m_ObjectHideFlags: 0
@@ -6242,82 +6185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fc445cce08c3f4397e521654c1903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpPrices: 3200000064000000c8000000900100002003000040060000800c0000001900000032000000000000
-  attackPrices: 64000000e80300008813000000000000
-  speedPrices: 640000002c010000f4010000bc02000000000000
-  skillDurationPrices: c8000000900100005802000020030000e8030000dc050000d007000000000000
-  skillCooldownPrices: c8000000900100005802000020030000e8030000dc050000d007000000000000
-  bulletFireRatePrices: f4010000e803000000000000
-  doubleTapPrices: c8000000900100005802000020030000e803000000000000
-  tripleShotPrices: c8000000900100005802000020030000e803000000000000
-  coinMultiplierPrices: e8030000c4090000a00f00007c150000581b0000342100001027000000000000
-  hpValues:
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  - 9
-  - 10
-  - 0
-  attackValues:
-  - 1
-  - 1.5
-  - 2
-  - 0
-  speedValues:
-  - 300
-  - 350
-  - 400
-  - 450
-  - 0
-  skillDurationValues:
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  - 0
-  skillCooldownValues:
-  - 9
-  - 8
-  - 7
-  - 6
-  - 5
-  - 4
-  - 3
-  - 0
-  bulletFireRateValues:
-  - 0.4
-  - 0.3
-  - 0
-  doubleTapValues:
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 0
-  tripleShotValues:
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 0
-  coinMultiplierValues:
-  - 0.15
-  - 0.2
-  - 0.25
-  - 0.3
-  - 0.35
-  - 0.4
-  - 0.5
-  - 0
   storeStats: {fileID: 11400000, guid: 283509cf45ba67a4d8130b67cb3b4464, type: 2}
 --- !u!114 &1392670446
 MonoBehaviour:
@@ -6340,8 +6207,8 @@ MonoBehaviour:
   upgradedDoubleTapDuration: 0
   upgradedTripleShotDuration: 0
   upgradedCoinMultiplier: 0
-  upgradedExplosionSprite: {fileID: 0}
-  upgradedPlayerProjectile: {fileID: 0}
+  upgradedExplosionSprite: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
+  upgradedPlayerProjectile: {fileID: 7080718164150825358, guid: 4235374b23e7d5c488e294187d7b6844, type: 3}
   hpUpgradesBought: 0
   attackUpgradesBought: 0
   speedUpgradesBought: 0
@@ -6365,7 +6232,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1401281106
 GameObject:
@@ -7001,7 +6868,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1567825357
 GameObject:

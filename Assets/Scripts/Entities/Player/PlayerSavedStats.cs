@@ -33,8 +33,8 @@ public class PlayerSavedStats : MonoBehaviour
     [SerializeField, HideInInspector] private float upgradedDoubleTapDuration;
     [SerializeField, HideInInspector] private float upgradedTripleShotDuration;
     [SerializeField, HideInInspector] private float upgradedCoinMultiplier;
-    [SerializeField, HideInInspector] private GameObject upgradedExplosionSprite;
-    [SerializeField, HideInInspector] private Projectile upgradedPlayerProjectile;
+    [SerializeField] private GameObject upgradedExplosionSprite;
+    [SerializeField] private Projectile upgradedPlayerProjectile;
     [SerializeField, HideInInspector] private int hpUpgradesBought;
     [SerializeField, HideInInspector] private int attackUpgradesBought;
     [SerializeField, HideInInspector] private int speedUpgradesBought;
@@ -184,8 +184,8 @@ public class PlayerSavedStats : MonoBehaviour
         defaultFile.moneyStored = 0;
         
         //Esto hay que evitarlo (CONSIGNA)
-        defaultFile.upgradedExplosionSprite = Resources.Load<GameObject>("Prefabs/Explosion/Explosion");
-        defaultFile.upgradedPlayerProjectile = Resources.Load<Projectile>("Prefabs/Projectiles/PlayerProjectile");
+        //defaultFile.upgradedExplosionSprite = Resources.Load<GameObject>("Prefabs/Explosion/Explosion");
+        //defaultFile.upgradedPlayerProjectile = Resources.Load<Projectile>("Prefabs/Projectiles/PlayerProjectile");
         
         defaultFile.hpUpgradesBought = 0;
         defaultFile.attackUpgradesBought = 0;
