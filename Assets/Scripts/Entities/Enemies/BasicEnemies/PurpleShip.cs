@@ -9,14 +9,12 @@ public class PurpleShip : Enemy, IMoveable, IAttacker
     public IWeapon[] Weapon => _weapons;
     public float AttackCooldownTimer => attackCooldownTimer;
 
-    public CommandEventQueue EntityCommandEventQueue => _entityCommandEventQueue;
     public CmdMove CmdMoveLeft => _cmdMoveLeft;
     public CmdMove CmdMoveRight => _cmdMoveRight;
     public CmdMove CmdMoveUp => _cmdMoveUp;
     public CmdMove CmdMoveDown => _cmdMoveDown;
     public CmdAttack CmdAttack => _cmdAttack;
     
-    private CommandEventQueue _entityCommandEventQueue;
     private CmdMove _cmdMoveLeft;
     private CmdMove _cmdMoveRight;
     private CmdMove _cmdMoveUp;
@@ -82,8 +80,6 @@ public class PurpleShip : Enemy, IMoveable, IAttacker
 
     public void InitializeCommands()
     {
-        _entityCommandEventQueue = GetComponent<CommandEventQueue>();
-
         _cmdAttack = new CmdAttack(Weapon);
     }
 
@@ -92,12 +88,12 @@ public class PurpleShip : Enemy, IMoveable, IAttacker
         if(_isMovingToLeft)
         {
             _cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed, CmdMove.MoveType.Translate, Time.deltaTime);
-            EntityCommandEventQueue.AddCommandToQueue(_cmdMoveLeft, CommandEventQueue.UpdateFilter.Normal);
+            CmdMoveLeft.Execute();
         }
         if(!_isMovingToLeft)
         {
             _cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed, CmdMove.MoveType.Translate, Time.deltaTime);
-            EntityCommandEventQueue.AddCommandToQueue(_cmdMoveRight, CommandEventQueue.UpdateFilter.Normal);
+            CmdMoveRight.Execute();
         }
     }
     
@@ -118,7 +114,7 @@ public class PurpleShip : Enemy, IMoveable, IAttacker
     public void Attack()
     {
         attackCooldownTimer = 0;
-        _entityCommandEventQueue.AddCommandToQueue(CmdAttack, CommandEventQueue.UpdateFilter.Normal);
+        CmdAttack.Execute();
     }
     
     public override void TakeDamage(float damageAmount)

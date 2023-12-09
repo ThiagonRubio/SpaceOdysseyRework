@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8741001897101609043}
   - component: {fileID: 8741001897101609052}
   - component: {fileID: 8741001897101609053}
-  - component: {fileID: 8741001897101609054}
   m_Layer: 0
   m_Name: Nebula
   m_TagString: Untagged
@@ -158,18 +157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 3d5a596bea193d343befab01de73204d, type: 2}
---- !u!114 &8741001897101609054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 929066077726521924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4414afc610352640b4dbd4f8eca2598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3743076360333202316
 GameObject:
   m_ObjectHideFlags: 0

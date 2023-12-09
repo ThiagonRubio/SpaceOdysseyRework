@@ -96,7 +96,6 @@ GameObject:
   - component: {fileID: 8717408562707923521}
   - component: {fileID: 8717408562707923520}
   - component: {fileID: 8717408562707923523}
-  - component: {fileID: 8717408562707923527}
   m_Layer: 6
   m_Name: RedShip
   m_TagString: Enemy
@@ -290,18 +289,6 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 7f43fd8271672d641810cfd1b3396a6b, type: 2}
   scoreGiven: 125
   crashDamage: 2
---- !u!114 &8717408562707923527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8717408562707923580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4414afc610352640b4dbd4f8eca2598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8717408562717672361
 GameObject:
   m_ObjectHideFlags: 0

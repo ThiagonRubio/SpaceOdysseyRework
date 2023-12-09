@@ -1,5 +1,5 @@
 using UnityEngine;
-public interface IAttacker : ICommandImplementer
+public interface IAttacker
 {
     CmdAttack CmdAttack { get; }
     IWeapon[] Weapon { get; }

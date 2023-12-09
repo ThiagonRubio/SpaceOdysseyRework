@@ -251,7 +251,6 @@ GameObject:
   - component: {fileID: 4719726397467636249}
   - component: {fileID: 3450046510387252881}
   - component: {fileID: 1856734942906588364}
-  - component: {fileID: -3353077261832446784}
   m_Layer: 0
   m_Name: BossExplosion
   m_TagString: Untagged
@@ -382,18 +381,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: da5951168e4dc9b4bbadd19c8b2d4d2b, type: 2}
---- !u!114 &-3353077261832446784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4414afc610352640b4dbd4f8eca2598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &162364
 GameObject:
   m_ObjectHideFlags: 0

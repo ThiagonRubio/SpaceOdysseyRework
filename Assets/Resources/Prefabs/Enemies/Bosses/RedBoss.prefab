@@ -225,7 +225,6 @@ GameObject:
   - component: {fileID: 1803591392377330191}
   - component: {fileID: 1803591392377330190}
   - component: {fileID: 1803591392377330179}
-  - component: {fileID: 1803591392377330180}
   m_Layer: 6
   m_Name: RedBoss
   m_TagString: Enemy
@@ -423,18 +422,6 @@ PolygonCollider2D:
       - {x: -3.9384615, y: -2.0461538}
       - {x: -2.9076922, y: -1.5076923}
       - {x: -0.2, y: -0.092307694}
---- !u!114 &1803591392377330180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803591392377330189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4414afc610352640b4dbd4f8eca2598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1803591392641236666
 GameObject:
   m_ObjectHideFlags: 0

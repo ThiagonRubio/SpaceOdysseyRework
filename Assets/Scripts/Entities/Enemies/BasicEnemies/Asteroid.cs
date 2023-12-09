@@ -8,7 +8,6 @@ using Random = UnityEngine.Random;
 
 public class Asteroid : Enemy, IRotable, IMoveable
 {
-    public CommandEventQueue EntityCommandEventQueue => _entityCommandEventQueue;
     public CmdMove CmdMoveLeft => cmdMoveLeft;
     public CmdMove CmdMoveRight => cmdMoveRight;
     public CmdMove CmdMoveUp => cmdMoveUp;
@@ -18,7 +17,6 @@ public class Asteroid : Enemy, IRotable, IMoveable
     public int RotationSpeed => _rotationSpeed;
 
     //------PRIVATE PROPERTIES-------
-    private CommandEventQueue _entityCommandEventQueue;
     private CmdMove cmdMoveLeft;
     private CmdMove cmdMoveRight;
     private CmdMove cmdMoveUp;
@@ -36,7 +34,6 @@ public class Asteroid : Enemy, IRotable, IMoveable
     protected override void Start()
     {
         base.Start();
-        InitializeCommands();
         DefineRotation();
     }
 
@@ -62,11 +59,6 @@ public class Asteroid : Enemy, IRotable, IMoveable
     //################ #################
     //----------CLASS METHODS-----------
     //################ #################
-
-    public void InitializeCommands()
-    {
-        _entityCommandEventQueue = GetComponent<CommandEventQueue>();
-    }
     
     private void DefineRotation()
     {
@@ -78,7 +70,7 @@ public class Asteroid : Enemy, IRotable, IMoveable
     public void Move()
     {
         cmdMoveLeft = new CmdMove(entityRb, -transform.right, Speed, CmdMove.MoveType.Translate, Time.deltaTime);
-        EntityCommandEventQueue.AddCommandToQueue(cmdMoveLeft, CommandEventQueue.UpdateFilter.Normal);
+        CmdMoveLeft.Execute();
     }
 
     public void Rotate()

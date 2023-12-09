@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 180275231310197965}
   - component: {fileID: 180275231310197962}
   - component: {fileID: 180275231310197963}
-  - component: {fileID: 180275231310197964}
   - component: {fileID: 180275231310198000}
   m_Layer: 6
   m_Name: PurpleShip
@@ -193,18 +192,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &180275231310197964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180275231310198007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4414afc610352640b4dbd4f8eca2598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &180275231310198000
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,6 @@ public class RedBoss : Boss, IMoveable, IAttacker
 {
     public float Speed => ActorStats.MovementSpeed;
     
-    public CommandEventQueue EntityCommandEventQueue => _entityCommandEventQueue;
     public CmdMove CmdMoveLeft => cmdMoveLeft;
     public CmdMove CmdMoveRight => cmdMoveRight;
     public CmdMove CmdMoveUp => cmdMoveUp;
@@ -16,7 +15,6 @@ public class RedBoss : Boss, IMoveable, IAttacker
     public IWeapon[] Weapon => _weapons;
     public float AttackCooldownTimer => attackCooldownTimer;
     
-    private CommandEventQueue _entityCommandEventQueue;
     private CmdMove cmdMoveLeft;
     private CmdMove cmdMoveRight;
     private CmdMove cmdMoveUp;
@@ -61,15 +59,13 @@ public class RedBoss : Boss, IMoveable, IAttacker
 
     public void InitializeCommands()
     {
-        _entityCommandEventQueue = GetComponent<CommandEventQueue>();
-
         cmdAttack = new CmdAttack(Weapon);
     }
     
     public void Move()
     {
         cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed, CmdMove.MoveType.Translate, Time.deltaTime);
-        EntityCommandEventQueue.AddCommandToQueue(cmdMoveLeft, CommandEventQueue.UpdateFilter.Normal);
+        CmdMoveLeft.Execute();
     }
     
     public void SetWeaponToUse(IWeapon[] weaponsToUse)
@@ -80,7 +76,7 @@ public class RedBoss : Boss, IMoveable, IAttacker
     public void Attack()
     {
         attackCooldownTimer = 0;
-        _entityCommandEventQueue.AddCommandToQueue(CmdAttack, CommandEventQueue.UpdateFilter.Fixed);
+        CmdAttack.Execute();
     }
     
     public override void TakeDamage(float damageAmount)

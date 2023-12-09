@@ -361,7 +361,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2993427675522167982}
-  - component: {fileID: 2993427675522167979}
   - component: {fileID: 7738666374984074731}
   - component: {fileID: 4441217899125135929}
   - component: {fileID: 2993427675522167983}
@@ -400,18 +399,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2993427675522167979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2993427675522167980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4414afc610352640b4dbd4f8eca2598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7738666374984074731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,7 +436,6 @@ MonoBehaviour:
   upgradedCoinMultiplier: 0.1
   upgradedExplosionSprite: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
   upgradedPlayerProjectile: {fileID: 7080718164150825358, guid: 4235374b23e7d5c488e294187d7b6844, type: 3}
-  moneyStored: 0
   hpUpgradesBought: 0
   attackUpgradesBought: 0
   speedUpgradesBought: 0
@@ -459,6 +445,7 @@ MonoBehaviour:
   doubleTapUpgradesBought: 0
   tripleShotUpgradesBought: 0
   coinMultiplierUpgradesBought: 0
+  moneyStored: 0
 --- !u!114 &2993427675522167983
 MonoBehaviour:
   m_ObjectHideFlags: 0

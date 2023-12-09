@@ -3,13 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CommandEventQueue))]
 public class PlayerController : Actor, IMoveable, IAttacker, IListener
 {
     public float Speed => ActorStats.MovementSpeed;
 
     //----COMMANDS----
-    public CommandEventQueue EntityCommandEventQueue { get { return _entityCommandEventQueue; } }
     public CmdMove CmdMoveLeft { get { return _cmdMoveLeft; } }
     public CmdMove CmdMoveRight { get { return _cmdMoveRight; } }
     public CmdMove CmdMoveUp { get { return _cmdMoveUp; } }
@@ -23,7 +21,6 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     //----PRIVATE VARS----
     private PlayerInputActions _playerInputActions;
 
-    private CommandEventQueue _entityCommandEventQueue;
     private CmdMove _cmdMoveLeft;
     private CmdMove _cmdMoveRight;
     private CmdMove _cmdMoveUp;
@@ -111,8 +108,8 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     //----INIT------
     public void InitializeCommands()
     {
-        _entityCommandEventQueue = GetComponent<CommandEventQueue>();
         _cmdAttack = new CmdAttack(Weapon);
+        //Esta sí se puede generar porque no depende del deltatime como las de movimiento
     }
     public void SetWeaponToUse(IWeapon[] weaponsToUse)
     {
@@ -188,22 +185,22 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
             if (directionValue.x < 0)
             {
                 _cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
-                EntityCommandEventQueue.AddCommandToQueue(_cmdMoveLeft, CommandEventQueue.UpdateFilter.Fixed);
+                CmdMoveLeft.Execute();
             }
             if (directionValue.x > 0)
             {
                 _cmdMoveRight = new CmdMove(entityRb, Vector2.right, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
-                EntityCommandEventQueue.AddCommandToQueue(_cmdMoveRight,CommandEventQueue.UpdateFilter.Fixed);
+                CmdMoveRight.Execute();
             }
             if (directionValue.y > 0)
             {
                 _cmdMoveUp = new CmdMove(entityRb, Vector2.up, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
-                EntityCommandEventQueue.AddCommandToQueue(_cmdMoveUp, CommandEventQueue.UpdateFilter.Fixed);
+                CmdMoveUp.Execute();
             }
             if (directionValue.y < 0)
             {
                 _cmdMoveDown = new CmdMove(entityRb, Vector2.down, Speed, CmdMove.MoveType.AddForce, Time.deltaTime);
-                EntityCommandEventQueue.AddCommandToQueue(_cmdMoveDown, CommandEventQueue.UpdateFilter.Fixed);
+                CmdMoveDown.Execute();
             }
         }
     }
@@ -212,7 +209,8 @@ public class PlayerController : Actor, IMoveable, IAttacker, IListener
     public void Attack()
     {
         attackCooldownTimer = 0;
-        _entityCommandEventQueue.AddCommandToQueue(CmdAttack, CommandEventQueue.UpdateFilter.Normal);
+        CmdAttack.Execute();
+        //_entityCommandEventQueue.AddCommandToQueue(CmdAttack, CommandEventQueue.UpdateFilter.Normal);
     }
     
 

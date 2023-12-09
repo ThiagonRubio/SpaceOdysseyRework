@@ -9,14 +9,12 @@ public class YellowShip : Enemy, IMoveable, IAttacker
     public IWeapon[] Weapon => _weapons;
     public float AttackCooldownTimer => attackCooldownTimer;
     
-    public CommandEventQueue EntityCommandEventQueue => _entityCommandEventQueue;
     public CmdMove CmdMoveLeft => _cmdMoveLeft;
     public CmdMove CmdMoveRight => _cmdMoveRight;
     public CmdMove CmdMoveUp => _cmdMoveUp;
     public CmdMove CmdMoveDown => _cmdMoveDown;
     public CmdAttack CmdAttack => _cmdAttack;
     
-    private CommandEventQueue _entityCommandEventQueue;
     private CmdMove _cmdMoveLeft;
     private CmdMove _cmdMoveRight;
     private CmdMove _cmdMoveUp;
@@ -80,25 +78,23 @@ public class YellowShip : Enemy, IMoveable, IAttacker
 
     public void InitializeCommands()
     {
-        _entityCommandEventQueue = GetComponent<CommandEventQueue>();
-        
         _cmdAttack = new CmdAttack(Weapon);
     }
 
     public void Move()
     {
         _cmdMoveLeft = new CmdMove(entityRb, Vector2.left, Speed, CmdMove.MoveType.Translate, Time.deltaTime);
-        EntityCommandEventQueue.AddCommandToQueue(_cmdMoveLeft, CommandEventQueue.UpdateFilter.Normal);
+        CmdMoveLeft.Execute();
         
         if(_isMovingUpwards)
         {
             _cmdMoveUp = new CmdMove(entityRb, Vector2.up, verticalSpeed, CmdMove.MoveType.Translate, Time.deltaTime);
-            EntityCommandEventQueue.AddCommandToQueue(_cmdMoveUp, CommandEventQueue.UpdateFilter.Normal);
+            CmdMoveUp.Execute();
         }
         else
         {
             _cmdMoveDown = new CmdMove(entityRb, Vector2.down, verticalSpeed, CmdMove.MoveType.Translate, Time.deltaTime);
-            EntityCommandEventQueue.AddCommandToQueue(_cmdMoveDown, CommandEventQueue.UpdateFilter.Normal);
+            CmdMoveDown.Execute();
         }
     }
 
@@ -123,7 +119,7 @@ public class YellowShip : Enemy, IMoveable, IAttacker
     public void Attack()
     {
         attackCooldownTimer = 0;
-        _entityCommandEventQueue.AddCommandToQueue(CmdAttack, CommandEventQueue.UpdateFilter.Normal);
+        CmdAttack.Execute();
     }
     
     public override void TakeDamage(float damageAmount)
